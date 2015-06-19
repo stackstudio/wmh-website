@@ -29,18 +29,35 @@ $logo = 'logo.png';
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_mbbasetheme' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
+		<div class="site-branding col-1-9">
 			<h1 class="site-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?>
-					<img src="<?php echo $logo; ?>" alt="wmh logo">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="<?php bloginfo( 'name' ); ?> logo">
 				</a>
 			</h1>
 		</div>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
+		<nav id="site-navigation" class="col-3-4 main-navigation" role="navigation">
 			<button class="menu-toggle"><?php _e( 'Primary Menu', '_mbbasetheme' ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
+		<div id="socials">
+			<ul>
+				<li class="vimeo">
+					<a href="#">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/vimeo.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+					</a>
+				</li>
+				<li class="twitter">
+					<a href="#">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+					</a>
+				</li>
+				<li class="facebook">
+					<a href="#">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+					</a>
+				</li>
+			</ul>
+		</div>
 	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">

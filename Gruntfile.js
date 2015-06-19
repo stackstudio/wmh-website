@@ -149,13 +149,13 @@ module.exports = function(grunt) {
             },
             staging: {
                  options: {
-                    dest: "~/path/to/theme",
-                    host: "user@host.com"
+                    dest: "/home/markdunb/wmh/wp/wp-content/themes/wmh-theme",
+                    host: "markdunb@excelsior.servers.prgn.misp.co.uk"
                 }
             },
             production: {
                 options: {
-                    dest: "~/path/to/theme",
+                    dest: "~/path/to/wmh-theme",
                     host: "user@host.com"
                 }
             }

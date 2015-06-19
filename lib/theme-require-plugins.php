@@ -19,6 +19,28 @@ function mb_register_required_plugins() {
 			'slug' 				=> 'advanced-custom-fields',
 			'required' 			=> true,
 			'force_activation'	=> true
+		),
+
+		array(
+			'name' => 'acf-options-page',
+			'slug' => 'acf-options-page',
+			'source' => get_template_directory_uri() . '/lib/plugins/acf-options-page.zip', // The plugin source.
+			'required' => true,
+			'force_activation' => true
+		),
+		array(
+			'name' => 'acf-repeater',
+			'slug' => 'acf-repeater',
+			'source' => get_template_directory_uri() . '/lib/plugins/acf-repeater.zip', // The plugin source.
+			'required' => true,
+			'force_activation' => true
+		),
+		array(
+			'name' => 'Prepare JSON',
+			'slug' => 'prepare-json',
+			'source'=> get_template_directory_uri() . '/lib/plugins/prepare-json-plugin.zip',
+			'required' => true,
+			'force_activation' => true
 		)
 
 	);

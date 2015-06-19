@@ -50,6 +50,12 @@ require get_template_directory() . '/lib/inc/customizer.php';
 require get_template_directory() . '/lib/inc/jetpack.php';
 
 
+/**
+ * et meta options such as taxonomies and custom post types
+ */
+require get_template_directory() . '/lib/meta-options.php';
+
+
 /****************************************
 Require Plugins
 *****************************************/
@@ -79,3 +85,5 @@ add_filter( 'wpseo_metabox_prio', 'mb_filter_yoast_seo_metabox' );
 function mb_filter_yoast_seo_metabox() {
 	return 'low';
 }
+
+add_filter('show_admin_bar', '__return_false');

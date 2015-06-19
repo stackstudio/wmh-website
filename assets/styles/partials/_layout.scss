@@ -12,9 +12,46 @@
 	margin: 0 -25% 0 0;
 	width: 100%;
 }
+.site{
+	min-height: 100%;
+	margin-bottom: -1px;
+}
+.site:after, footer:after {
+  height: 180px;
+}
+.site:after {
+  content: "";
+  display: block;
+}
+.site-header{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 25px;
+	background: black;
+	overflow: hidden;
+	z-index: 999999;
+	& > .site-branding{
+	color: inherit;
+		& .site-title{
+			margin: 0;
+		}
+		& > h1 a{
+			display: block;
+			& > img{
+				width: 100%;
+			}
+		}
+	}
+	& > .main-navigation{
 
+	}
+}
 .site-main {
 	margin: 0 25% 0 0;
+	width: 100%;
+	overflow: hidden;
 }
 
 .site-content .widget-area {
@@ -26,4 +63,5 @@
 .site-footer {
 	clear: both;
 	width: 100%;
+	display: none;
 }

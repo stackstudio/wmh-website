@@ -70,8 +70,38 @@
 }
 
 /*
+ * Mixin for opacity
+ * @include opacity;
+*/
+@mixin opacity($opacity, $force: true) {
+	@if $force == 'true' {
+		opacity: $opacity !important;
+		$opacity-ie: $opacity * 100 !important;
+		filter: alpha(opacity=$opacity-ie) !important; //IE8
+	} @else {
+	  opacity: $opacity;
+	  $opacity-ie: $opacity * 100;
+	  filter: alpha(opacity=$opacity-ie); //IE8
+	}
+}
+
+
+/*
+ * Mixin for rem sizes
+ * @include font-size($size);
+*/
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+/*
  * @font-face mixin
- * Bulletproof font-face via Font Squirrel
  * @include fontface('family', 'assets/fonts/', 'myfontname');
  */
 
@@ -88,4 +118,24 @@
 			 url($font-url + '/' + $font-name + '.ttf')  format('truetype'),
 			 url($font-url + '/' + $font-name + '.svg#' + $font-name) format('svg');
 	}
+}
+
+
+/*
+* Just a standard animate thing for links etc,
+* more complex keyframe animations deserve their own attention below this
+*/
+
+@mixin animate($duration) {
+
+
+    -webkit-transition-property: inherit;
+	-webkit-transition-duration: $duration;
+	-moz-transition-property: inherit;
+	-moz-transition-duration: $duration;
+	-o-transition-property: inherit;
+	-o-transition-duration: $duration;
+	transition-property: inherit;
+	transition-duration: $duration;
+
 }

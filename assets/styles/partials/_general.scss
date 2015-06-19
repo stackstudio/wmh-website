@@ -15,19 +15,29 @@
    General
    ========================================================================== */
 
-body { }
+body,html{
+	height: 100%;
+}
+body { 
+	font-style: normal;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	font-family: futura-bt-book;
+	@include font-size(18px);
+}
 
 
 /* ==========================================================================
    Links
    ========================================================================== */
 
-a,
-a:visited {
+a{
 	color: $red;
+	@include animate(0.3s);
 }
 a:hover {
 	color: $blue;
+	@include animate(0.3s);
 }
 
 
