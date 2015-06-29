@@ -36,6 +36,20 @@ function mb_register_required_plugins() {
 			'force_activation' => true
 		),
 		array(
+			'name' => 'acf-gallery',
+			'slug' => 'acf-gallery',
+			'source' => get_template_directory_uri() . '/lib/plugins/acf-gallery.zip', // The plugin source.
+			'required' => true,
+			'force_activation' => true
+		),
+		array(
+			'name' => 'acf-flexible-content',
+			'slug' => 'acf-flexible-content',
+			'source' => get_template_directory_uri() . '/lib/plugins/acf-flexible-content.zip', // The plugin source.
+			'required' => true,
+			'force_activation' => true
+		),
+		array(
 			'name' => 'Prepare JSON',
 			'slug' => 'prepare-json',
 			'source'=> get_template_directory_uri() . '/lib/plugins/prepare-json-plugin.zip',

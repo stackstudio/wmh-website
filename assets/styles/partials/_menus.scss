@@ -12,7 +12,7 @@
 .menu{
 	overflow: hidden;
 	height: auto;
-	padding-top: 25px;
+	padding-top: 32px;
 }
 
 .main-navigation li {
@@ -31,6 +31,7 @@
 	display: block;
 	text-decoration: none;
 	color: $nav;
+	line-height: 1em;
 }
 
 .main-navigation ul ul {

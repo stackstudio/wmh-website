@@ -1,16 +1,113 @@
 (function($) {
 	// Global vars here :)
-
+	//var projectLoader = $('.project-loader');
+	var newwidth = $(window).width();
+	var newheight = $(window).height();
 	var caseStudy = $('.case-study');
 	var headerH = $('header').outerHeight()/4;
-	//var data = '';
-	var data = "http://" + top.location.host.toString() + '/wp-json/wp/v2/posts/';
+	var projectContainer = $('article.case-studies section');
+	var data = "http://" + top.location.host.toString() + '/wp-json/posts/';
+
+	var _brandTypes = $('#work-area').data('taxonomy-type');
+	var _awardsPart = $('#work-area').data('taxonomy-award');
 	// all Javascript code goes here
 
 	$(window).on( 'resize', function () {
 		// $('.content-area').css('marginTop',$('header').outerHeight() );
 	    $('.case-study').height( $(window).height() /2); /// 2 - headerH);
+		var newwidth = $(window).width();
+	   var newheight = $(window).height();      
+	   $(".work-block").css({"height": newheight, "width": newwidth });
 	}).resize();
+
+
+	var addLoaders = function() {
+
+		$(function() {
+
+		  var addDivs = function(n) {
+		    var arr = [];
+		    for (i = 1; i <= n; i++) {
+		      arr.push('<div></div>');
+		    }
+		    return arr;
+		  };
+
+		  $('.loader-inner.ball-pulse').html(addDivs(3));
+		  $('.loader-inner.ball-grid-pulse').html(addDivs(9));
+		  $('.loader-inner.ball-clip-rotate').html(addDivs(1));
+		  $('.loader-inner.ball-clip-rotate-pulse').html(addDivs(2));
+		  $('.loader-inner.square-spin').html(addDivs(1));
+		  $('.loader-inner.ball-clip-rotate-multiple').html(addDivs(2));
+		  $('.loader-inner.ball-pulse-rise').html(addDivs(5));
+		  $('.loader-inner.ball-rotate').html(addDivs(1));
+		  $('.loader-inner.cube-transition').html(addDivs(2));
+		  $('.loader-inner.ball-zig-zag').html(addDivs(2));
+		  $('.loader-inner.ball-zig-zag-deflect').html(addDivs(2));
+		  $('.loader-inner.ball-triangle-path').html(addDivs(3));
+		  $('.loader-inner.ball-scale').html(addDivs(1));
+		  $('.loader-inner.line-scale').html(addDivs(5));
+		  $('.loader-inner.line-scale-party').html(addDivs(4));
+		  $('.loader-inner.ball-scale-multiple').html(addDivs(3));
+		  $('.loader-inner.ball-pulse-sync').html(addDivs(3));
+		  $('.loader-inner.ball-beat').html(addDivs(3));
+		  $('.loader-inner.line-scale-pulse-out').html(addDivs(5));
+		  $('.loader-inner.line-scale-pulse-out-rapid').html(addDivs(5));
+		  $('.loader-inner.ball-scale-ripple').html(addDivs(1));
+		  $('.loader-inner.ball-scale-ripple-multiple').html(addDivs(3));
+		  $('.loader-inner.ball-spin-fade-loader').html(addDivs(8));
+		  $('.loader-inner.line-spin-fade-loader').html(addDivs(8));
+		  $('.loader-inner.triangle-skew-spin').html(addDivs(1));
+		  $('.loader-inner.pacman').html(addDivs(5));
+		  $('.loader-inner.ball-grid-beat').html(addDivs(9));
+		  $('.loader-inner.semi-circle-spin').html(addDivs(1));
+
+		});
+
+	};
+	var fakeLoad = function() {
+
+		  function redirectTo(url) {
+		    window.location = url;
+		  }
+
+		  var pageShown = false;
+		  function showPage() {
+		    if (!pageShown) {
+		      pageShown = true;
+		      $('body').fadeIn(500);
+		    }
+		  }
+		  var siteURL = "http://" + top.location.host.toString();
+		  $('.menu-item a').on('click', function(e) {
+		    e.preventDefault();
+		    var loc = $(this).attr('href');
+		    $('.loader').fadeIn(100);
+		    $('.content-area').fadeOut(500, function() {
+		      $('.loader').fadeOut(100);
+		      redirectTo(loc);
+		    });
+		  });
+
+	};
+	var url1 = window.location.href;
+	var target = url1.replace(/\/$/, '');
+ 	var lastPart = target.substr(target.lastIndexOf('/'));
+	var _last = lastPart.replace('/','');
+
+	if(_last == 'services-offered'){
+		window.setTimeout(function(){
+	  		$('.work-block .entry-content').removeClass('up').addClass('down');
+	  	},500);
+	} else if(_last == 'who-we-are') {
+		window.setTimeout(function(){
+	  		$('.work-block .entry-content').removeClass('up').addClass('down');
+	  	},500);
+	} else if(_last == 'us') {
+		window.setTimeout(function(){
+	  		$('.work-block .entry-content').removeClass('up').addClass('down');
+	  	},500);
+	}
 
 	var scrollerHeader = function() {
 
@@ -24,16 +121,10 @@
 		  		} else {
 
 			      if(cOst > 200 && cOst > ost) {
-			      	$('header').addClass('bg-brown');
-					$('header .container .nav-main ul li').addClass('header-small');
-					$('.navbar-brand, header .container .nav-main').addClass('smaller');
-					$('.navbar-brand img').attr("src","assets/img/logo.png");
+			      	$('.case-studies .entry-content').removeClass('down').addClass('up');
 			      }
 			      else if(cOst < 200 && cOst < ost) {
-			        $('header .container .nav-main ul li').removeClass('header-small');
-			        $('header').removeClass('bg-brown');
-			        $('.navbar-brand, header .container .nav-main').removeClass('smaller');
-			        $('.navbar-brand img').attr("src","assets/img/logo.png");
+			        $('.case-studies .entry-content').removeClass('up').addClass('down');
 			      }
 
 			    }
@@ -45,53 +136,245 @@
 
 	var onCase = function() {
 
-		// $.each( $(caseStudy) , function () {
-		// 	var a = $(this).find('.module');
-		// 	$(this).hover(function() {
-		// 	    a.addClass('on');
-		// 	}, function(){
-		// 	    a.removeClass('on');
-		// 	});
-		// });
+		$.each( $(caseStudy) , function () {
+			var a = $(this).find('.module');
+			$(this).hover(function() {
+			    a.addClass('on');
+			}, function(){
+			    a.removeClass('on');
+			});
+		});
 
-	    $.ajax({
-	      url: '/wp-json/wp/v2/posts?filter[orderby]=rand&filter[posts_per_page]=5',
-	      success: function ( dataS ) {
-	      	console.log(dataS);
-	        // var post = data.shift(); // The data is an array of posts. Grab the first one.
-	        // $( '#quote-title' ).text( post.title );
-	        // $( '#quote-content' ).html( post.content );
+	};
+	projectContainer.html('<div class="load"><div class="loader-inner ball-pulse"></div></div>');
+	$('.load').css( 'height', $(window).height() );
+	//console.log(_awardsPart);
+	var getRelatedPosts = function() {
 
-	        // // If the Source is available, use it. Otherwise hide it.
-	        // if ( typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined' ) {
-	        //   $( '#quote-source' ).html( 'Source:' + post.custom_meta.Source );
-	        // } else {
-	        //   $( '#quote-source' ).text( '' );
-	        // }
+		$.ajax({
+	      url: '/wp-json/posts?type=case-studies&filter[taxonomy]=awards&filter[term]='+_awardsPart+'',
+	      success: function ( query ) {
+
+	      	//List some global variables here to fetch post data
+	      	// We use base as our global object to find resources we need
+	      	var first = query;
+	      	console.log(first);
 	      },
 	      cache: false
 	    });
 
 	};
+	var getPostContent = function() {
 
-	var getPosts = function() {
+		if( $('body.single-case-studies').length ){
 
-		// $.get( data, function( dataPosts ) {
+		$.ajax({
+	      url: '/wp-json/posts?type=case-studies',
+	      data: {
+	        filter: {
+	        	'name': _last
+	        }
+		  },
+	      success: function ( dataS ) {
+	      	$('.load').remove();
 
-		//     $.each(dataPosts, function(i, item) {
-		//       console.log(item);
-		//     });
-		//   }, 'json').done(function() {
+	      	window.setTimeout(function(){
+		  		$('.case-studies .entry-content').removeClass('up').addClass('down');
+		  	},1250);
 
-		//     console.log();
+	      	var layoutHTML = "", oneColImg = "";
 
-		// });
+	      	//List some global variables here to fetch post data
+	      	// We use base as our global object to find resources we need
+	      	var base = dataS[0];
+
+	      	//console.log(base);
+
+	      	var postContent = base.content;
+
+	      	var postTitle = base.title;
+	      	// Main Image ACF object
+	      	var featuredImage = base.meta.main_image;
+	      	var mainImg = "<section class='col null work-block'><img src='"+ featuredImage['url'] +"' alt='"+featuredImage['title']+" image'></section>";
+	      	// Gallery ACF object
+	      	var nodes = base.meta.work_content;
+	      	// Simple ACF object
+	      	//var textArea = base.meta.work_content[1];
+	      	var items = [];
+	      	var layoutNames = [];
+	      	var term = base.terms;
+	      	var termParent = [];
+	      	console.log(term);
+	      	for(var i = 0; i < term.length; i++) {
+	      		//terms.push(term);
+	      		var termItem = term[i];
+	      		//console.log(term[i]);
+	      		termParent.push(term[i]);
+	      	};
+
+	      	for(var i = 0; i < nodes.length; i++) {
+
+			    var layout = nodes[i];
+                layoutNames.push(layout.acf_fc_layout);
+			    //console.log(layout);
+
+			    for (var key in layout) {
+					if (layout.hasOwnProperty(key)) {
+						if(layout[key] == 'gallery') {
+
+							var galleryImages = layout.images;
+							layoutHTML += "<section class='gallery work-block'>";
+							$.each(galleryImages, function(index, url) {								
+								layoutHTML += "<article id='"+index+"-image' class='col half-col-images'><img src='"+ $(this)[0]['url'] +"' alt='"+$(this)[0]['title']+"'></article>";								
+							});
+							layoutHTML += "</section>";
+
+						} else if(layout[key] == 'content_area') {
+
+						  layoutHTML += "<section class='the-content work-block'>";
+						    layoutHTML += "<td>" + layout.text + "</td>";
+						  layoutHTML += "</section>";
+
+						} else if(layout[key] == 'full_screen_video') {
+
+							var videoEmbed = layout.video_url;
+							layoutHTML += "<section id='full-screen' class='col col-video work-block'>";
+						    	layoutHTML += "<iframe type='text/html' src='" + videoEmbed + "' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+							layoutHTML += "</section>";
+
+						} else if(layout[key] == '2_column_images') {
+
+							var image1 = layout.image_1;
+							var image2 = layout.image_2;
+							layoutHTML += "<section class='col col-image work-block'><img src='"+image1['url']+"' alt='"+image1['title']+" image' /><img src='"+image1['url']+"' alt='"+image2['title']+"' /></section>";
+						
+						} else if(layout[key] == 'single_full_image') {
+							var image_full = layout.image;
+							layoutHTML += "<section class='col col-full-image work-block'><img src='"+image_full['url']+"' alt='"+image_full['title']+" image'></section>";
+						}
+					}
+				}
+
+			};
+		    $('#work-area').prepend($(mainImg).addClass('fade-in'));
+		    projectContainer.append($(layoutHTML).addClass('fade-in'));
+
+					// Set div to window height
+
+				    var newwidth = $(window).width();
+				    var newheight = $(window).height();      
+				    $(".work-block").css({"height": newheight, "width": newwidth });
+
+		    var galleries = $('.gallery');
+
+		    $("#full-screen").fitVids();
+		    $.each(galleries, function(index) {
+			    $(this).slick({
+				  dots: false,
+				  arrows: true,
+				  speed: 500
+				});
+			});
+	      },
+	      cache: false
+	    });
+
+	}
 	
 	};
+	var getAllPosts = function() {
 
-// Some more dependent js goes here :)
-scrollerHeader();
-onCase();
-getPosts();
+		if(_last == 'our-work'){
+
+			$("#our-work").html('<div class="load"><div class="loader-inner ball-pulse"></div></div>');
+			$('.load').css( 'height', $(window).height() );
+
+			// $().html('<div class="load"><div class="loader-inner ball-pulse"></div></div>');
+			
+			$.ajax({
+		      url: '/wp-json/posts?type=case-studies',
+		      success: function ( work ) {
+		      	$('.load').remove();
+		      	//List some global variables here to fetch post data
+		      	// We use base as our global object to find resources we need
+		      		var projects = work;
+		      		$.each(projects, function(i, item){
+		      			//item.meta.main_image.url
+		      			var siteMain = $("#our-work");
+		      			var tester = $('<?php _basetheme_post_thumbnail_helper(); ?>');
+		      			var content = $("<article id='post-"+item.ID+"' style='background-image: url("+ item.meta.main_image.url +");' class='col-1-4 project "+item.type+"'><a href='"+item.link+"' title='Link to "+item.title+"'><div class='block'><div class='wrap'><h1 class=''>"+item.title+"</h1></div></div></a></article>");
+				  		setTimeout(function(){
+				  			siteMain.append(content);
+				  			content.hide();
+				  			content.fadeIn();
+				  		}, 500*(i+1));
+					});
+		      },
+		      cache: false
+		    });
+
+		}
+
+	};
+
+	var initMap = function() {
+
+		if(_last == 'us' && 'contact-us'){
+			L.mapbox.accessToken = 'pk.eyJ1IjoibWR1bmJhdmFuIiwiYSI6ImJkODFlZDZjMzU5N2Y0OTI5ZjcyYWMzMTdiNjY0NzhjIn0.2KGkXkLyyxtuxqj4hh_N1Q';
+			var location =[51.52418674357502,-0.10686993598937988], map = L.mapbox.map('map', 'mapbox.streets', { zoomControl: false })
+			    .setView([51.52418674357502,-0.10686993598937988], 16);
+			    //new L.Control.Zoom({ position: 'topright' }).addTo(map);
+
+				//geocoder.query('EC1R 0AT, United Kingdom', showMap);
+
+				// function showMap(err, data) {
+				//     // The geocoder can return an area, like a city, or a
+				//     // point, like an address. Here we handle both cases,
+				//     // by fitting the map bounds to an area or zooming to a point.
+				//     console.log(data);
+				//     if (data.lbounds) {
+				//         map.fitBounds(data.lbounds);
+				//     } else if (data.latlng) {
+				//         map.setView([data.latlng[0], data.latlng[1]], 13);
+				//     }
+				// }
+
+				L.mapbox.featureLayer({
+				    // this feature is in the GeoJSON format: see geojson.org
+				    // for the full specification
+				    type: 'Feature',
+				    geometry: {
+				        type: 'Point',
+				        // coordinates here are in longitude, latitude order because
+				        // x, y is the standard for GeoJSON and many formats
+				        coordinates: [
+				          -0.10686993598937988, 51.52418674357502
+				        ]
+				    },
+				    properties: {
+				        title: 'WMH HQ',
+				        description: 'The place where dreams come true!!',
+				        // one can customize markers by adding simplestyle properties
+				        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+				        'marker-size': 'large',
+				        'marker-color': '#ff0000',
+				        'marker-symbol': 'commercial'
+				    }
+				}).addTo(map);
+			}
+
+
+	};
+
+	// Some more dependent js goes here :)
+	scrollerHeader();
+	onCase();
+	getAllPosts();
+	getPostContent();
+	getRelatedPosts();
+	fakeLoad();
+	addLoaders();
+	initMap();
+
 
 })(jQuery);

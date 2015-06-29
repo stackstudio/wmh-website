@@ -42,19 +42,20 @@
         $args = array(
             'labels' => $labels,
             'public' => true,
+            'has_archive' => true,
             'publicly_queryable' => true,
             'show_ui' => true,
             'query_var' => true,
-            'rewrite' => true,
+            'rewrite' => array( 'slug' => 'our-work' ),
             'capability_type' => 'post',
-            'hierarchical' => false,
+            'hierarchical' => true,
             'menu_position' => 8,
             'taxonomies' => array('category','brand-types'),
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments', 'revisions')
         );
 
         register_post_type('case-studies', $args);
-        flush_rewrite_rules(false);
+        flush_rewrite_rules(true);
     }
 
     add_action('init', 'create_awards_taxonomies');
@@ -82,6 +83,7 @@
     }
 
     add_action('init', 'create_brand_types_taxonomies');
+    add_action('init', 'create_press_taxonomies');
 
     function create_brand_types_taxonomies() {
         $labels = array(
@@ -98,6 +100,28 @@
         );
 
         register_taxonomy('brand-types', 'case-studies', array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_in_nav_menus' => true
+        ));
+        flush_rewrite_rules(false);
+    }
+
+    function create_press_taxonomies() {
+        $labels = array(
+            'name' => __('Press'),
+            'singular_name' => __('Press Item'),
+            'search_items' => __('Search Press'),
+            'all_items' => __('All Press'),
+            'parent_item' => __('Parent Press'),
+            'parent_item_colon' => __('Parent Press:'),
+            'edit_item' => __('Edit Press Item'),
+            'update_item' => __('Update Press Item'),
+            'add_new_item' => __('Add Press Item'),
+            'new_item_name' => __('New Press Name')
+        );
+
+        register_taxonomy('press', 'case-studies', array(
             'hierarchical' => true,
             'labels' => $labels,
             'show_in_nav_menus' => true

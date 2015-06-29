@@ -20,16 +20,25 @@ body.home {}
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
+		padding: 0 60px;
 		@include opacity(0);
-		@include animate(0.5s);
+		@include animate(0.5s, 0s);
+		& > a{
+			text-decoration: none;
+		}
 		&.on{
 			@include opacity(1.0);
 		}
-		& > .category-name{
-
-		}
-		& > .category-description{
-			
-		}
 	}
+}
+.category-name{
+	color: black;
+	  padding: 0;
+  margin: 10px;
+}
+.category-description{
+	color: black;
+	  padding: 0;
+  margin: 10px;
+  font-family: georgia-italic;	
 }

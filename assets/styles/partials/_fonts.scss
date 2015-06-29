@@ -2,6 +2,10 @@
    Fonts
    ========================================================================== */
 
+/*
+* Futura
+*/
+
 @include fontface('futura-bt-light', 'assets/fonts', '2E77D2_0_0');
 @include fontface('futura-bt-light-italic', 'assets/fonts', '2E77D2_1_0');
 @include fontface('futura-bt-book', 'assets/fonts', '2E77D2_2_0');
@@ -12,3 +16,13 @@
 @include fontface('futura-bt-bold-italic', 'assets/fonts', '2E77D2_6_0');
 @include fontface('futura-bt-heavy', 'assets/fonts', '2E77D2_7_0');
 @include fontface('futura-bt-heavy-italic', 'assets/fonts', '2E77D2_8_0');
+
+
+/*
+* Georgia
+*/
+
+@include fontface('georgia', 'assets/fonts', '2E77D2_14_0');
+@include fontface('georgia-italic', 'assets/fonts', '2E77D2_12_0');
+@include fontface('georgia-bold', 'assets/fonts', '2E77D2_15_0');
+@include fontface('georgia-bold-italic', 'assets/fonts', '2E77D2_13_0');

@@ -35,6 +35,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import "partials/general";
 @import "partials/grid";
 
+// Plugin CSS imports
+@import "bower_components/slick.js/slick/slick.scss";
+@import "partials/mapbox-styles";
+
 // Layout
 @import "partials/layout";
 @import "partials/header";
@@ -43,6 +47,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 // Menus, Page and Post styles
 @import "partials/menus";
 @import "partials/page-post";
+@import "partials/page-generic";
+@import "partials/case-study";
 
 // Page Templates
 @import "partials/page-home";

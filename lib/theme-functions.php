@@ -83,6 +83,7 @@ function mb_imagelink_setup() {
  */
 function mb_scripts() {
 	wp_enqueue_style( '_mbbasetheme-style', get_stylesheet_uri() );
+	wp_enqueue_style( '_css-loaders', get_template_directory_uri() . '/bower_components/loaders.css/loaders.min.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

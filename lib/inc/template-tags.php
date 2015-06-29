@@ -150,3 +150,229 @@ function _mbbasetheme_category_transient_flusher() {
 }
 add_action( 'edit_category', '_mbbasetheme_category_transient_flusher' );
 add_action( 'save_post',     '_mbbasetheme_category_transient_flusher' );
+
+
+// if ( ! function_exists( 'get_awards_items' ) ) :
+// 	function get_awards_items() {
+// 		global $post;
+// 		$aw = wp_get_post_terms($post->ID, 'awards', array("fields" => "ids"));
+// 		$term_parent_ID = $aw[0];
+// 		$term_children = get_terms( 'awards', array(
+// 	        'child_of' => $term_parent_ID,
+// 	        'orderby'  => 'term_group',
+// 	        'order'    => 'ASC',
+//         ));
+
+// 		var_dump($term_children); 
+// 	}
+// endif;
+
+/**
+ * Get top level term id from a post id
+ *
+ * @param int $post_id post id
+ * @param string $taxonomy taxonomy
+ * @return int
+ */
+function get_top_level_term_id( $post_id, $taxonomy ) {
+ 
+    $terms = wp_get_post_terms( $post_id, $taxonomy );
+ 
+    $term = $terms[0];
+    $term_id = $term->term_id;
+ 
+    while( $term->parent ) {
+        $term_id = $term->parent; 
+        $term = get_term_by( 'id', $term_id, $taxonomy );
+    }
+    return $term_id;
+}
+
+/**
+ * Get last child term id(s) from a post id
+ *
+ * @param int $post_id post id
+ * @param string $taxonomy taxonomy
+ * @param bool $multiple array or single term id
+ * @return mixed
+ */
+function list_hierarchical_terms($taxo) {
+	global $post;
+	$taxonomy = $taxo; // change this to your taxonomy
+	$terms = wp_get_post_terms( $post->ID, $taxonomy, array( "fields" => "ids" ) );
+	if( $terms ) {
+		echo '<ul>';
+		echo 
+		$terms = trim( implode( ',', (array) $terms ), ' ,' );
+		wp_list_categories( 'title_li=&taxonomy=' . $taxonomy . '&include=' . $terms );
+		echo '</ul>';
+	}
+}
+
+
+// class Walker_Simple_Example extends Walker_Category {  
+
+//     function start_lvl(&$output, $depth=1, $args=array()) {  
+//         $output .= "\n<ul class=\"children\">\n";  
+//     }  
+
+//     function end_lvl(&$output, $depth=0, $args=array()) {  
+//         $output .= "</ul>\n";  
+//     }  
+
+//     function start_el(&$output, $item, $depth=0, $args=array()) {  
+//         $output .= "<li class=\"cat-item\">" . "<a class=\"parent\">\n" .esc_attr( $item->name ) . "</a>\n";
+//     }  
+
+//     function end_el(&$output, $item, $depth=0, $args=array()) {  
+//         $output .= "</li>\n";  
+//     }  
+// } 
+
+
+
+
+
+
+
+
+class My_Category_Walker extends Walker_Category {
+
+  var $lev = -1;
+  var $skip = 0;
+  static $current_parent;
+
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
+    $this->lev = 0;
+    $output .= "<ul>" . PHP_EOL;
+  }
+
+  function end_lvl( &$output, $depth = 0, $args = array() ) {
+    $output .= "</ul>" . PHP_EOL;
+    $this->lev = -1;
+  }
+
+  function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
+    extract($args);
+    $cat_name = esc_attr( $category->name );
+    $class_current = $current_class ? $current_class . ' ' : 'current ';
+    if ( ! empty($current_category) ) {
+      $_current_category = get_term( $current_category, $category->taxonomy );
+      if ( $category->term_id == $current_category ) $class = $class_current;
+      elseif ( $category->term_id == $_current_category->parent ) $class = rtrim($class_current) . '-parent ';
+    } else {
+      $class = '';
+    }
+    if ( ! $category->parent ) {
+      if ( ! get_term_children( $category->term_id, $category->taxonomy ) ) {
+          $this->skip = 1;
+      } else {
+        if ($class == $class_current) self::$current_parent = $category->term_id;
+        $output .= "<li class='" . $class . $level_class . "'>" . PHP_EOL;
+        $output .= sprintf($parent_title_format, $cat_name) . PHP_EOL;
+      }
+    } else { 
+      if ( $this->lev == 0 && $category->parent) {
+        $link = get_term_link(intval($category->parent) , $category->taxonomy);
+        $stored_parent = intval(self::$current_parent);
+        $now_parent = intval($category->parent);
+        $all_class = ($stored_parent > 0 && ( $stored_parent === $now_parent) ) ? $class_current . ' all' : 'all';
+        $output .= "";
+        //$output .= "<li class='" . $all_class . "'><a href='" . $link . "'>" . __('All') . "</a></li>\n";
+        //,&#160;
+        self::$current_parent = null;
+      }
+      $link = '<a href="' . esc_url( get_term_link($category) ) . '" >' . $cat_name . '</a>';
+      $output .= "<li";
+      $class .= $category->taxonomy . '-item ' . $category->taxonomy . '-item-' . $category->term_id;
+      $output .=  ' class="' . $class . '"';
+      $output .= ">" . $link;
+    }
+  }
+
+  function end_el( &$output, $page, $depth = 0, $args = array() ) {
+    $this->lev++;
+    if ( $this->skip == 1 ) {
+      $this->skip = 0;
+      return;
+    }
+    $output .= "</li>" . PHP_EOL;
+  }
+
+}
+
+function custom_list_categories( $args = '' ) {
+  $defaults = array(
+    'taxonomy' => 'category',
+    'show_option_none' => '',
+    'echo' => 1,
+    'depth' => 2,
+    'wrap_class' => '',
+    'level_class' => '',
+    'parent_title_format' => '%s',
+    'current_class' => 'current'
+  );
+  $r = wp_parse_args( $args, $defaults );
+  if ( ! isset( $r['wrap_class'] ) ) $r['wrap_class'] = ( 'category' == $r['taxonomy'] ) ? 'categories' : $r['taxonomy'];
+  extract( $r );
+  if ( ! taxonomy_exists($taxonomy) ) return false;
+  $categories = get_categories( $r );
+  $output = "<ul class='" . esc_attr( $wrap_class ) . "'>" . PHP_EOL;
+  if ( empty( $categories ) ) {
+    if ( ! empty( $show_option_none ) ) $output .= "<li>" . $show_option_none . "</li>" . PHP_EOL;
+  } else {
+    if ( is_category() || is_tax() || is_tag() ) {
+      $current_term_object = get_queried_object();
+      if ( $r['taxonomy'] == $current_term_object->taxonomy ) $r['current_category'] = get_queried_object_id();
+    }
+    $depth = $r['depth'];
+    $walker = new My_Category_Walker;
+    $output .= $walker->walk($categories, $depth, $r);
+  }
+  $output .= "</ul>" . PHP_EOL;
+  if ( $echo ) echo $output; else return $output;
+}
+
+
+
+
+
+
+
+// determine the topmost parent of a term
+function get_term_top_most_parent($term_id, $taxonomy){
+    // start from the current term
+    $parent  = get_term_by( 'id', $term_id, $taxonomy);
+    // climb up the hierarchy until we reach a term with parent = '0'
+    while ($parent->parent != '0'){
+        $term_id = $parent->parent;
+
+        $parent  = get_term_by( 'id', $term_id, $taxonomy);
+    }
+    return $parent;
+}
+
+// so once you have this function you can just loop over the results returned by wp_get_object_terms
+
+function project_get_item_classes($taxonomy, $results = 1) {
+    // get terms for current post
+    $terms = wp_get_object_terms( get_the_ID(), $taxonomy );
+    // set vars
+    $top_parent_terms = array();
+    foreach ( $terms as $term ) {
+        //get top level parent
+        $top_parent = get_term_top_most_parent( $term->term_id, $taxonomy );
+        //check if you have it in your array to only add it once
+        if ( !in_array( $top_parent, $top_parent_terms ) ) {
+            $top_parent_terms[] = $top_parent;
+        }
+    }
+    // build output (the HTML is up to you)
+    $names = array();
+    foreach ( $top_parent_terms as $term ) {
+        //echo $term->slug;
+        $names[] = $term->slug;
+    }
+    $parent_slugs = join( "&", $names );
+    echo $parent_slugs;
+}

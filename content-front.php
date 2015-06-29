@@ -21,17 +21,17 @@ if( $objects ): ?>
 	$on_descriptions = join( ", ", $d_text );
 	?>
 	    <article style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);" id="post-<?php $p->ID ?>" <?php post_class('case-study col-1-2')?>>
-			<div class="module">
+			<div class="module menu-item">
 				<a href="<?php echo get_permalink( $p->ID ); ?>">
 					<div class="entry-content">
-						<p><?php 
+						<p class="category-name"><?php 
 							foreach ($t as $tax) {
 								echo $tax;
 							}
 						?></p>
 					</div><!-- .entry-content -->
 					<header class="entry-header">
-						<h1><?php echo $on_descriptions; ?></h1>
+						<h1 class="category-description"><?php echo $on_descriptions; ?></h1>
 					</header><!-- .entry-header -->
 				</a>
 			</div>

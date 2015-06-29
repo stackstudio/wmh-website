@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Case Studies
+   ========================================================================== */
+
+@-webkit-keyframes fadeIn {
+  0% {
+    @include opacity(0);
+    @include transform('translate(0,0)');
+  }
+
+  100% {
+    @include opacity(1);
+    @include transform('translate(100px,100px)');
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    @include opacity(0);
+    @include transform('translate(0,0)');
+  }
+
+  100% {
+    @include opacity(1);
+    @include transform('translate(100px,100px)');
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    @include opacity(0);
+    @include transform('translate(0,0)');
+  }
+
+  100% {
+    @include opacity(1);
+    @include transform('translate(100px,100px)');
+  }
+}
+@keyframes fadeIn {
+  0% {
+    @include opacity(0);
+    @include transform('translate(0,0)');
+  }
+
+  100% {
+    @include opacity(1);
+    @include transform('translate(100px,100px)');
+  }
+}
+
+#work-area{
+	height: auto;
+	overflow: hidden;
+	& > .gallery{
+		clear: both;
+		height: 100%;
+	}
+	& > .col-image,
+	& > .col-full-image{
+		padding-right: 0px;
+		& > img{
+			width: 100%;
+		}
+	}
+	& > .col-image img{
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+.case-studies .entry-content{
+	position: fixed;
+	top: 100px;
+	left: 33px;
+	background: rgba(255,255,255,0.65);
+	width: 490px;
+	padding: 20px;
+	@include animate(1.5s, 1s);
+	@include opacity(1);
+	& .entry-header h1{
+		padding: 0;
+		margin: 0;
+		border-bottom: solid 1px #000;
+		font-family: georgia-italic;
+		&:before{
+			content: "~\00a0";
+		}
+	}
+	&.up{
+		@include animate(1.5s, 1s);
+		top: -100%;
+	}
+}
+.work-block{
+	overflow: hidden;
+}
+.half-col-images{
+	padding-right: 0px;
+}
+#taxonomies{
+	margin: 10px 0;
+	border-top: solid 1px #000;
+	& .terms{
+		list-style: none;
+	}
+	& ul > h5{
+		margin: 0;
+		float: left;
+		padding: 0px 0;
+		text-transform: uppercase;
+	}
+}
+#taxonomies ul:first-child{
+	padding: 10px 0;
+}
+#taxonomies ul.terms{
+	margin: 0;
+	padding: 10px 5px;
+	overflow: hidden;
+	height: auto;
+	& li{
+		float: left;
+		line-height: 1em;
+		&.item a{
+			line-height: 1em;
+			float: left;
+			padding-left: 7px;
+			font-family: futura-bt-light;
+			color: black;
+			text-decoration:none;
+		}
+		& > ul{
+			float: right;
+			  padding: 0;
+			  list-style: none;
+		}
+	}
+}
+.slick-next,
+.slick-prev{
+	cursor: pointer;
+	border: none;
+	font-size: 0;
+	line-height: 0;
+	outline: 0;
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 49px;
+	height: 49px;
+	margin-top: -10px;
+	padding: 0;
+	color: transparent;
+	z-index: 999999;
+}
+.slick-next {
+  right: 50px;
+  background-color: #000;
+  background-image: url(assets/images/right-arrow.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+.slick-prev {
+  left: 50px;
+  background-color: #000;
+  background-image: url(assets/images/left-arrow.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+#awards-press ul.awards li.item ul li.awards-item:after{
+	content: ',\00a0';
+}
+#awards-press ul.awards li.item:last-child ul li.awards-item:after{
+	content: '';
+}
+
+#our-work{
+	margin-top: 91px;
+}
+
+.project{
+	display: none;
+	height: 275px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 0;
+	& > a{
+		background-color: rgba(255,255,255,0.65);
+		display: block;
+		width: 100%;
+		height: 100%;
+		@include opacity(0);
+		& > .block .wrap h1{
+			padding-top: 70px;
+			@include animate(0.5s, 0s);
+			color: black;
+			text-transform: capitalize;
+		}
+		&:hover{
+			@include opacity(1);
+			& > .block .wrap h1{
+				padding-top: 0px;
+				@include animate(0.5s, 0s);
+			}
+		}
+	}
+}
+
+
+
+/* Make sure embeds and iframes fit their containers */
+.case-studies embed,
+.case-studies iframe,
+.case-studies object {
+	max-width: 100%;
+}
