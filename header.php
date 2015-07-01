@@ -15,6 +15,12 @@
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon.ico">
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png">
 	<?php wp_head(); ?>
+
+	<script>
+	// some global stuff here
+	var mobileMenu = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button.svg';
+	var mobileMenuActive = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button-active.svg';
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -22,9 +28,6 @@
 $logo = 'logo.png';
 ?>
 <div class="hfeed site">
-	<?php// $q = new WP_Query('post_type=case-studies');
-
-//echo "var json=". json_encode($q->get_posts()); ?>
 	<!--[if lt IE 9]>
 	    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -39,11 +42,11 @@ $logo = 'logo.png';
 				</a>
 			</h1>
 		</div>
-
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button.svg" alt="mobile nav button" id="mobile-menu-button">
 		<nav id="site-navigation" class="col-3-4 main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', '_mbbasetheme' ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
+		<!-- img tag for mobile button -->
 		<div id="socials">
 			<ul>
 				<li class="vimeo">

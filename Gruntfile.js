@@ -90,7 +90,7 @@ module.exports = function(grunt) {
                         'assets/js/source/plugins.js',
                         'assets/js/vendor/navigation.js',
                         'assets/js/vendor/skip-link-focus-fix.js',
-                        'assets/js/vendor/yourplugin/transition.js',
+                        'assets/js/vendor/transition.js',
                         'bower_components/fitvids/jquery.fitvids.js',
                         'bower_components/slick.js/slick/slick.js',
                         'bower_components/mapbox.js/mapbox.js'

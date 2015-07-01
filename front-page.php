@@ -16,11 +16,11 @@ get_header(); ?>
 			// lets start getting some data in here once the front-end has been created
 			?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php //while ( have_posts() ) : the_post(); ?>
 			
 				<?php get_template_part( 'content', 'front' ); ?>
 			
-			<?php endwhile; // end of the loop. ?>
+			<?php //endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

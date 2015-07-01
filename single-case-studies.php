@@ -9,9 +9,7 @@ $pt = $post->ID;
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-		
-
+		<main id="main" class="site-main" role="main">	
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<div class="entry-content up">
@@ -26,40 +24,9 @@ get_header(); ?>
 				));
 			?>
 			<div id="taxonomies">
-				<!-- <h5><?php //echo strtoupper('Awards'); ?></h5> -->
-				<?php
-				/*$args = array(
-				  'taxonomy' => 'awards',
-				  'show_option_none' => __('No Menu Items.'),
-				  'echo' => 1,
-				  'depth' => 3,
-				  'wrap_class' => 'awards',
-				  'level_class' => 'item',
-				  'parent_title_format' => '%s',
-				  'current_class' => 'selected'
-				);
-				custom_list_categories( $args );*/
-				?>
 				<?php echo custom_taxonomies_terms_links();?>
 			</div>
 		</div><!-- .entry-content -->
-		<?php
-			//function getTaxos($taxonomy, $postid) {
-				/*$t = wp_get_post_terms($pt, 'awards', array("fields" => "names")); 
-				//$d = get_the_terms($pt, 'awards' );
-				$d_name = array();
-
-				foreach ( $t as $ds ) {
-					//$d_name[] = $ds->name;
-					$parent = $ds;
-					//var_dump($parent);
-					$parentterm = get_term( $parent, 'awards');
-					//var_dump($parentterm);
-				}
-				$on_names = join( "&", $d_name );
-				//echo $on_names;
-			//}*/
-		?>
 		<section id="work-area" data-current-id="<?php the_ID(); ?>" data-taxonomy-award="<?php project_get_item_classes('awards', $results = 1) ?>" data-taxonomy-type="<?php project_get_item_classes('brand-types', $results = 1) ?>">
 		<noscript>
 		<?php while ( have_posts() ) : the_post(); ?>

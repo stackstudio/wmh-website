@@ -2,6 +2,11 @@
    Variables
    ========================================================================== */
 
+$device-small: 560px;
+$screen-small: 768px;
+$screen-medium: 992px;
+$screen-large: 1200px;
+
 // Font Face
 // @include fontface('FONT_NAME', 'assets/fonts/', 'FONT_FAMILY');
 
@@ -16,3 +21,4 @@ $red: red;
 $blue: blue;
 
 $nav: #919191;
+

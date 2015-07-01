@@ -1,0 +1,32 @@
+/* Media Queries */
+@mixin mobile-device {
+	@media only screen and (min-width: $device-small) {
+		@content;
+	}
+}
+@mixin tb-p {
+	@media only screen and (min-width: $screen-small) {
+		@content;
+	}
+}
+@mixin dtop {
+	@media only screen and (min-width: $screen-medium) {
+		@content;
+	}
+}
+@mixin lg-dtop {
+	@media only screen and (min-width: $screen-large) {
+		@content;
+	}
+}
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}

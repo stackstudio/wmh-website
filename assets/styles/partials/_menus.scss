@@ -8,11 +8,23 @@
 	padding-left: 0;
 	overflow: hidden;
 	height: auto;
+	@include tb-p {
+		
+	}
+	@include dtop {
+		
+	}
+	@include lg-dtop {
+
+	}
 }
 .menu{
 	overflow: hidden;
 	height: auto;
 	padding-top: 32px;
+}
+.menu-the-menu-container{
+	height: 1px;
 }
 
 .main-navigation li {
@@ -84,11 +96,34 @@
 	.main-navigation.toggled .nav-menu {
 		display: block;
 	}
+}
 
-	.main-navigation ul {
-		display: none;
+
+// Mobile menu stuff
+
+nav.mobile{
+	width: 100%;
+	height: auto;
+	padding-right: 0;
+	& > div ul{
+		text-align: center;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+	}
+	& > div ul li{
+		float: none;
+		display: block;
+		margin: 20px 10px;
+		&:first-child{
+			margin-left: 10px;
+		}
+		& a{
+			color: white;
+		}
 	}
 }
+
 
 .site-main .comment-navigation,
 .site-main .paging-navigation,

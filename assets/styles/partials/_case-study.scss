@@ -68,26 +68,34 @@
 	}
 }
 .case-studies .entry-content{
-	position: fixed;
-	top: 100px;
-	left: 33px;
-	background: rgba(255,255,255,0.65);
-	width: 490px;
+
+	position: relative;
+	width: 100%;
 	padding: 20px;
-	@include animate(1.5s, 1s);
-	@include opacity(1);
-	& .entry-header h1{
-		padding: 0;
-		margin: 0;
-		border-bottom: solid 1px #000;
-		font-family: georgia-italic;
-		&:before{
-			content: "~\00a0";
+  	overflow: hidden;
+	
+	@include mobile-device {
+		position: fixed;
+		top: 100px;
+		left: 33px;
+		background: rgba(255,255,255,0.65);
+		width: 490px;
+		padding: 20px;
+		@include animate(1.5s, 0.3s);
+		@include opacity(1);
+		& .entry-header h1{
+			padding: 0;
+			margin: 0;
+			border-bottom: solid 1px #000;
+			font-family: georgia-italic;
+			&:before{
+				content: "~\00a0";
+			}
 		}
-	}
-	&.up{
-		@include animate(1.5s, 1s);
-		top: -100%;
+		&.up{
+			@include animate(1.5s, 0.3s);
+			top: -100%;
+		}
 	}
 }
 .work-block{
@@ -176,7 +184,8 @@
 }
 
 #our-work{
-	margin-top: 91px;
+	margin-top: 81px;
+	overflow: hidden;
 }
 
 .project{

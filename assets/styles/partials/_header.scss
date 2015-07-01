@@ -4,8 +4,21 @@
 
 #socials{
 	padding: 0;
-	float: right;
-	width: auto;
+		float: right;
+		width: auto;
+		@include animate(1s, 0.3s);
+		height: 45px;
+		display: none;
+	&.open{
+		@include animate(1s, 0.3s);
+		position:relative;
+		float: none;
+		clear: both;
+		text-align: center;
+		margin: 0 auto;
+		display: block;
+		@include opacity(1);
+	}
 	& > ul{
 		padding: 0px;
 		& > li{
@@ -14,4 +27,27 @@
 			width: 25px;
 		}
 	}
+	/*display: block;
+	visibility: hidden;
+	@include opacity(0);
+	width: 145px;
+	position: absolute;
+	bottom: 10px;*/
+	
+}
+
+
+img#mobile-menu-button{
+	@include mobile-device {
+		display: none;
+		padding: 0;
+		float: right;
+		width: auto;
+	}
+	display: block;
+	width: 15%;
+  	float: right;
+  	padding: 12px;
+  	height: 47px;
+  	cursor: pointer;
 }

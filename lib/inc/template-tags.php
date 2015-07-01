@@ -141,6 +141,30 @@ function _basetheme_post_thumbnail_helper() {
 }
 endif;
 
+
+/**
+ * Create a url image helper for custom fields
+ */
+if ( ! function_exists( '_basetheme_image_thumbnail_helper' ) ) :
+function _basetheme_image_thumbnail_helper() {
+
+	// $image = get_field('main_image');
+	// var_dump($image);
+	$image_id = $image['id'];  
+
+	$image_url = wp_get_attachment_image_src($image_id,'full');
+
+	if(isset($image_url[0])){
+	    echo $image_url[0];
+	} else {
+		echo get_stylesheet_directory_uri(); echo '/assets/images/dummy-header.jpg';
+	}
+	
+}
+endif;
+
+
+
 /**
  * Flush out the transients used in _mbbasetheme_categorized_blog.
  */

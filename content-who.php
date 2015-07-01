@@ -6,7 +6,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('work-block'); ?> style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
+<article id="post-<?php the_ID(); ?> generic-bg" <?php post_class('work-block generic-bg'); ?> style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
 
 	<div class="entry-content up">
 		<?php the_content(); ?>

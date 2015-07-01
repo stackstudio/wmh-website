@@ -6,23 +6,29 @@
  */
 ?>
 <?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-<?php
-$objects = get_field('case_studies');
-if( $objects ): ?>
-	<?php foreach( $objects as $p ): ?>
-	<?php 
-	$t = wp_get_post_terms($p->ID, 'brand-types', array("fields" => "names")); 
-	$d = get_the_terms( $p->ID, 'brand-types' );
+<?php 
+
+$posts = get_field('case_studies');
+
+if( $posts ): ?>
+    <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+
+        <?php setup_postdata($post); ?>
+        <?php 
+	$t = wp_get_post_terms($post->ID, 'brand-types', array("fields" => "names")); 
+	$d = get_the_terms( $post->ID, 'brand-types' );
 	$d_text = array();
 
 	foreach ( $d as $ds ) {
 		$d_text[] = $ds->description;
 	}
 	$on_descriptions = join( ", ", $d_text );
+
+	$img = get_field('main_image');
 	?>
-	    <article style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);" id="post-<?php $p->ID ?>" <?php post_class('case-study col-1-2')?>>
+        <article style="background-image: url(<?php echo $img['url']; ?>);" id="post-<?php echo $post->ID ?>" class="case-study col-1-2">
 			<div class="module menu-item">
-				<a href="<?php echo get_permalink( $p->ID ); ?>">
+				<a href="<?php echo get_permalink( $post->ID ); ?>">
 					<div class="entry-content">
 						<p class="category-name"><?php 
 							foreach ($t as $tax) {
@@ -36,5 +42,6 @@ if( $objects ): ?>
 				</a>
 			</div>
 	    </article>
-	<?php endforeach; ?>
+    <?php endforeach; ?>
+    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 <?php endif; ?>
