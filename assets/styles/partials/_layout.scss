@@ -55,6 +55,13 @@
 	padding: 20px 20px 15px 20px;
 	overflow: hidden;
 	background: black;
+	& > .site-branding{
+		color: inherit;
+		float: left;
+		width: 110px;
+		padding-right: 20px;
+
+	}
 	@include mobile-device {
 		margin-left: 0px;
 		position: fixed;
@@ -66,16 +73,19 @@
 		overflow: hidden;
 		z-index: 999999;
 		& > .site-branding{
-		color: inherit;
-			& .site-title{
-				margin: 0;
-			}
-			& > h1 a{
-				display: block;
-				& > img{
-					width: 100%;
+			color: inherit;
+			float: left;
+			width: 170px;
+			padding-right: 20px;
+				& .site-title{
+					margin: 0;
 				}
-			}
+				& > h1 a{
+					display: block;
+					& > img{
+						width: 100%;
+					}
+				}
 		}
 		& > .main-navigation{
 

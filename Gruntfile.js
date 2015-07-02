@@ -162,12 +162,28 @@ module.exports = function(grunt) {
                     host: "user@host.com"
                 }
             }
+        },
+        deployFtp: {
+          build: {
+            auth: {
+              host: 'ftp.markdunbavan.co.uk',
+              port: 21,
+              authKey: 'staging'
+            },
+            src: '/',
+            dest: '/public_html/',
+            exclusions: ['.git*', 'node_modules', '.sass-cache', '.ftppass', 'Gruntfile.js', 'package.json', '.DS_Store', 'README.md', 'config.rb', '.jshintrc']
+          }
         }
 
     });
 
     // rename tasks
     grunt.renameTask('rsync', 'deploy');
+
+    grunt.loadNpmTasks('grunt-ftp-deploy');
+
+    grunt.renameTask('ftp-deploy', 'deployFtp');
 
     // register task
     grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify', 'imagemin', 'browserSync', 'watch']);

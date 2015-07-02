@@ -5,9 +5,11 @@
 	var newheight = $(window).height();
 	var caseStudy = $('.case-study');
 	var headerH = $('header').outerHeight()/4;
-	var projectContainer = $('article.case-studies section');
+	var projectContainer = $('article.case-studies #work-area');
+	var similarPostsSection = $('#related-work .inner-wrap');
 	var data = "http://" + top.location.host.toString() + '/wp-json/posts/';
 
+	var _permId = $('#work-area').data('current-id');
 	var _brandTypes = $('#work-area').data('taxonomy-type');
 	var _awardsPart = $('#work-area').data('taxonomy-award');
 	// all Javascript code goes here
@@ -36,6 +38,9 @@
 	        var remainHeight = parseInt('22');
 	        $('#full-screen-video').css('width',$window.width() + 60);
 	        $('#full-screen-video').css('height',h);
+
+	        $('#socials').appendTo('.site-header');
+	        $('#site-navigation').removeClass('mobile');
 
 		    // Execute on load
 		    // Bind event listener
@@ -149,12 +154,16 @@
 		  			$('body').addClass('mobile-active');
 		  		} else {
 
-			      if(cOst > 200 && cOst > ost) {
+			      if(cOst > 500 && cOst > ost) {
 			      	$('.case-studies .entry-content').removeClass('down').addClass('up');
 			      }
-			      else if(cOst < 200 && cOst < ost) {
+			      else if(cOst < 500 && cOst < ost) {
 			        $('.case-studies .entry-content').removeClass('up').addClass('down');
-			      }
+			      } 
+
+			    //   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+				   //    getRelatedPosts(); 
+				   // }
 
 			    }
 
@@ -186,8 +195,24 @@
 
 	      	//List some global variables here to fetch post data
 	      	// We use base as our global object to find resources we need
-	      	var first = query;
-	      	console.log(first);
+	      	// _permId
+	      	var posts = query;
+	      	var postFull = [];
+	      	$.each(posts, function(i, post){
+	      		//terms.push(term);
+	      		var postObject = post;
+	      		postFull.push(post);
+	      		console.log(post);
+	      		$('#main-work').show();
+	      		if (post.ID === _permId) {
+      				
+      			} else {
+      				setTimeout(function(){
+				  		similarPostsSection.append('<article class="similar-project"><a href="'+post.link+'"><img src="'+post.meta.main_image.url+'" alt="'+post.meta.main_image.title+' image"></a><h3><a href="'+post.link+'">'+post.title+'</a></h3></article>').find('.similar-project').addClass('newClass');
+				  	}, 1000*(i+1));
+      			}
+      		});
+	      	//console.log(postFull);
 	      },
 	      cache: false
 	    });
@@ -233,7 +258,7 @@
 	      	var layoutNames = [];
 	      	var term = base.terms;
 	      	var termParent = [];
-	      	console.log(term);
+	      	//console.log(term);
 	      	for(var i = 0; i < term.length; i++) {
 	      		//terms.push(term);
 	      		var termItem = term[i];

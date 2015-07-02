@@ -47,6 +47,10 @@
   }
 }
 
+article.case-studies{
+	margin: 0;
+}
+
 #work-area{
 	height: auto;
 	overflow: hidden;
@@ -224,4 +228,65 @@
 .case-studies iframe,
 .case-studies object {
 	max-width: 100%;
+}
+
+
+
+
+/*
+** Similar work
+*/
+
+
+
+#related-work .inner-wrap{
+
+	clear: both;
+	overflow: hidden;
+	padding: 20px;
+	background: black;
+
+	& h1{
+		padding: 0;
+		margin: 0 0 20px 0;
+		color: $nav;
+		border-bottom: solid 1px $nav;
+		font-family: georgia-italic;
+		&:before{
+			content: "~\00a0";
+		}
+	}
+	
+	@include mobile-device {
+		clear: both;
+		overflow: hidden;
+		padding: 20px;
+		background: black;
+		& h1{
+			padding: 0;
+			margin: 0 0 20px 0;
+			color: $nav;
+			border-bottom: solid 1px $nav;
+			font-family: georgia-italic;
+			&:before{
+				content: "~\00a0";
+			}
+		}
+		& > article h3 a{
+			font-family: futura-bt-light;
+			color: $nav;
+			text-decoration: none;
+		}
+	}
+}
+.similar-project{
+	width: 100%;
+	@include mobile-device {
+		width: 25%;
+		float: left;
+		padding-right: 20px;
+		&:last-child {
+			padding-right: 0px;
+		}
+	}
 }

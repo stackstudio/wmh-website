@@ -2316,6 +2316,12 @@ address {
   overflow: hidden;
   background: black;
 }
+.site-header > .site-branding {
+  color: inherit;
+  float: left;
+  width: 110px;
+  padding-right: 20px;
+}
 @media only screen and (min-width: 560px) {
   .site-header {
     margin-left: 0px;
@@ -2330,6 +2336,9 @@ address {
   }
   .site-header > .site-branding {
     color: inherit;
+    float: left;
+    width: 170px;
+    padding-right: 20px;
   }
   .site-header > .site-branding .site-title {
     margin: 0;
@@ -2393,19 +2402,23 @@ address {
    Header
    ========================================================================== */
 #socials {
-  padding: 0;
-  float: right;
-  width: auto;
-  -webkit-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-  transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-  height: 45px;
-  display: none;
-  /*display: block;
-  visibility: hidden;
-  @include opacity(0);
   width: 145px;
-  position: absolute;
-  bottom: 10px;*/
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: hidden;
+}
+@media only screen and (min-width: 560px) {
+  #socials {
+    padding: 0;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    float: right;
+    width: auto;
+    visibility: visible;
+    -webkit-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
+    transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
+    height: 45px;
+  }
 }
 #socials.open {
   -webkit-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
@@ -2415,7 +2428,7 @@ address {
   clear: both;
   text-align: center;
   margin: 0 auto;
-  display: block;
+  visibility: visible;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -2723,6 +2736,10 @@ object {
     transform: translate(100px,100px);
   }
 }
+article.case-studies {
+  margin: 0;
+}
+
 #work-area {
   height: auto;
   overflow: hidden;
@@ -2915,6 +2932,63 @@ object {
 .case-studies iframe,
 .case-studies object {
   max-width: 100%;
+}
+
+/*
+** Similar work
+*/
+#related-work .inner-wrap {
+  clear: both;
+  overflow: hidden;
+  padding: 20px;
+  background: black;
+}
+#related-work .inner-wrap h1 {
+  padding: 0;
+  margin: 0 0 20px 0;
+  color: #919191;
+  border-bottom: solid 1px #919191;
+  font-family: georgia-italic;
+}
+#related-work .inner-wrap h1:before {
+  content: "~\00a0";
+}
+@media only screen and (min-width: 560px) {
+  #related-work .inner-wrap {
+    clear: both;
+    overflow: hidden;
+    padding: 20px;
+    background: black;
+  }
+  #related-work .inner-wrap h1 {
+    padding: 0;
+    margin: 0 0 20px 0;
+    color: #919191;
+    border-bottom: solid 1px #919191;
+    font-family: georgia-italic;
+  }
+  #related-work .inner-wrap h1:before {
+    content: "~\00a0";
+  }
+  #related-work .inner-wrap > article h3 a {
+    font-family: futura-bt-light;
+    color: #919191;
+    text-decoration: none;
+  }
+}
+
+.similar-project {
+  width: 100%;
+}
+@media only screen and (min-width: 560px) {
+  .similar-project {
+    width: 25%;
+    float: left;
+    padding-right: 20px;
+  }
+  .similar-project:last-child {
+    padding-right: 0px;
+  }
 }
 
 /* ==========================================================================

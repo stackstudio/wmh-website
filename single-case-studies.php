@@ -119,7 +119,7 @@ get_header(); ?>
 				 
 				?>
 
-				<footer class="entry-footer">
+				<footer class="entry-footer" style="display: none;">
 						<?php
 							/* translators: used between list items, there is a space after the comma */
 							$category_list = get_the_category_list( __( ', ', '_mbbasetheme' ) );
@@ -158,7 +158,19 @@ get_header(); ?>
 			<?php _mbbasetheme_post_nav(); ?>
 
 		<?php endwhile; // end of the loop. ?>
+		<!-- Get some similar posts -->
 		</noscript>
+		</section>
+		<section id="related-work">
+			<section id="main-work" style="display: none;" class="inner-wrap">
+				<h1>Similar Jobs</h1>
+			</section>
+			<noscript>
+				<section class="inner-wrap">
+					<h1>Similar Jobs</h1>
+					<?php getSimilarWork(); ?>
+				</section>
+			</noscript>
 		</section>
 
 		</main><!-- #main -->

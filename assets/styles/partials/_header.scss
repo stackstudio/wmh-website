@@ -3,12 +3,18 @@
    ========================================================================== */
 
 #socials{
-	padding: 0;
+	width: 145px;
+	@include opacity(0);
+	visibility: hidden;
+	@include mobile-device {
+		padding: 0;
+		@include opacity(1);
 		float: right;
 		width: auto;
+		visibility: visible;
 		@include animate(1s, 0.3s);
 		height: 45px;
-		display: none;
+	}
 	&.open{
 		@include animate(1s, 0.3s);
 		position:relative;
@@ -16,7 +22,7 @@
 		clear: both;
 		text-align: center;
 		margin: 0 auto;
-		display: block;
+		visibility: visible;
 		@include opacity(1);
 	}
 	& > ul{
@@ -27,12 +33,6 @@
 			width: 25px;
 		}
 	}
-	/*display: block;
-	visibility: hidden;
-	@include opacity(0);
-	width: 145px;
-	position: absolute;
-	bottom: 10px;*/
 	
 }
 

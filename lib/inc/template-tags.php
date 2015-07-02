@@ -359,6 +359,44 @@ function custom_list_categories( $args = '' ) {
 
 
 
+/**
+ * Get post classes
+ */
+if ( ! function_exists( 'getSimilarPosts' ) ) :
+function getSimilarWork() {
+	//Optional:
+	global $post;
+	$postID = $post->ID;
+	$theCategories = get_the_category($postID);
+
+	$args = array(
+		'posts_per_page'   => 10,
+		//'category'         => $theCategories,
+		'orderby'          => 'post_date',
+		'order'            => 'DESC',
+		'exclude'          => $postID,
+		'post__not_in' => array($postID),
+		'post_type'        => 'case-studies'
+	);
+	$posts = get_posts( $args );
+	foreach ( $posts as $post ) :
+	  setup_postdata( $post );
+	$title = get_the_title();
+	$perm = get_the_permalink();
+	$img = get_field('main_image');
+
+		echo '<article class="col-1-4">';
+		echo '<a href="'.$perm.'"><img src="'.$img['url'].'" alt="'.$img['title'].' image"></a>';
+		echo '<h3><a href="'.$perm.'">'.$title.'</a></h3>';
+		echo '</article>';
+
+	endforeach; 
+	wp_reset_postdata();
+
+}
+endif;
+
+
 
 
 
