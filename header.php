@@ -15,7 +15,6 @@
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon.ico">
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png">
 	<?php wp_head(); ?>
-
 	<script>
 	// some global stuff here
 	var mobileMenu = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button.svg';
@@ -24,14 +23,10 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php
-$logo = 'logo.png';
-?>
 <div class="hfeed site">
 	<!--[if lt IE 9]>
 	    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_mbbasetheme' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">

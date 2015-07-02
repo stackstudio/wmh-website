@@ -17,6 +17,11 @@
 	var newHeight = $(window).height();
 	$(".generic-bg").css({"height": newHeight, "width": newWidth }); 
 
+
+
+
+	
+
 	var widthCheck = function() {
 
 	  var $window = $(window);
@@ -195,7 +200,6 @@
 
 	      	//List some global variables here to fetch post data
 	      	// We use base as our global object to find resources we need
-	      	// _permId
 	      	var posts = query;
 	      	var postFull = [];
 	      	$.each(posts, function(i, post){
@@ -212,7 +216,6 @@
 				  	}, 1000*(i+1));
       			}
       		});
-	      	//console.log(postFull);
 	      },
 	      cache: false
 	    });
@@ -427,19 +430,6 @@
 	        
 	        $('#site-navigation').addClass('mobile');
 	        $('body').removeClass('mobile-active');
-	        // open.css('display','block');
-	        // close.css('display','none');
-	        // if( mobileSub.length ) {
-	        //   $('.mobile-nav').velocity({
-	        //     'height': '260px',
-	        //     'padding': '25px 0'
-	        //   });
-	        // } else {
-	        //   $('.mobile-nav').velocity({
-	        //     'height': '150px',
-	        //     'padding': '25px 0'
-	        //   });
-	        // }
 	        $(this).attr('src',mobileMenuActive);
 	        $('#site-navigation .menu-the-menu-container').transition({
 	            'height': '220px'

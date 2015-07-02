@@ -1,20 +1,17 @@
 /*!
-Theme Name: WordPress Starter Theme
-Theme URI: http://www.THEME.com
-Author: Matt Banks
-Author URI: http://mattbanks.me
-Description: WordPress Starter Theme for use as a starting template for building custom themes.
-Version: 1.0
+Theme Name: WMH Build theme
+Theme URI: http://wmhagency.com
+Author: Mark Dunbavan
+Author URI: http://stackstudio.co.uk
+Version: 1.0.4
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: _mbbasetheme
+Text Domain: _basetheme
 Domain Path: /languages/
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-
- _mbbasetheme is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
 
 */
 
@@ -26,8 +23,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 // Reset, Variables, Mixins, Etc
 // DO NOT EDIT ORDER OF FILES
 @import "partials/mixins";
+
 // Responsive
 @import "partials/responsive";
+
 @import "partials/variables";
 @import "partials/normalize";
 

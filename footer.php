@@ -17,12 +17,10 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
 <!--[if lte IE 8]>
     <script>
         $("img[src$='.svg']").each(function() {$(this).attr("src", $(this).attr("src").replace('.svg', '.png')); });
     </script>
 <![endif]-->
-
 </body>
 </html>
