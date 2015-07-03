@@ -7,7 +7,7 @@ body.home {}
 
 .case-study{
 	margin: 0;
-	@extend %bgimage;
+	@include bgimage;
 	position: relative;
 	display: table;
 	padding-right: 0px;

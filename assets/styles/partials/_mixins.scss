@@ -250,7 +250,7 @@
 
 
 
-%bgimage {
+@mixin bgimage {
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;

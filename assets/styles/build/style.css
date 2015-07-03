@@ -12,7 +12,6 @@ Domain Path: /languages/
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 
 */
 /**
@@ -205,12 +204,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
     transform: scale(1.0,1.0);
   }
 }
-.case-study {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
 /* Media Queries */
 /* ==========================================================================
    Variables
@@ -3004,6 +2997,9 @@ article.case-studies {
    ========================================================================== */
 .case-study {
   margin: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   position: relative;
   display: table;
   padding-right: 0px;
