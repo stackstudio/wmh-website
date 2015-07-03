@@ -1,5 +1,7 @@
 (function($) {
-	// Global vars here :)
+	/// ==================== 
+	/// Global vars and functions here here :)
+	/// ====================
 	//var projectLoader = $('.project-loader');
 	var newwidth = $(window).width();
 	var newheight = $(window).height();
@@ -18,9 +20,10 @@
 	$(".generic-bg").css({"height": newHeight, "width": newWidth }); 
 
 
+	// =============================================================== //
+					/// start main functions here ///
+	// =============================================================== //
 
-
-	
 
 	var widthCheck = function() {
 
@@ -33,6 +36,7 @@
 		  	$('body').addClass('mobile-active');
 		  	$('#site-navigation').addClass('mobile');
 		  	$('#socials').appendTo('.menu-the-menu-container');
+		  	caseStudy.css('height', '375px');
 
 		  } else {
 

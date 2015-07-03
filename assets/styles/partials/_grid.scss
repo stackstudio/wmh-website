@@ -21,7 +21,10 @@ $two: 10%;
 	width: 100%;
 }
 .col-1-2 {
-	width: 50%;
+	width: 100%;
+	@include mobile-device {
+		width: 50%;
+	}
 }
 
 .col-1-3 {

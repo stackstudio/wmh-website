@@ -205,6 +205,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
     transform: scale(1.0,1.0);
   }
 }
+.case-study {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 /* Media Queries */
 /* ==========================================================================
    Variables
@@ -988,7 +994,12 @@ address {
 }
 
 .col-1-2 {
-  width: 50%;
+  width: 100%;
+}
+@media only screen and (min-width: 560px) {
+  .col-1-2 {
+    width: 50%;
+  }
 }
 
 .col-1-3 {
@@ -2993,9 +3004,6 @@ article.case-studies {
    ========================================================================== */
 .case-study {
   margin: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   position: relative;
   display: table;
   padding-right: 0px;
