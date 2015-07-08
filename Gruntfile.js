@@ -93,7 +93,8 @@ module.exports = function(grunt) {
                         'assets/js/vendor/transition.js',
                         'bower_components/fitvids/jquery.fitvids.js',
                         'bower_components/slick.js/slick/slick.js',
-                        'bower_components/mapbox.js/mapbox.js'
+                        'bower_components/mapbox.js/mapbox.js',
+                        'assets/js/vendor/imagesloaded.pkg.js'
                     ]
                 }
             },

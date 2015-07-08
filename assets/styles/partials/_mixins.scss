@@ -258,3 +258,22 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+
+/*  Mixin for - border-image
+    
+    $border-image([$image-url], [$offsets], [$repeats])
+    
+    Example:
+    @include border-image("border.png", 100%, 1, 0, stretch);
+
+---------------------------------------- */
+@mixin border-image($source, $slice, $width, $outset, $repeat) {
+  border-image-source: url($source);
+  border-image-slice: $slice;
+  border-image-width: $width;
+  border-image-outset: $outset;
+  border-image-repeat: $repeat;
+  -webkit-border-image: url($source) $slice $width $outset $repeat;
+  -o-border-image: url($source) $slice $width $outset $repeat;
+}

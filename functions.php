@@ -163,13 +163,15 @@ function custom_taxonomies_terms_links() {
     // get post type taxonomies
     $taxonomies = get_object_taxonomies($post_type);
 
+    //<h5>'.$t.':</h5>
+
     $out = "<ul class='terms'>";
     foreach ($taxonomies as $taxonomy) {
 
     	if ( $taxonomy === 'brand-types' && 'categories' ) {
     		
-    	} else {
-	    
+    	} else if ( $taxonomy === 'awards' ) {
+	    $out .= '<h5>awards</h5>';
 	    //$out .= "<li>".$taxonomy.": ";
         // get the terms related to post
         $terms = get_the_terms( $post->ID, $taxonomy );
@@ -189,7 +191,7 @@ function custom_taxonomies_terms_links() {
                 if($parent_id != 0){//Childs
                     //Add parent to out string
                     $parent_term = $terms_by_id[$parent_id][0]; //[0] because object_group_assoc return each element in an array
-                    $out .= '<h5>'.$t.':</h5><li class="item"><a href="' .get_term_link($parent_term->slug, $taxonomy) .'">'.$parent_term->name.'</a>';
+                    $out .= '<li class="item"><a href="' .get_term_link($parent_term->slug, $taxonomy) .'">'.$parent_term->name.'</a>';
                     //Add children to out string
                     $out .= '<ul>';
                     foreach ($children_terms as $child_term) {
@@ -206,7 +208,54 @@ function custom_taxonomies_terms_links() {
                         }
 
                     }
-                    $out .= '</ul>';
+                    //$out .= '</ul>';
+                }
+            }
+
+        } else {  
+
+        }
+        $out .= "</li>";
+
+    	} else if ( $taxonomy === 'press' ) {
+	    $out .= '<h5>press</h5>';
+	    //$out .= "<li>".$taxonomy.": ";
+        // get the terms related to post
+        $terms = get_the_terms( $post->ID, $taxonomy );
+
+        if ( !empty( $terms ) ) {
+
+        	$terms_by_id = object_group_assoc($terms, 'term_id');
+            $terms_by_parent = object_group_assoc($terms, 'parent');
+            krsort($terms_by_parent);
+
+            foreach ( $terms_by_parent as $parent_id => $children_terms ){
+
+            	$t = str_replace('-', ' ', $taxonomy);
+
+            	//$out .= "<h5>".$t.":</h5>";
+
+                if($parent_id != 0){//Childs
+                    //Add parent to out string
+                    $parent_term = $terms_by_id[$parent_id][0]; //[0] because object_group_assoc return each element in an array
+                    $out .= '<li class="item"><a href="' .get_term_link($parent_term->slug, $taxonomy) .'">'.$parent_term->name.'</a>';
+                    //Add children to out string
+                    $out .= '<ul>';
+                    foreach ($children_terms as $child_term) {
+
+                        $out .= '<li class="item"><a href="' .get_term_link($child_term->slug, $taxonomy) .'">'.$child_term->name.'</a></li>';
+                    }
+                    $out .= '</ul></li>';
+
+                } else {//parent_id == 0
+
+                    foreach ($children_terms as $child_term) {
+                        if(!array_key_exists($child_term->term_id, $terms_by_parent)){//Not displayed yet becouse it doesn't has children
+                            $out .= '<li class="item"><a href="' .get_term_link($child_term->slug, $taxonomy) .'">'.$child_term->name.'</a></li>';
+                        }
+
+                    }
+                    //$out .= '</ul>';
                 }
             }
 

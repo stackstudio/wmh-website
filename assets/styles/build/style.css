@@ -177,58 +177,14 @@ This theme, like WordPress, is licensed under the GPL.
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transform: scale(0.85,0.85);
-    -moz-transform: scale(0.85,0.85);
     -ms-transform: scale(0.85,0.85);
-    -o-transform: scale(0.85,0.85);
     transform: scale(0.85,0.85);
   }
   100% {
     opacity: 1;
     filter: alpha(opacity=100);
     -webkit-transform: scale(1.0,1.0);
-    -moz-transform: scale(1.0,1.0);
     -ms-transform: scale(1.0,1.0);
-    -o-transform: scale(1.0,1.0);
-    transform: scale(1.0,1.0);
-  }
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: scale(0.85,0.85);
-    -moz-transform: scale(0.85,0.85);
-    -ms-transform: scale(0.85,0.85);
-    -o-transform: scale(0.85,0.85);
-    transform: scale(0.85,0.85);
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: scale(1.0,1.0);
-    -moz-transform: scale(1.0,1.0);
-    -ms-transform: scale(1.0,1.0);
-    -o-transform: scale(1.0,1.0);
-    transform: scale(1.0,1.0);
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: scale(0.85,0.85);
-    -moz-transform: scale(0.85,0.85);
-    -ms-transform: scale(0.85,0.85);
-    -o-transform: scale(0.85,0.85);
-    transform: scale(0.85,0.85);
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: scale(1.0,1.0);
-    -moz-transform: scale(1.0,1.0);
-    -ms-transform: scale(1.0,1.0);
-    -o-transform: scale(1.0,1.0);
     transform: scale(1.0,1.0);
   }
 }
@@ -237,21 +193,25 @@ This theme, like WordPress, is licensed under the GPL.
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transform: scale(0.85,0.85);
-    -moz-transform: scale(0.85,0.85);
     -ms-transform: scale(0.85,0.85);
-    -o-transform: scale(0.85,0.85);
     transform: scale(0.85,0.85);
   }
   100% {
     opacity: 1;
     filter: alpha(opacity=100);
     -webkit-transform: scale(1.0,1.0);
-    -moz-transform: scale(1.0,1.0);
     -ms-transform: scale(1.0,1.0);
-    -o-transform: scale(1.0,1.0);
     transform: scale(1.0,1.0);
   }
 }
+/*  Mixin for - border-image
+    
+    $border-image([$image-url], [$offsets], [$repeats])
+    
+    Example:
+    @include border-image("border.png", 100%, 1, 0, stretch);
+
+---------------------------------------- */
 /* Media Queries */
 /* ==========================================================================
    Variables
@@ -445,7 +405,6 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -586,8 +545,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
 }
@@ -851,8 +808,6 @@ textarea {
 *,
 :before,
 :after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -878,16 +833,12 @@ body {
 a {
   color: red;
   -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
-  -moz-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
-  -o-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
 }
 
 a:hover {
   color: blue;
   -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
-  -moz-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
-  -o-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s;
 }
 
@@ -1132,9 +1083,7 @@ address {
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
@@ -1199,8 +1148,6 @@ address {
 .leaflet-container *,
 .leaflet-container *:after,
 .leaflet-container *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -1284,7 +1231,8 @@ address {
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none;
+  -ms-user-select: none;
+      user-select: none;
 }
 
 .leaflet-marker-icon,
@@ -1293,7 +1241,8 @@ address {
 }
 
 .leaflet-tile {
-  filter: inherit;
+  -webkit-filter: inherit;
+          filter: inherit;
   visibility: hidden;
 }
 
@@ -1386,8 +1335,6 @@ address {
 .leaflet-fade-anim .leaflet-popup {
   opacity: 0;
   -webkit-transition: opacity 0.2s linear;
-  -moz-transition: opacity 0.2s linear;
-  -o-transition: opacity 0.2s linear;
   transition: opacity 0.2s linear;
 }
 
@@ -1398,8 +1345,6 @@ address {
 
 .leaflet-zoom-anim .leaflet-zoom-animated {
   -webkit-transition: -webkit-transform 0.25s cubic-bezier(0, 0, 0.25, 1);
-  -moz-transition: -moz-transform 0.25s cubic-bezier(0, 0, 0.25, 1);
-  -o-transition: -o-transform 0.25s cubic-bezier(0, 0, 0.25, 1);
   transition: transform 0.25s cubic-bezier(0, 0, 0.25, 1);
 }
 
@@ -1407,8 +1352,6 @@ address {
 .leaflet-pan-anim .leaflet-tile,
 .leaflet-touching .leaflet-zoom-animated {
   -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
   transition: none;
 }
 
@@ -1419,7 +1362,6 @@ address {
 /* cursors */
 .leaflet-container {
   cursor: -webkit-grab;
-  cursor: -moz-grab;
 }
 
 .leaflet-overlay-pane path,
@@ -1440,7 +1382,6 @@ address {
 .leaflet-dragging .leaflet-container {
   cursor: move;
   cursor: -webkit-grabbing;
-  cursor: -moz-grabbing;
 }
 
 .leaflet-zoom-box {
@@ -1811,8 +1752,6 @@ address {
   overflow: auto;
   opacity: 1;
   -webkit-transition: opacity 150ms;
-  -moz-transition: opacity 150ms;
-  -o-transition: opacity 150ms;
   transition: opacity 150ms;
 }
 
@@ -1866,7 +1805,8 @@ address {
 
 .mapbox-modal.active > div {
   z-index: 99999;
-  transition: all .2s, z-index 0 0;
+  -webkit-transition: all .2s, z-index 0 0;
+          transition: all .2s, z-index 0 0;
 }
 
 .mapbox-modal .mapbox-modal-mask {
@@ -1880,14 +1820,12 @@ address {
 
 .mapbox-modal .mapbox-modal-content {
   -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   transform: translateY(-100%);
 }
 
 .mapbox-modal.active .mapbox-modal-content {
   -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
@@ -2008,8 +1946,6 @@ address {
   border-radius: 0 3px 3px 0;
   opacity: 0;
   -webkit-transition: opacity 100ms;
-  -moz-transition: opacity 100ms;
-  -o-transition: opacity 100ms;
   transition: opacity 100ms;
 }
 
@@ -2281,31 +2217,15 @@ address {
   margin: 20px auto;
 }
 
+body.post-type-archive-case-studies .site {
+  background: black;
+}
+
 .null {
   visibility: hidden;
 }
 
 @-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-}
-@-moz-keyframes fade-in {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-}
-@-o-keyframes fade-in {
   0% {
     opacity: 0;
     filter: alpha(opacity=0);
@@ -2326,30 +2246,6 @@ address {
   }
 }
 @-webkit-keyframes slide-fade-left {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    margin-left: -50%;
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    margin-left: 0px;
-  }
-}
-@-moz-keyframes slide-fade-left {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    margin-left: -50%;
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    margin-left: 0px;
-  }
-}
-@-o-keyframes slide-fade-left {
   0% {
     opacity: 0;
     filter: alpha(opacity=0);
@@ -2385,30 +2281,6 @@ address {
     margin-left: 0%;
   }
 }
-@-moz-keyframes slide-fade-right {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    margin-left: 60%;
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    margin-left: 0%;
-  }
-}
-@-o-keyframes slide-fade-right {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    margin-left: 60%;
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    margin-left: 0%;
-  }
-}
 @keyframes slide-fade-right {
   0% {
     opacity: 0;
@@ -2424,8 +2296,6 @@ address {
 .fade-in {
   visibility: visible;
   -webkit-animation: fade-in .6s;
-  -moz-animation: fade-in .6s;
-  -o-animation: fade-in .6s;
   animation: fade-in .6s;
 }
 
@@ -2541,6 +2411,47 @@ address {
   display: none;
 }
 
+.secondary-nav {
+  display: block;
+  padding: 0;
+  margin-top: 81px;
+}
+.secondary-nav > ul {
+  display: table;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.secondary-nav > ul > li {
+  -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
+  transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
+  list-style: none;
+  display: table-cell;
+  text-align: center;
+  border-left: 1px solid #333;
+  width: 157px;
+  background: #f00;
+  box-sizing: border-box;
+  color: #ffffff;
+  padding: 20px;
+  cursor: pointer;
+}
+.secondary-nav > ul > li:hover {
+  color: #f00;
+  background: #000;
+  -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
+  transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
+}
+.secondary-nav > ul > li.active {
+  color: #f00;
+  background: #000;
+}
+.secondary-nav > ul > li > a {
+  display: block;
+  text-decoration: none;
+}
+
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -2559,16 +2470,12 @@ address {
     width: auto;
     visibility: visible;
     -webkit-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-    -moz-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-    -o-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     height: 45px;
   }
 }
 #socials.open {
   -webkit-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-  -moz-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-  -o-transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
   transition: all 1s cubic-bezier(0, 0, 0.2, 1) 0.3s;
   position: relative;
   float: none;
@@ -2824,8 +2731,6 @@ object {
   width: 490px;
   padding: 20px;
   -webkit-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
-  -moz-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
-  -o-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
   transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
   opacity: 1;
   filter: alpha(opacity=100);
@@ -2841,8 +2746,6 @@ object {
 }
 .work-block .entry-content.up {
   -webkit-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
-  -moz-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
-  -o-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
   transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 1s;
   top: -100%;
 }
@@ -2860,58 +2763,14 @@ object {
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transform: translate(0,0);
-    -moz-transform: translate(0,0);
     -ms-transform: translate(0,0);
-    -o-transform: translate(0,0);
     transform: translate(0,0);
   }
   100% {
     opacity: 1;
     filter: alpha(opacity=100);
     -webkit-transform: translate(100px,100px);
-    -moz-transform: translate(100px,100px);
     -ms-transform: translate(100px,100px);
-    -o-transform: translate(100px,100px);
-    transform: translate(100px,100px);
-  }
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: translate(0,0);
-    -moz-transform: translate(0,0);
-    -ms-transform: translate(0,0);
-    -o-transform: translate(0,0);
-    transform: translate(0,0);
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: translate(100px,100px);
-    -moz-transform: translate(100px,100px);
-    -ms-transform: translate(100px,100px);
-    -o-transform: translate(100px,100px);
-    transform: translate(100px,100px);
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: translate(0,0);
-    -moz-transform: translate(0,0);
-    -ms-transform: translate(0,0);
-    -o-transform: translate(0,0);
-    transform: translate(0,0);
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: translate(100px,100px);
-    -moz-transform: translate(100px,100px);
-    -ms-transform: translate(100px,100px);
-    -o-transform: translate(100px,100px);
     transform: translate(100px,100px);
   }
 }
@@ -2920,18 +2779,14 @@ object {
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transform: translate(0,0);
-    -moz-transform: translate(0,0);
     -ms-transform: translate(0,0);
-    -o-transform: translate(0,0);
     transform: translate(0,0);
   }
   100% {
     opacity: 1;
     filter: alpha(opacity=100);
     -webkit-transform: translate(100px,100px);
-    -moz-transform: translate(100px,100px);
     -ms-transform: translate(100px,100px);
-    -o-transform: translate(100px,100px);
     transform: translate(100px,100px);
   }
 }
@@ -2974,8 +2829,6 @@ article.case-studies {
     width: 490px;
     padding: 20px;
     -webkit-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-    -moz-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-    -o-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -2991,8 +2844,6 @@ article.case-studies {
   }
   .case-studies .entry-content.up {
     -webkit-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-    -moz-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-    -o-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     top: -100%;
   }
@@ -3010,14 +2861,19 @@ article.case-studies {
   margin: 10px 0;
   border-top: solid 1px #000;
 }
-#taxonomies .terms {
-  list-style: none;
+#taxonomies h5 {
+  margin: 0;
+  float: left;
+  padding: 0px 0px;
+  text-transform: uppercase;
 }
-#taxonomies ul > h5 {
+#taxonomies ul {
   margin: 0;
   float: left;
   padding: 0px 0;
-  text-transform: uppercase;
+}
+#taxonomies .terms {
+  list-style: none;
 }
 
 #taxonomies ul:first-child {
@@ -3034,6 +2890,9 @@ article.case-studies {
   float: left;
   line-height: 1em;
 }
+#taxonomies ul.terms li:after {
+  content: ',';
+}
 #taxonomies ul.terms li.item a {
   line-height: 1em;
   float: left;
@@ -3046,6 +2905,9 @@ article.case-studies {
   float: right;
   padding: 0;
   list-style: none;
+}
+#taxonomies ul.terms li > ul > li.item:last-child:after {
+  content: ' ';
 }
 
 .slick-next,
@@ -3093,16 +2955,15 @@ article.case-studies {
 }
 
 #our-work {
-  margin-top: 81px;
   overflow: hidden;
 }
 
 .project {
-  display: none;
+  /*display: none;*/
   height: 275px;
-  background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 0;
 }
 .project > a {
@@ -3116,8 +2977,6 @@ article.case-studies {
 .project > a > .block .wrap h1 {
   padding-top: 70px;
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
-  -moz-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   color: black;
   text-transform: capitalize;
@@ -3129,8 +2988,6 @@ article.case-studies {
 .project > a:hover > .block .wrap h1 {
   padding-top: 0px;
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
-  -moz-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
 }
 
@@ -3205,9 +3062,6 @@ article.case-studies {
   margin: 0;
   background-repeat: no-repeat;
   background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   position: relative;
   display: table;
@@ -3224,12 +3078,18 @@ article.case-studies {
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
-  -moz-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
 }
 .case-study > .module > a {
   text-decoration: none;
+}
+.case-study > .module > a > .entry-header {
+  padding: 0px 0px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.case-study > .module > a > .entry-content {
+  margin-bottom: 10px;
 }
 .case-study > .module.on {
   opacity: 1;
@@ -3238,8 +3098,16 @@ article.case-studies {
 
 .category-name {
   color: black;
-  padding: 0;
-  margin: 10px;
+  padding: 0 10px;
+  margin: 0 auto;
+  width: inherit;
+  display: inline;
+  /*@include border-image("http://i.stack.imgur.com/nFS60.jpg", 50%, 1, 2, stretch);
+  border-image: url('assets/images/dot.png') 0% 75% stretch;*/
+  -webkit-border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
+  border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
+  border-image-width: 7px;
+  border-image-outset: 0;
 }
 
 .category-description {

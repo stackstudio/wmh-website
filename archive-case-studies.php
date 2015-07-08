@@ -13,9 +13,23 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
+		<nav class="secondary-nav" role="navigation">
+			<?php
+			$terms = get_terms( 'sectors' );
+			 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+			     echo '<ul>';
+			     echo '<li data-filter="*">All</li>';
+			     foreach ( $terms as $term ) {
+			       echo '<li data-filter=".'.$term->slug.'">' . $term->name . '</li>';
+			        
+			     }
+			     echo '</ul>';
+			 }
+			?>
+		</nav>
 
 				
-				<section id="our-work">
+				<section class="work" id="our-work">
 				</section>
 
 			<?php _mbbasetheme_paging_nav(); ?>

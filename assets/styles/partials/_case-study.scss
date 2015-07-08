@@ -111,14 +111,19 @@ article.case-studies{
 #taxonomies{
 	margin: 10px 0;
 	border-top: solid 1px #000;
-	& .terms{
-		list-style: none;
+	& h5{
+		margin: 0;
+		float: left;
+		padding: 0px 0px;
+		text-transform: uppercase;
 	}
-	& ul > h5{
+	& ul{
 		margin: 0;
 		float: left;
 		padding: 0px 0;
-		text-transform: uppercase;
+	}
+	& .terms{
+		list-style: none;
 	}
 }
 #taxonomies ul:first-child{
@@ -132,6 +137,9 @@ article.case-studies{
 	& li{
 		float: left;
 		line-height: 1em;
+		&:after{
+			content: ',';
+		}
 		&.item a{
 			line-height: 1em;
 			float: left;
@@ -142,8 +150,11 @@ article.case-studies{
 		}
 		& > ul{
 			float: right;
-			  padding: 0;
-			  list-style: none;
+			padding: 0;
+			list-style: none;
+			& > li.item:last-child:after{
+				content: ' ';
+			}
 		}
 	}
 }
@@ -188,16 +199,13 @@ article.case-studies{
 }
 
 #our-work{
-	margin-top: 81px;
 	overflow: hidden;
 }
 
 .project{
-	display: none;
+	/*display: none;*/
 	height: 275px;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	@include bgimage;
 	padding: 0;
 	& > a{
 		background-color: rgba(255,255,255,0.65);

@@ -84,6 +84,7 @@
 
     add_action('init', 'create_brand_types_taxonomies');
     add_action('init', 'create_press_taxonomies');
+    add_action('init', 'create_sector_taxonomies');
 
     function create_brand_types_taxonomies() {
         $labels = array(
@@ -122,6 +123,28 @@
         );
 
         register_taxonomy('press', 'case-studies', array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_in_nav_menus' => true
+        ));
+        flush_rewrite_rules(false);
+    }
+
+    function create_sector_taxonomies() {
+        $labels = array(
+            'name' => __('Sectors'),
+            'singular_name' => __('Sector'),
+            'search_items' => __('Search Sectors'),
+            'all_items' => __('All Sectors'),
+            'parent_item' => __('Parent Sector'),
+            'parent_item_colon' => __('Parent Sector:'),
+            'edit_item' => __('Edit Sector'),
+            'update_item' => __('Update Sector'),
+            'add_new_item' => __('Add Sector'),
+            'new_item_name' => __('New Sector')
+        );
+
+        register_taxonomy('sectors', 'case-studies', array(
             'hierarchical' => true,
             'labels' => $labels,
             'show_in_nav_menus' => true

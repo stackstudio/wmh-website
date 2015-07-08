@@ -241,7 +241,7 @@
 
 	      	window.setTimeout(function(){
 		  		$('.case-studies .entry-content').removeClass('up').addClass('down');
-		  	},100);
+		  	},25);
 
 	      	var layoutHTML = "", oneColImg = "";
 
@@ -360,19 +360,35 @@
 		      	// We use base as our global object to find resources we need
 		      		var projects = work;
 		      		$.each(projects, function(i, item){
-		      			//item.meta.main_image.url
+
+		      			slugs = [];
 		      			console.log(item);
+		      			for(var d = 0; d < item.terms.sectors.length; d++) {
+				      		var slugItem = item.terms.sectors[d].slug;
+				      		slugs.push(slugItem);
+				      	};
+						var slugsArr = slugs.join(' ');
 		      			var siteMain = $("#our-work");
 		      			var tester = $('<?php _basetheme_post_thumbnail_helper(); ?>');
-		      			var content = $("<article id='post-"+item.ID+"' style='background-image: url("+ item.meta.main_image.url +");' class='col-1-4 project "+item.type+"'><a href='"+item.link+"' title='Link to "+item.title+"'><div class='block'><div class='wrap'><h1 class=''>"+item.title+"</h1></div></div></a></article>");
+		      			var content = $("<article id='post-"+item.ID+"' style='background-image: url("+ item.meta.main_image.url +");' class='"+slugsArr+" col-1-4 project "+item.type+"'><a href='"+item.link+"' title='Link to "+item.title+"'><div class='block'><div class='wrap'><h1 class=''>"+item.title+"</h1></div></div></a></article>");
 				  		setTimeout(function(){
-				  			siteMain.append(content);
-				  			content.hide();
-				  			content.fadeIn();
+				  			siteMain.append(content).isotope('insert', content);
+				  			//content.hide();
+				  			//content.fadeIn();
 				  		}, 500*(i+1));
 					});
 		      },
 		      cache: false
+		    }).then(function(){
+
+		        $container = $('#our-work');
+		        //container.isotope('reLayout');
+			   $container.isotope({
+			    // options
+			    itemSelector: '.project',
+                layoutMode: 'fitRows'
+			  });
+
 		    });
 
 		}
@@ -459,6 +475,33 @@
 	  });
 
 	};
+	var isoTope = function() {
+
+		$.fn.hideReveal = function( options ) {
+		  options = $.extend({
+		    filter: '*',
+		    hiddenStyle: { opacity: 0.2 },
+		    visibleStyle: { opacity: 1 },
+		  }, options );
+		  this.each( function() {
+		    var $items = $(this).children();
+		    var $visible = $items.filter( options.filter );
+		    var $hidden = $items.not( options.filter );
+		    // reveal visible
+		    $visible.animate( options.visibleStyle );
+		    // hide hidden
+		    $hidden.animate( options.hiddenStyle );
+		  });
+		};
+
+		$('.secondary-nav ul').on( 'click', 'li', function() {
+		  var filterValue = $(this).attr('data-filter');
+		  var parentL = $(this);
+		  parentL.addClass('active').siblings(parentL.parent()).removeClass('active');
+		  $('#our-work').hideReveal({ filter: filterValue });
+		});
+
+	};
 
 	// Some more dependent js goes here :)
 	widthCheck();
@@ -471,6 +514,7 @@
 	addLoaders();
 	mobileMenuTouch();
 	initMap();
+	isoTope();
 
 
 })(jQuery);

@@ -163,11 +163,11 @@ get_header(); ?>
 		</section>
 		<section id="related-work">
 			<section id="main-work" style="display: none;" class="inner-wrap">
-				<h1>Similar Jobs</h1>
+				<h1>More like this</h1>
 			</section>
 			<noscript>
 				<section class="inner-wrap">
-					<h1>Similar Jobs</h1>
+					<h1>More like this</h1>
 					<?php getSimilarWork(); ?>
 				</section>
 			</noscript>

@@ -16,9 +16,13 @@ get_header(); ?>
 
 			<header class="page-header">
 				<h1 class="page-title">
+					Awards
 					<?php
 						if ( is_category() ) :
 							single_cat_title();
+
+						elseif ( is_tax() ) :
+							single_tax_title();
 
 						elseif ( is_tag() ) :
 							single_tag_title();

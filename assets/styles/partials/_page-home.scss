@@ -23,6 +23,14 @@ body.home {}
 		@include animate(0.5s, 0s);
 		& > a{
 			text-decoration: none;
+			& > .entry-header{
+				padding: 0px 0px;
+				border-top: 1px solid #000;
+				border-bottom: 1px solid #000;
+			}
+			& > .entry-content{
+				margin-bottom: 10px;
+			}
 		}
 		&.on{
 			@include opacity(1.0);
@@ -31,8 +39,19 @@ body.home {}
 }
 .category-name{
 	color: black;
-	  padding: 0;
-  margin: 10px;
+	padding: 0 10px;
+	margin: 0 auto;
+	width: inherit;
+	display: inline;
+
+	/*@include border-image("http://i.stack.imgur.com/nFS60.jpg", 50%, 1, 2, stretch);
+	border-image: url('assets/images/dot.png') 0% 75% stretch;*/
+
+	-moz-border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
+	-webkit-border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
+	border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
+	border-image-width: 7px;
+  	border-image-outset: 0;
 }
 .category-description{
 	color: black;
