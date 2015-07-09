@@ -6,10 +6,12 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?> generic-bg" <?php post_class('work-block generic-bg'); ?> style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
+<article id="post-<?php the_ID(); ?>" <?php post_class('work-block'); ?>>
 
 	<div class="entry-content up">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
+	<article id="generic-bg" <?php post_class('generic-bg'); ?> style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
+	</article>
 
 </article><!-- #post-## -->
