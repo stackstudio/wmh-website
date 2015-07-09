@@ -50,15 +50,40 @@ img {
 	max-width: 100%; /* Adhere to container width. */
 }
 
+// Fixes ios7 incorect scaling of svg images.
+svg {
+	max-height: 100%;
+}
+
 
 /* ==========================================================================
    Typography
    ========================================================================== */
 
-h1 { }
-h2 { }
-h3 { }
-h4 { }
+h1 {
+	font-size: 1.7em;
+	@include mobile-device {
+		font-size: 2em;
+	}
+}
+h2 {
+	font-size: 1.325em;
+	@include mobile-device {
+		font-size: 1.625em;
+	} 
+}
+h3 { 
+	font-size: 1.125em;
+	@include mobile-device {
+		font-size: 1.425em;
+	}
+}
+h4 { 
+	font-size: 1.05em;
+	@include mobile-device {
+		font-size: 1.125em;
+	}
+}
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;

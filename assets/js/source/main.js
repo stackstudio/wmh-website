@@ -36,7 +36,7 @@
 		  	$('body').addClass('mobile-active');
 		  	$('#site-navigation').addClass('mobile');
 		  	$('#socials').appendTo('.menu-the-menu-container');
-		  	caseStudy.css('height', '375px');
+		  	caseStudy.css('height', '320px');
 
 		  } else {
 
