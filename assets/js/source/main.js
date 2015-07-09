@@ -370,7 +370,7 @@
 						var slugsArr = slugs.join(' ');
 		      			var siteMain = $("#our-work");
 		      			var tester = $('<?php _basetheme_post_thumbnail_helper(); ?>');
-		      			var content = $("<article id='post-"+item.ID+"' style='background-image: url("+ item.meta.main_image.url +");' class='"+slugsArr+" col-1-4 project "+item.type+"'><a href='"+item.link+"' title='Link to "+item.title+"'><div class='block'><div class='wrap'><h1 class=''>"+item.title+"</h1></div></div></a></article>");
+		      			var content = $("<article data-index='"+i+"' id='post-"+item.ID+"' style='background-image: url("+ item.meta.main_image.url +");' class='"+slugsArr+" col-1-4 project "+item.type+"'><a href='"+item.link+"' title='Link to "+item.title+"'><div class='block'><div class='wrap'><h1 class=''>"+item.title+"</h1></div></div></a></article>");
 				  		setTimeout(function(){
 				  			siteMain.append(content).isotope('insert', content);
 				  			//content.hide();
@@ -488,17 +488,29 @@
 		    var $visible = $items.filter( options.filter );
 		    var $hidden = $items.not( options.filter );
 		    // reveal visible
-		    $visible.animate( options.visibleStyle );
+		    //$visible.animate( options.visibleStyle );
+		    $visible.addClass('this-visible').removeClass('this-hidden');
 		    // hide hidden
-		    $hidden.animate( options.hiddenStyle );
+		    //$hidden.animate( options.hiddenStyle );
+		    $hidden.addClass('this-hidden').removeClass('this-visible');
+
 		  });
 		};
 
 		$('.secondary-nav ul').on( 'click', 'li', function() {
 		  var filterValue = $(this).attr('data-filter');
 		  var parentL = $(this);
+		  var ArticleP = $('#our-work'),
+		  	ArticleC = ArticleP.children();
 		  parentL.addClass('active').siblings(parentL.parent()).removeClass('active');
+		  //$('#our-work').isotope({ filter: filterValue });
 		  $('#our-work').hideReveal({ filter: filterValue });
+		 //  if( ArticleC.hasClass('this-visible') ) {
+			//     ArticleP.find('.project').sort(sort_li).appendTo('body');
+			// 	function sort_li(a, b){
+			// 	    return ($(b).data('index')) < ($(a).data('index')) ? 1 : -1;    
+			// 	}
+			// }
 		});
 
 	};

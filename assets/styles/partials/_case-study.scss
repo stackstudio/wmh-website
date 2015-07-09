@@ -203,7 +203,6 @@ article.case-studies{
 }
 
 .project{
-	/*display: none;*/
 	height: 275px;
 	@include bgimage;
 	padding: 0;
@@ -228,7 +227,15 @@ article.case-studies{
 		}
 	}
 }
-
+.this-visible{
+	@include opacity(1);
+	@include animate(0.5s, 0s);
+	
+}
+.this-hidden{
+	@include opacity(0.5);
+	@include animate(0.5s, 0s);
+}
 
 
 /* Make sure embeds and iframes fit their containers */
