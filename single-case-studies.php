@@ -160,6 +160,102 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 		<!-- Get some similar posts -->
 		</noscript>
+		<?php 
+		if ( is_preview() ) { ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+
+			<?php
+				// $url = get_the_permalink();
+				// $title = get_the_title();
+				$mainImage = get_field('main_image');
+
+
+				// check if the flexible content field has rows of data
+				if( have_rows('work_content') ):
+
+					if($mainImage){
+						echo '<div class="col"><img src="'. $mainImage['url'] .'" alt="'.$mainImage['title'].' image"></div>';
+					}
+				 
+				     // loop through the rows of data
+				    while ( have_rows('work_content') ) : the_row();
+				 
+				        if( get_row_layout() == 'full_screen_video' ):
+
+				        	$video = get_sub_field('the_video');
+				        	$videoObject = get_sub_field('video_upload'); 
+				        	if ( $video ) {
+				        		echo '<div class="col col-video">'.$video.'</div>';
+				        	} elseif ( $videoObject ) {
+				        		echo '<div class="col col-video">'.$videoObject.'</div>';
+				        	} else {
+				        		
+				        	}
+				        elseif( get_row_layout() == 'single_full_image' ):
+				        	$img = get_sub_field('image');
+
+				        	echo '<div class="col"><img src="'. $img['url'] .'" alt="'.$img['title'].' image"></div>'; 
+				 
+				        elseif( get_row_layout() == 'content_area' ):
+
+				        	$content = get_sub_field('text'); 
+				 
+				        	echo '<div class="col-1-2 half-col-text">'.$content.'</div>';
+
+				        elseif( get_row_layout() == 'gallery' ):
+
+				        	$gallery = get_sub_field('images');
+
+				       		if( $gallery ):
+				       		echo '<div class="col-1-2 half-col-images">';
+				            foreach( $gallery as $image ):
+
+				            	echo '<img src="'. $image['url'] .'"'. 'alt="'. $image['alt'] .'" />';
+
+				            endforeach;
+				            echo '</div>';
+				            endif;
+				 			
+
+				 		elseif( get_row_layout() == '2_column_images' ):
+
+				 			$imageLeft = get_sub_field('image_1'); 
+				 			$imageRight = get_sub_field('image_2');
+				        	$imageLinkL = $imageLeft['url']; $altL = $imageLeft['title'];
+				        	$imageLinkR = $imageRight['url']; $altR = $imageRight['title'];
+
+				        	echo '<div class="col col-image"><img src="'.$imageLinkL.'" alt="'.$altL.'" />';
+				        	echo '<img src="'.$imageLinkR.'" alt="'.$altR.'" /></div>';
+
+				        elseif( get_row_layout() == 'gallery' ):
+
+				        	$gridimages = get_sub_field('grid_gallery');
+
+				       		if( $gridimages ):
+				       		echo '<div class="col- grid-gallery">';
+				            foreach( $gridimages as $imageG ):
+				            	$imageDM = $imageG['description'];
+				            	echo '<img style="width:' . $imageDM . ';" src="'. $imageG['url'] .'"'. 'alt="'. $imageG['alt'] .'" />';
+				            endforeach;
+				            echo '</div>';
+				            endif;
+				 
+				        endif;
+				 
+				    endwhile;
+				 
+				else :
+				 
+				    // no layouts found
+				 
+				endif;
+				 
+				?>
+
+			<?php _mbbasetheme_post_nav(); ?>
+
+		<?php endwhile; // end of the loop. ?>
+		<?php } ?>
 		</section>
 		<section id="related-work">
 			<section id="main-work" style="display: none;" class="inner-wrap">
