@@ -48,6 +48,7 @@ a:hover {
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
+	min-width: 100%; /* Because the container has no bounds there is no nominal width to hold onto */
 }
 
 // Fixes ios7 incorect scaling of svg images.
