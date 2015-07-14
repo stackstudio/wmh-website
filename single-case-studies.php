@@ -160,8 +160,10 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 		<!-- Get some similar posts -->
 		</noscript>
+		</section>
 		<?php 
 		if ( is_preview() ) { ?>
+		<section id="preview-area">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php
@@ -255,8 +257,8 @@ get_header(); ?>
 			<?php _mbbasetheme_post_nav(); ?>
 
 		<?php endwhile; // end of the loop. ?>
-		<?php } ?>
 		</section>
+		<?php } ?>
 		<section id="related-work">
 			<section id="main-work" style="display: none;" class="inner-wrap">
 				<h1>More like this</h1>
