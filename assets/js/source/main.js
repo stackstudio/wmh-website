@@ -47,6 +47,7 @@
 	        var remainHeight = parseInt('22');
 	        $('#full-screen-video').css('width',$window.width() + 60);
 	        $('#full-screen-video').css('height',h);
+	        $(".generic-bg").css({"height": $window.height(), "width": $window.width() });
 
 	        $('#socials').appendTo('.site-header');
 	        $('#site-navigation').removeClass('mobile');

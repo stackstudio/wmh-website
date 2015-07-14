@@ -269,3 +269,16 @@ function custom_taxonomies_terms_links() {
     $out .= "</ul>";
     return $out;
 }
+
+
+function remove_hentry( $classes ) {
+
+	$classes = array_diff($classes, array('hentry'));	
+
+	return $classes;
+}
+// function jrh_post_names($classes) {
+// 	$classes = array_diff($classes, array("tag-link", "tag-links"));
+// 	return $classes;
+// }
+add_filter('post_class','remove_hentry');

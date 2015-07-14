@@ -2457,9 +2457,14 @@ body.post-type-archive-case-studies .site {
 }
 
 .secondary-nav {
-  display: block;
-  padding: 0;
-  margin-top: 81px;
+  margin-top: 0px;
+}
+@media only screen and (min-width: 560px) {
+  .secondary-nav {
+    display: block;
+    padding: 0;
+    margin-top: 81px;
+  }
 }
 .secondary-nav > ul {
   display: table;
@@ -2472,15 +2477,22 @@ body.post-type-archive-case-studies .site {
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   list-style: none;
-  display: table-cell;
   text-align: center;
-  border-left: 1px solid #333;
-  width: 157px;
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #333;
   background: #f00;
   box-sizing: border-box;
   color: #ffffff;
   padding: 20px;
   cursor: pointer;
+}
+@media only screen and (min-width: 560px) {
+  .secondary-nav > ul > li {
+    display: table-cell;
+    border-left: 1px solid #333;
+    width: 157px;
+  }
 }
 .secondary-nav > ul > li:hover {
   color: #f00;

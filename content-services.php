@@ -11,7 +11,7 @@
 	<div class="entry-content up">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
-	<article id="generic-bg" <?php post_class('generic-bg'); ?> style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
+	<article id="generic-bg" class="generic-bg work-block" style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
 	</article>
 
 </article><!-- #post-## -->
