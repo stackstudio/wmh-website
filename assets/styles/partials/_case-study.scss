@@ -71,6 +71,9 @@ article.case-studies{
 		vertical-align: top;
 	}
 }
+#preview-area .col{
+	text-align: center;
+}
 .case-studies .entry-content{
 
 	position: relative;
@@ -230,7 +233,7 @@ article.case-studies{
 .this-visible{
 	@include opacity(1);
 	@include animate(0.5s, 0s);
-	
+
 }
 .this-hidden{
 	@include opacity(0.5);

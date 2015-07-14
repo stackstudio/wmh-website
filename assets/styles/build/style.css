@@ -2879,6 +2879,10 @@ article.case-studies {
   vertical-align: top;
 }
 
+#preview-area .col {
+  text-align: center;
+}
+
 .case-studies .entry-content {
   position: relative;
   width: 100%;

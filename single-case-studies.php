@@ -254,8 +254,6 @@ get_header(); ?>
 				 
 				?>
 
-			<?php _mbbasetheme_post_nav(); ?>
-
 		<?php endwhile; // end of the loop. ?>
 		</section>
 		<?php } ?>
