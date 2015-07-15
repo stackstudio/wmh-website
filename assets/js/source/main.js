@@ -10,6 +10,7 @@
 	var projectContainer = $('article.case-studies #work-area');
 	var similarPostsSection = $('#related-work .inner-wrap');
 	var data = "http://" + top.location.host.toString() + '/wp-json/posts/';
+	var taxo = $('#taxonomies ul');
 
 	var _permId = $('#work-area').data('current-id');
 	var _brandTypes = $('#work-area').data('taxonomy-type');
@@ -515,6 +516,12 @@
 		});
 
 	};
+	var taxChecker = function() {
+		if ( taxo.children().length === 0 ) {
+			taxo.parent().hide();
+		}
+
+	};
 
 	// Some more dependent js goes here :)
 	widthCheck();
@@ -528,6 +535,7 @@
 	mobileMenuTouch();
 	initMap();
 	isoTope();
+	taxChecker();
 
 
 })(jQuery);
