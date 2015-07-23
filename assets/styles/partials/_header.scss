@@ -9,7 +9,6 @@
 	@include mobile-device {
 		padding: 0;
 		@include opacity(1);
-		float: right;
 		width: auto;
 		visibility: visible;
 		@include animate(1s, 0.3s);
@@ -37,7 +36,44 @@
 }
 
 
-img#mobile-menu-button{
+#menu-button{
+	width: 145px;
+	@include opacity(0);
+	visibility: hidden;
+	@include mobile-device {
+		padding: 5px;
+		@include opacity(1);
+		float: right;
+		width: 45px;
+		visibility: visible;
+		@include animate(1s, 0.3s);
+		height: 45px;
+	}
+	&.open{
+		@include animate(1s, 0.3s);
+		position:relative;
+		float: none;
+		clear: both;
+		text-align: center;
+		margin: 0 auto;
+		visibility: visible;
+		@include opacity(1);
+	}
+	
+}
+
+
+.hidden-menu{
+  position: fixed;
+  right: -50%;
+  top: 0px;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 999998;
+}
+
+/*img#mobile-menu-button{
 	@include mobile-device {
 		display: none;
 		padding: 0;
@@ -50,4 +86,4 @@ img#mobile-menu-button{
   	padding: 12px;
   	height: 47px;
   	cursor: pointer;
-}
+}*/
