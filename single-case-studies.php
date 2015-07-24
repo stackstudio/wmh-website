@@ -49,15 +49,14 @@ get_header(); ?>
 				 
 				        if( get_row_layout() == 'full_screen_video' ):
 
-				        	$video = get_sub_field('the_video');
-				        	$videoObject = get_sub_field('video_upload'); 
+				        	$video = get_sub_field('video_url');
+				        	// $videoObject = get_sub_field('video_upload'); 
 				        	if ( $video ) {
-				        		echo '<div class="col col-video">'.$video.'</div>';
-				        	} elseif ( $videoObject ) {
-				        		echo '<div class="col col-video">'.$videoObject.'</div>';
-				        	} else {
-				        		
+							echo '<section id="full-screen" class="col col-video work-block">';
+						    	echo '<iframe type="text/html" src="'.$video.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+							echo '</section>';
 				        	}
+				        		
 				        elseif( get_row_layout() == 'single_full_image' ):
 				        	$img = get_sub_field('image');
 
@@ -184,14 +183,12 @@ get_header(); ?>
 				 
 				        if( get_row_layout() == 'full_screen_video' ):
 
-				        	$video = get_sub_field('the_video');
-				        	$videoObject = get_sub_field('video_upload'); 
+				        	$video = get_sub_field('video_url');
+				        	// $videoObject = get_sub_field('video_upload'); 
 				        	if ( $video ) {
-				        		echo '<div class="col col-video">'.$video.'</div>';
-				        	} elseif ( $videoObject ) {
-				        		echo '<div class="col col-video">'.$videoObject.'</div>';
-				        	} else {
-				        		
+							echo '<section id="full-screen" class="col col-video work-block">';
+						    	echo '<iframe type="text/html" src="'.$video.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+							echo '</section>';
 				        	}
 				        elseif( get_row_layout() == 'single_full_image' ):
 				        	$img = get_sub_field('image');
