@@ -94,6 +94,7 @@ module.exports = function(grunt) {
                         'bower_components/fitvids/jquery.fitvids.js',
                         'bower_components/slick.js/slick/slick.js',
                         'bower_components/mapbox.js/mapbox.js',
+                        'bower_components/waitForImages/src/jquery.waitforimages.js',
                         'assets/js/vendor/imagesloaded.pkg.js'
                     ]
                 }

@@ -50,7 +50,7 @@
 	        $('#full-screen-video').css('height',h);
 	        $(".generic-bg").css({"height": $window.height(), "width": $window.width() });
 
-	        $('#socials').appendTo('.site-header');
+	        $('#socials').appendTo('.menu-the-menu-container');
 	        $('#site-navigation').removeClass('mobile');
 
 		    // Execute on load
@@ -434,12 +434,9 @@
 	var mobileMenuTouch = function() {
 
 		var flag = false;
-	  $('#mobile-menu-button').bind('touchstart click', function(e){
+	  $('#menu-button').on('click', function(e){
 
-	    // var open = $(this).parent().find('.open');
-	    // var close = $(this).parent().find('.closed');
-	    // var mobileSub = $('.mobile-nav ul.site-nav--dropdown'),
-	    // mobileSubHeight = mobileSub.height();
+	    $('body').css('overflow','hidden');
 
 	    if (!flag) {
 	      flag = true;
@@ -449,27 +446,31 @@
 			},100);
 
 	      if ( $('body').hasClass('mobile-active') ){
+
+	      	$('body').css('overflow','hidden');
 	        
 	        $('#site-navigation').addClass('mobile');
 	        $('body').removeClass('mobile-active');
-	        $(this).attr('src',mobileMenuActive);
-	        $('#site-navigation .menu-the-menu-container').transition({
-	            'height': '220px'
-	          });
+	        $(this).find('img').attr('src',mobileMenuActive);
+	        $('.hidden-menu').transition({
+	          'right': '0px'
+	        });
 
 	        window.setTimeout(function(){
 	  			$('#socials').addClass('open');
+	  			$('.menu-the-menu-container ul li').addClass('is--menu-active');
 	  		},750);
 
 	      } else {
-
-	        $(this).attr('src',mobileMenu);
+	      	$('body').css('overflow','inherit');
+	        $(this).find('img').attr('src',mobileMenu);
 	        $('body').addClass('mobile-active');
-	        $('#site-navigation .menu-the-menu-container').transition({
-	          'height': '0px'
+	        $('.hidden-menu').transition({
+	          'right': '-50%'
 	        });
 	  		
 	  		$('#socials').removeClass('open');
+	  		$('.menu-the-menu-container ul li').removeClass('is--menu-active');
 
 	      }
 	    }
@@ -522,6 +523,19 @@
 		}
 
 	};
+	var imagesLoaded = function() {
+		$('#work-area').waitForImages({
+		    finished: function() {
+		        // ...
+		        console.log('done');
+		    },
+		    each: function() {
+		       // ...
+		       console.log('image');
+		    },
+		    waitForAll: true
+		});
+	};
 
 	// Some more dependent js goes here :)
 	widthCheck();
@@ -536,6 +550,7 @@
 	initMap();
 	isoTope();
 	taxChecker();
+	imagesLoaded();
 
 
 })(jQuery);

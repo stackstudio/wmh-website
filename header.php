@@ -17,8 +17,8 @@
 	<?php wp_head(); ?>
 	<script>
 	// some global stuff here
-	var mobileMenu = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button.svg';
-	var mobileMenuActive = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button-active.svg';
+	var mobileMenu = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon.svg';
+	var mobileMenuActive = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon-open.svg';
 	</script>
 </head>
 
@@ -33,32 +33,40 @@
 		<div class="site-branding">
 			<h1 class="site-title">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-new.svg" alt="<?php bloginfo( 'name' ); ?> logo">
 				</a>
 			</h1>
 		</div>
-<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button.svg" alt="mobile nav button" id="mobile-menu-button">
-		<nav id="site-navigation" class="col-3-4 main-navigation" role="navigation">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
+<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button.svg" alt="mobile nav button" id="mobile-menu-button"> -->
 		<!-- img tag for mobile button -->
-		<div id="socials">
-			<ul>
-				<li class="vimeo">
-					<a href="#">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/vimeo.svg" alt="<?php bloginfo( 'name' ); ?> logo">
-					</a>
-				</li>
-				<li class="twitter">
-					<a href="#">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter.svg" alt="<?php bloginfo( 'name' ); ?> logo">
-					</a>
-				</li>
-				<li class="facebook">
-					<a href="#">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.svg" alt="<?php bloginfo( 'name' ); ?> logo">
-					</a>
-				</li>
-			</ul>
+		<div id="menu-button">
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon.svg" alt="<?php bloginfo( 'name' ); ?> menu icon">
 		</div>
 	</header><!-- #masthead -->
+	<div class="hidden-menu">
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			</nav>
+			<!-- #site-navigation -->
+			<!-- img tag for mobile button -->
+
+			<div id="socials">
+				<ul>
+					<li class="vimeo">
+						<a href="#">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/youtube-icon.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+						</a>
+					</li>
+					<li class="twitter">
+						<a href="#">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+						</a>
+					</li>
+					<li class="facebook">
+						<a href="#">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
