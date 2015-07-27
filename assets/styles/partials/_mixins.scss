@@ -279,6 +279,27 @@
 }
 
 
+@mixin border-radius($radius:5px){
+    @if length($radius) != 1 {
+        $i:1;
+        //covers older modzilla browsers
+        @each $position in (topleft, topright, bottomright, bottomright) {
+            -moz-border-radius-#{$position}:nth($radius, $i);
+            $i:$i+1;
+        }
+        //Covers webkit browsers
+        -webkit-border-radius:nth($radius, 1) nth($radius, 2) nth($radius, 3) nth($radius, 4);
+        //Standard CSS3
+        border-radius: nth($radius, 1) nth($radius, 2) nth($radius, 3) nth($radius, 4);
+    } @else {
+        -webkit-border-radius: $radius;
+        -moz-border-radius: $radius;
+        border-radius: $radius;
+        -khtml-border-radius: $radius;
+    }
+}
+
+
 
 
 @include keyframes(fadeIn) {
@@ -296,6 +317,33 @@
   // Apply the fadeIn keyframes. Each animation 
   // will take 0.3s and have an ease-in-out
   @include animation(fadeIn 0.3s ease-in-out);
+  // This animation should only play once
+  @include animation-iteration-count(1);
+  // Make sure the element maintains it's 
+  // final visual state (i.e. 100% opacity)
+  @include animation-fill-mode(forwards);
+  // Delay - don't start the animation until we say so
+  @include animation-delay(#{$delay}s);
+}
+
+
+
+
+// 360 spin shit
+
+@include keyframes(spinOut) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(-360deg));
+  }
+}
+
+@mixin animation--spinout($delay) {
+  // Apply the fadeIn keyframes. Each animation 
+  // will take 0.3s and have an ease-in-out
+  @include animation(spinOut 0.3s ease-in-out);
   // This animation should only play once
   @include animation-iteration-count(1);
   // Make sure the element maintains it's 

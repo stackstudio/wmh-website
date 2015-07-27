@@ -51,12 +51,12 @@ get_header(); ?>
 
 				        	$video = get_sub_field('video_url');
 				        	// $videoObject = get_sub_field('video_upload'); 
-				        	if ( $video ) {
+				        	if ( $video ):
 							echo '<section id="full-screen" class="col col-video work-block">';
 						    	echo '<iframe type="text/html" src="'.$video.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 							echo '</section>';
-				        	}
-				        		
+				        	endif;
+
 				        elseif( get_row_layout() == 'single_full_image' ):
 				        	$img = get_sub_field('image');
 
@@ -81,6 +81,45 @@ get_header(); ?>
 				            endforeach;
 				            echo '</div>';
 				            endif;
+
+
+				        elseif( get_row_layout() == 'full_screen_quote' ):
+				        	$quote = get_sub_field('quote');
+				        	echo '<section class="col full-screen-quote work-block">';
+				        		echo '<article class="block"><div class="wrap">'.$quote.'</div></article>';
+				        	echo '</section>';
+
+				        elseif( get_row_layout() == 'quote_with_image' ):
+				        	$quote_next = get_sub_field('quote_text');
+				        	$quote_image = get_sub_field('image');
+
+				        	echo '<section class="col quote-image work-block">';
+				        		echo '<article class="block"><div class="wrap">';
+				        			echo '<div class="col-1-2">'.$quote_next.'</div><div class="col-1-2"><img src="'. $quote_image['url'] .'" alt="'.$quote_image['title'].' image"></div>';
+				        		echo '</div></article>';
+				        	echo '</section>';
+
+				        elseif( get_row_layout() == 'fact_with_image' ):
+
+				        	$fact_next = get_sub_field('fact');
+				        	$fact_image = get_sub_field('image');
+
+				        	echo '<section class="col fact-image work-block">';
+				        		echo '<article class="block"><div class="wrap">';
+				        			echo '<div class="col-1-2">'.$fact_next.'</div><div class="col-1-2"><img src="'. $fact_image['url'] .'" alt="'.$quote_image['title'].' image"></div>';
+				        		echo '</div></article>';
+				        	echo '</section>';
+
+				        elseif( get_row_layout() == 'quote_with_fact' ):
+
+				        	$quote = get_sub_field('quote');
+				        	$fact = get_sub_field('fact');
+
+				        	echo '<section class="col quote-fact work-block">';
+				        		echo '<article class="block"><div class="wrap">';
+				        			echo '<div class="col-1-2">'.$quote.'</div><div class="col-1-2">'.$fact.'</div>';
+				        		echo '</div></article>';
+				        	echo '</section>';
 				 			
 
 				 		elseif( get_row_layout() == '2_column_images' ):
@@ -185,11 +224,12 @@ get_header(); ?>
 
 				        	$video = get_sub_field('video_url');
 				        	// $videoObject = get_sub_field('video_upload'); 
-				        	if ( $video ) {
+				        	if ( $video ):
 							echo '<section id="full-screen" class="col col-video work-block">';
 						    	echo '<iframe type="text/html" src="'.$video.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 							echo '</section>';
-				        	}
+				        	endif;
+
 				        elseif( get_row_layout() == 'single_full_image' ):
 				        	$img = get_sub_field('image');
 

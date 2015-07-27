@@ -18,7 +18,7 @@
 	// all Javascript code goes here
 	var newWidth = $(window).width();
 	var newHeight = $(window).height();
-	$(".generic-bg").css({"height": newHeight, "width": newWidth }); 
+	$(".generic-bg, .full-screen-quote, .quote-image, .fact-image, .quote-fact").css({"height": newHeight, "width": newWidth }); 
 
 
 	// =============================================================== //
@@ -34,12 +34,13 @@
 
 		  if (w <= 580) {
 
-		  	$('body').addClass('mobile-active');
+		  	$('body').addClass('menu-closed');
 		  	$('#site-navigation').addClass('mobile');
 		  	$('#socials').appendTo('.menu-the-menu-container');
 		  	caseStudy.css('height', '320px');
 
 		  } else {
+		  	$('body').addClass('menu-closed');
 
 		  	// $('.secondary-nav').addClass('non-mobile');
 	        var windowsize = $window.height();
@@ -52,6 +53,7 @@
 
 	        $('#socials').appendTo('.menu-the-menu-container');
 	        $('#site-navigation').removeClass('mobile');
+	        $('body').addClass('filter-closed');
 
 		    // Execute on load
 		    // Bind event listener
@@ -314,6 +316,32 @@
 						} else if(layout[key] === 'single_full_image') {
 							var image_full = layout.image;
 							layoutHTML += "<section class='col col-full-image work-block'><img src='"+image_full['url']+"' alt='"+image_full['title']+" image'></section>";
+						} else if(layout[key] === 'full_screen_quote') {
+
+							var quote = layout.quote;
+							layoutHTML += "<section class='col full-screen-quote work-block'><article class='block'><div class='wrap'>"+quote+"</div></article></section>";
+
+						} else if(layout[key] === 'quote_with_image') {
+
+							var quotetext = layout.quote_text;
+							var quoteimage = layout.image.url;
+							var quoteimagealt = layout.image.title;
+							layoutHTML += "<section class='col quote-image work-block'><article class='block'><div class='wrap'><div class='col-1-2'>"+quotetext+"</div><div class='col-1-2'><img src='"+quoteimage+"' alt=''></div></div></article></section>";
+
+						} else if(layout[key] === 'fact_with_image') {
+
+							var facttext = layout.fact;
+							var factimage = layout.image.url;
+							var factimagealt = layout.image.title;
+
+							layoutHTML += "<section class='col fact-image work-block'><article class='block'><div class='wrap'><div class='col-1-2'>"+facttext+"</div><div class='col-1-2'><img src='"+factimage+"' alt=''></div></div></article></section>";
+
+						} else if(layout[key] === 'quote_with_fact') {
+							var fact = layout.fact;
+							var quote = layout.quote;
+
+							layoutHTML += "<section class='col quote-fact work-block'><article class='block'><div class='wrap'><div class='col-1-2'>"+fact+"</div><div class='col-1-2'>"+quote+"</div></div></article></section>";
+						
 						}
 					}
 				}
@@ -434,7 +462,7 @@
 	var mobileMenuTouch = function() {
 
 		var flag = false;
-	  $('#menu-button').on('click', function(e){
+	  $('#menu-button img').on('click', function(e){
 
 	    $('body').css('overflow','hidden');
 
@@ -445,12 +473,12 @@
 			flag = false;
 			},100);
 
-	      if ( $('body').hasClass('mobile-active') ){
+	      if ( $('body').hasClass('menu-closed') ){
 
 	      	$('body').css('overflow','hidden');
 	        
 	        $('#site-navigation').addClass('mobile');
-	        $('body').removeClass('mobile-active');
+	        $('body').removeClass('menu-closed');
 	        $(this).find('img').attr('src',mobileMenuActive);
 	        $('.hidden-menu').transition({
 	          'right': '0px'
@@ -464,7 +492,7 @@
 	      } else {
 	      	$('body').css('overflow','inherit');
 	        $(this).find('img').attr('src',mobileMenu);
-	        $('body').addClass('mobile-active');
+	        $('body').addClass('menu-closed');
 	        $('.hidden-menu').transition({
 	          'right': '-50%'
 	        });
@@ -504,16 +532,10 @@
 		  var filterValue = $(this).attr('data-filter');
 		  var parentL = $(this);
 		  var ArticleP = $('#our-work'),
-		  	ArticleC = ArticleP.children();
+		  ArticleC = ArticleP.children();
 		  parentL.addClass('active').siblings(parentL.parent()).removeClass('active');
-		  //$('#our-work').isotope({ filter: filterValue });
-		  $('#our-work').hideReveal({ filter: filterValue });
-		 //  if( ArticleC.hasClass('this-visible') ) {
-			//     ArticleP.find('.project').sort(sort_li).appendTo('body');
-			// 	function sort_li(a, b){
-			// 	    return ($(b).data('index')) < ($(a).data('index')) ? 1 : -1;    
-			// 	}
-			// }
+		  $('#our-work').isotope({ filter: filterValue });
+		  //$('#our-work').hideReveal({ filter: filterValue });
 		});
 
 	};
@@ -536,6 +558,73 @@
 		    waitForAll: true
 		});
 	};
+	var openFilter = function() {
+
+		var flag = false;
+
+		$('#work-filter').on('click', function(e){
+
+		    $('body').css('overflow','hidden');
+
+		    if (!flag) {
+		      flag = true;
+
+		      setTimeout(function(){
+				flag = false;
+				},100);
+
+		      if ( $('body').hasClass('filter-closed') ){
+
+		      	$('body').css('overflow','hidden');
+		      	$(this).find('img').removeClass('spin').fadeIn();
+		      	$(this).addClass('active');
+		        
+		        $('body').removeClass('filter-closed');
+		        $('.hidden-filter').transition({
+		          'left': '0px'
+		        });
+
+		      } else {
+		      	var t = $(this);
+		      	$('body').css('overflow','inherit');
+		        window.setTimeout(function(){
+		        	$('body').addClass('filter-closed');
+		        	t.removeClass('active');
+			        $('.hidden-filter').transition({
+			          'left': '-50%'
+			        });
+		        },1100);
+		        $(this).find('img').addClass('spin').fadeOut(500);
+
+		      }
+		    }
+		    return false;
+	  });
+
+	};
+	var showReel = function() {
+
+		var options = {  videoId: 'eTOsAJyF1jk', 
+			start: 0, 
+			repeat: true,
+			playButtonClass: 'wmh-play',
+			pauseButtonClass: 'wmh-pause'
+        };  
+  
+		$('#showreel').tubular(options); 
+
+		var buttonVidP = $('.controls ul li.wmh-play');
+		var buttonVidS = $('.controls ul li.wmh-pause');
+		buttonVidP.on('click',function() {
+		    $(this).toggleClass('active');
+		    buttonVidS.removeClass('active');
+		});
+		buttonVidS.on('click',function() {
+		    $(this).toggleClass('active');
+		    buttonVidP.removeClass('active');
+		});
+
+	};
 
 	// Some more dependent js goes here :)
 	widthCheck();
@@ -551,6 +640,8 @@
 	isoTope();
 	taxChecker();
 	imagesLoaded();
+	openFilter();
+	showReel();
 
 
 })(jQuery);

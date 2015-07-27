@@ -303,3 +303,52 @@ article.case-studies{
 		}
 	}
 }
+
+/*
+** Work filter
+*/
+
+#work-filter{
+  position: absolute;
+  left: 0;
+    top: auto;
+  padding: 20px;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: futura-bt-bold;
+  z-index: 2000;
+  cursor: pointer;
+    width: 153px;
+  &:hover{
+  	background-color: rgba(0,0,0,0.6);
+  }
+  &.active{
+  	background-color: transparent;
+  	width: 50%;
+  }
+  & > span img.spin{
+  	@include animation--spinout(0)
+  }
+}
+#close-filter{
+  max-width: 45px;
+  min-width: 45px;
+  right: 0;
+  position: absolute;
+  margin: 8px;
+  cursor: pointer;
+  display: inline-block;
+  top: 0px;
+}
+
+.hidden-filter{
+  width: 50%;
+  left: -50%;
+  height: 100%;
+  position: fixed;
+  top: 82px;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1000;
+}

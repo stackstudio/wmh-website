@@ -19,6 +19,8 @@
 	// some global stuff here
 	var mobileMenu = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon.svg';
 	var mobileMenuActive = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon-open.svg';
+	var play = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wmh-play.svg';
+	var pause = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wmh-stop.svg';
 	</script>
 </head>
 

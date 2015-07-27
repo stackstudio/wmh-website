@@ -92,6 +92,7 @@ function mb_scripts() {
 	if ( !is_admin() ) {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'customjs', get_template_directory_uri() . '/assets/js/vendor/isotope.pkg.js', array('jquery'), NULL, true );
+		wp_enqueue_script( 'tubularjs', 'http://www.seanmccambridge.com/tubular/js/jquery.tubular.1.0.js',array('jquery'), NULL, true );
 		wp_enqueue_script( 'customplugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
 		wp_enqueue_script( 'customscripts', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
 	}
