@@ -2492,7 +2492,7 @@ body.post-type-archive-case-studies .site {
 }
 
 .full-screen-quote, .quote-image, .fact-image, .quote-fact {
-  height: 515px;
+  height: auto;
 }
 .full-screen-quote > .block .wrap [class*='col-'], .quote-image > .block .wrap [class*='col-'], .fact-image > .block .wrap [class*='col-'], .quote-fact > .block .wrap [class*='col-'] {
   padding-right: 0px;
@@ -2718,6 +2718,10 @@ body.post-type-archive-case-studies .site {
 #socials > ul {
   padding: 0px;
 }
+#socials > ul > li.vimeo {
+  width: 45px;
+  margin: 20px 1px;
+}
 #socials > ul > li {
   display: inline-block;
   vertical-align: top;
@@ -2866,19 +2870,14 @@ body.post-type-archive-case-studies .site {
   -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
-.main-navigation li:first-child {
-  margin-left: 0px;
-}
-.main-navigation li:last-child {
-  margin-right: 0px;
-}
 
 .main-navigation a {
   display: block;
   text-decoration: none;
   color: white;
   line-height: 1em;
-  font-size: 1.4em;
+  font-size: 1.1em;
+  text-transform: uppercase;
 }
 
 .main-navigation ul ul {
@@ -3395,11 +3394,21 @@ article.case-studies {
 .similar-project {
   width: 100%;
 }
+.similar-project > a {
+  overflow: hidden;
+  height: 245px;
+  display: block;
+}
 @media only screen and (min-width: 560px) {
   .similar-project {
     width: 25%;
     float: left;
     padding-right: 20px;
+  }
+  .similar-project > a {
+    overflow: hidden;
+    height: 245px;
+    display: block;
   }
   .similar-project:last-child {
     padding-right: 0px;
@@ -3514,12 +3523,7 @@ article.case-studies {
   margin: 0 auto;
   width: inherit;
   display: inline;
-  /*@include border-image("http://i.stack.imgur.com/nFS60.jpg", 50%, 1, 2, stretch);
-  border-image: url('assets/images/dot.png') 0% 75% stretch;*/
-  -webkit-border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
-  border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
-  border-image-width: 7px;
-  border-image-outset: 0;
+  text-transform: uppercase;
 }
 
 .category-description {
@@ -3527,6 +3531,7 @@ article.case-studies {
   padding: 0;
   margin: 10px;
   font-family: georgia-italic;
+  font-size: 1.7em;
 }
 
 /* ==========================================================================

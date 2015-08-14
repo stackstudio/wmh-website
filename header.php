@@ -23,6 +23,13 @@
 	var pause = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wmh-stop.svg';
 	</script>
 </head>
+<?php if( is_front_page() ){ ?>
+<style type="text/css">
+	.site-main{
+		margin-top: 0px;
+	}
+</style>
+<?php }?>
 
 <body <?php body_class(); ?>>
 <div class="hfeed site">

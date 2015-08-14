@@ -131,7 +131,7 @@ body.post-type-archive-case-studies .site{
 }
 
 .full-screen-quote, .quote-image, .fact-image, .quote-fact{
-	height: 515px;
+	height: auto;
 	& > .block .wrap [class*='col-']{
 		padding-right:0px;
 	}

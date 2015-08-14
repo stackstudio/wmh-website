@@ -53,12 +53,6 @@
 	      }
 	    }
 	}
-	&:first-child{
-		margin-left: 0px;
-	}
-	&:last-child{
-		margin-right: 0px;
-	}
 }
 
 .main-navigation a {
@@ -66,7 +60,8 @@
 	text-decoration: none;
 	color: white;
 	line-height: 1em;
-	font-size: 1.4em;
+	font-size: 1.1em;
+	text-transform: uppercase;
 }
 
 .main-navigation ul ul {

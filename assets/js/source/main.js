@@ -127,6 +127,18 @@
 		  }
 		  var siteURL = "http://" + top.location.host.toString();
 		  $('.menu-item a').on('click', function(e) {
+		  	if( $('body').hasClass('menu-open') ){
+		  		$('body').css('overflow','inherit');
+		        $(this).find('img').attr('src',mobileMenu);
+		        $('body').addClass('menu-closed');
+		        $('body').removeClass('menu-open');
+		        $('.hidden-menu').transition({
+		          'right': '-50%'
+		        });
+		  		
+		  		$('#socials').removeClass('open');
+		  		$('.menu-the-menu-container ul li').removeClass('is--menu-active');
+		  	}
 		    e.preventDefault();
 		    var loc = $(this).attr('href');
 		    $('.loader').fadeIn(100);
@@ -220,7 +232,9 @@
       				
       			} else {
       				setTimeout(function(){
-				  		similarPostsSection.append('<article class="similar-project"><a href="'+post.link+'"><img src="'+post.meta.main_image.url+'" alt="'+post.meta.main_image.title+' image"></a><h3><a href="'+post.link+'">'+post.title+'</a></h3></article>').find('.similar-project').addClass('newClass');
+						var similar = $('<article class="similar-project"><a href="'+post.link+'"><img src="'+post.meta.main_image.url+'" alt="'+post.meta.main_image.title+' image"></a><h3><a href="'+post.link+'">'+post.title+'</a></h3></article>');
+  						$('#related-work #main-work').slick('slickAdd',similar);
+				  		//similarPostsSection.append('<article class="similar-project"><a href="'+post.link+'"><img src="'+post.meta.main_image.url+'" alt="'+post.meta.main_image.title+' image"></a><h3><a href="'+post.link+'">'+post.title+'</a></h3></article>').find('.similar-project').addClass('newClass');
 				  	}, 1000*(i+1));
       			}
       		});
@@ -479,6 +493,7 @@
 	        
 	        $('#site-navigation').addClass('mobile');
 	        $('body').removeClass('menu-closed');
+	        $('body').addClass('menu-open');
 	        $(this).find('img').attr('src',mobileMenuActive);
 	        $('.hidden-menu').transition({
 	          'right': '0px'
@@ -493,6 +508,7 @@
 	      	$('body').css('overflow','inherit');
 	        $(this).find('img').attr('src',mobileMenu);
 	        $('body').addClass('menu-closed');
+	        $('body').removeClass('menu-open');
 	        $('.hidden-menu').transition({
 	          'right': '-50%'
 	        });
@@ -625,7 +641,13 @@
 		});
 
 	};
-
+	var similarScoller = function() {
+		$('#related-work #main-work').slick({
+			infinite: true,
+			slidesToShow: 4,
+			slidesToScroll: 2
+		});
+	};
 	// Some more dependent js goes here :)
 	widthCheck();
 	scrollerHeader();
@@ -642,6 +664,7 @@
 	imagesLoaded();
 	openFilter();
 	showReel();
+	similarScoller();
 
 
 })(jQuery);

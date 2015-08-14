@@ -295,8 +295,9 @@ get_header(); ?>
 		</section>
 		<?php } ?>
 		<section id="related-work">
+			<h1>More like this</h1>
 			<section id="main-work" style="display: none;" class="inner-wrap">
-				<h1>More like this</h1>
+				
 			</section>
 			<noscript>
 				<section class="inner-wrap">

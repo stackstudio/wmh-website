@@ -46,19 +46,12 @@ body.home {}
 	margin: 0 auto;
 	width: inherit;
 	display: inline;
-
-	/*@include border-image("http://i.stack.imgur.com/nFS60.jpg", 50%, 1, 2, stretch);
-	border-image: url('assets/images/dot.png') 0% 75% stretch;*/
-
-	-moz-border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
-	-webkit-border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
-	border-image: url(assets/images/dot.svg) 0 20 0 20 round round;
-	border-image-width: 7px;
-  	border-image-outset: 0;
+	text-transform: uppercase;
 }
 .category-description{
 	color: black;
 	  padding: 0;
   margin: 10px;
-  font-family: georgia-italic;	
+  font-family: georgia-italic;
+  font-size: 1.7em;	
 }

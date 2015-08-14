@@ -26,6 +26,10 @@
 	}
 	& > ul{
 		padding: 0px;
+		& > li.vimeo{
+			    width: 45px;
+    margin: 20px 1px;
+		}
 		& > li{
 			display: inline-block;
 			vertical-align: top;

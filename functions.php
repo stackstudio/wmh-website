@@ -91,21 +91,28 @@ add_filter('show_admin_bar', '__return_false');
 /*-----------------------------------------------------------------------------------*/
 /* Remove Unwanted Admin Menu Items */
 /*-----------------------------------------------------------------------------------*/
-$user = wp_get_current_user();
-if($user && isset($user->user_login) && 'Developer' == $user->user_login) {
 
-    //do naff all here
+function remove_acf_menu()
+{
 
-} else {
-	add_filter('acf/settings/show_admin', 'my_acf_show_admin');
+    // provide a list of usernames who can edit custom field definitions here
+    $admins = array( 
+        'Developer', 
+        'admin'
+    );
 
-	function my_acf_show_admin( $show ) {
-	    
-	    return current_user_can('manage_options');
-	    
-	}
+    // get the current user
+    $current_user = wp_get_current_user();
+
+    // match and remove if needed
+    if( !in_array( $current_user->user_login, $admins ) )
+    {
+        remove_menu_page('edit.php?post_type=acf');
+    }
+
 }
 
+add_action( 'admin_menu', 'remove_acf_menu', 999 );
 
 /*-----------------------------------------------------------------------------------*/
 /* Adding ACF data for posts inside the rest api for that post */

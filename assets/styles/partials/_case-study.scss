@@ -294,7 +294,17 @@ article.case-studies{
 }
 .similar-project{
 	width: 100%;
+	& > a{
+		overflow: hidden;
+		height: 245px;
+		display: block;
+	}
 	@include mobile-device {
+		& > a{
+			overflow: hidden;
+			height: 245px;
+			display: block;
+		}
 		width: 25%;
 		float: left;
 		padding-right: 20px;
