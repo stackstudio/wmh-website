@@ -9,7 +9,11 @@ $pt = $post->ID;
 get_header(); 
 $p = get_the_content();
 ?>
+<?php while ( have_posts() ) : the_post(); ?>
 <?php var_dump($p); ?>
+<?php
+endwhile;
+?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">	
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
