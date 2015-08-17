@@ -372,7 +372,7 @@
 
 		    var galleries = $('.gallery');
 
-		    $("#full-screen").fitVids();
+		    $(".col-video").fitVids();
 		    $.each(galleries, function(index) {
 			    $(this).slick({
 				  dots: false,
