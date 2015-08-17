@@ -8,11 +8,6 @@
 $pt = $post->ID;
 get_header(); 
 ?>
-<?php while ( have_posts() ) : the_post(); ?>
-<?php var_dump( the_content() ); ?>
-<?php
-endwhile;
-?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">	
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -20,6 +15,7 @@ endwhile;
 			<header class="entry-header">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
+			<?php the_content(); ?>
 			<?php
 				wp_link_pages( array(
 					'before' => '<div class="page-links">' . __( 'Pages:', '_mbbasetheme' ),
@@ -203,8 +199,8 @@ endwhile;
 		</noscript>
 		</section>
 		<section id="related-work">
+			<h1>More like this</h1>
 			<section id="main-work" style="display: none;" class="inner-wrap">
-				<h1>More like this</h1>
 			</section>
 			<noscript>
 				<section class="inner-wrap">
