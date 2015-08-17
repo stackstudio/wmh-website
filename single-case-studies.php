@@ -9,11 +9,10 @@ $pt = $post->ID;
 get_header(); 
 $p = get_the_content();
 ?>
-
+<?php var_dump($p); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">	
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<?php echo $p; ?>
 		<div class="entry-content up">
 			<header class="entry-header">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
