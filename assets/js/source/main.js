@@ -406,7 +406,6 @@
 		      		$.each(projects, function(i, item){
 
 		      			slugs = [];
-		      			console.log(item);
 		      			for(var d = 0; d < item.terms.sectors.length; d++) {
 				      		var slugItem = item.terms.sectors[d].slug;
 				      		slugs.push(slugItem);
