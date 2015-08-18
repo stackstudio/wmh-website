@@ -3265,7 +3265,7 @@ article.case-studies {
   line-height: 0;
   outline: 0;
   position: absolute;
-  top: 50%;
+  top: 50;
   display: block;
   width: 49px;
   height: 49px;
@@ -3273,6 +3273,12 @@ article.case-studies {
   padding: 0;
   color: transparent;
   z-index: 999999;
+}
+@media only screen and (min-width: 560px) {
+  .slick-next,
+  .slick-prev {
+    top: 20%;
+  }
 }
 
 .slick-next {
@@ -3410,7 +3416,7 @@ article.case-studies {
 }
 .similar-project > a {
   overflow: hidden;
-  height: 245px;
+  height: 125px;
   display: block;
 }
 @media only screen and (min-width: 560px) {
