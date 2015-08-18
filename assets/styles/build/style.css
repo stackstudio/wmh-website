@@ -3351,43 +3351,47 @@ article.case-studies {
   max-width: 100%;
 }
 
+.col-video {
+  padding-right: 0px;
+}
+
 /*
 ** Similar work
 */
-#related-work .inner-wrap {
+#related-work {
   clear: both;
   overflow: hidden;
   padding: 20px;
   background: black;
 }
-#related-work .inner-wrap h1 {
+#related-work h1 {
   padding: 0;
   margin: 0 0 20px 0;
   color: #919191;
   border-bottom: solid 1px #919191;
   font-family: georgia-italic;
 }
-#related-work .inner-wrap h1:before {
+#related-work h1:before {
   content: "~\00a0";
 }
 @media only screen and (min-width: 560px) {
-  #related-work .inner-wrap {
+  #related-work {
     clear: both;
     overflow: hidden;
     padding: 20px;
     background: black;
   }
-  #related-work .inner-wrap h1 {
+  #related-work h1 {
     padding: 0;
     margin: 0 0 20px 0;
     color: #919191;
     border-bottom: solid 1px #919191;
     font-family: georgia-italic;
   }
-  #related-work .inner-wrap h1:before {
+  #related-work h1:before {
     content: "~\00a0";
   }
-  #related-work .inner-wrap > article h3 a {
+  #related-work > article h3 a {
     font-family: futura-bt-light;
     color: #919191;
     text-decoration: none;
