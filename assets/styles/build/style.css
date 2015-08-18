@@ -3416,7 +3416,7 @@ article.case-studies {
 }
 .similar-project > a {
   overflow: hidden;
-  height: 125px;
+  height: 245px;
   display: block;
 }
 @media only screen and (min-width: 560px) {
@@ -3427,7 +3427,8 @@ article.case-studies {
   }
   .similar-project > a {
     overflow: hidden;
-    height: 245px;
+    height: auto;
+    min-height: 130px;
     display: block;
   }
   .similar-project:last-child {

@@ -311,13 +311,14 @@ article.case-studies{
 	width: 100%;
 	& > a{
 		overflow: hidden;
-		height: 125px;
+		height: 245px;
 		display: block;
 	}
 	@include mobile-device {
 		& > a{
 			overflow: hidden;
-			height: 245px;
+			height: auto;
+			min-height: 130px;
 			display: block;
 		}
 		width: 25%;
