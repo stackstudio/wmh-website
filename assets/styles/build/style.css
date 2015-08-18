@@ -3158,6 +3158,15 @@ article.case-studies {
   padding: 20px;
   overflow: hidden;
 }
+.case-studies .entry-content .entry-header h1 {
+  padding: 0;
+  margin: 0;
+  border-bottom: solid 1px #000;
+  font-family: georgia-italic;
+}
+.case-studies .entry-content .entry-header h1:before {
+  content: "~\00a0";
+}
 @media only screen and (min-width: 560px) {
   .case-studies .entry-content {
     position: fixed;
@@ -3473,13 +3482,19 @@ article.case-studies {
 }
 
 .hidden-filter {
-  width: 50%;
-  left: -50%;
-  height: 100%;
-  position: fixed;
-  top: 82px;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  display: none;
+}
+@media only screen and (min-width: 560px) {
+  .hidden-filter {
+    width: 50%;
+    left: -50%;
+    height: 100%;
+    position: fixed;
+    top: 82px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: block;
+  }
 }
 
 /* ==========================================================================
