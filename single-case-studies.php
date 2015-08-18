@@ -30,7 +30,7 @@ get_header();
 				<?php echo custom_taxonomies_terms_links();?>
 			</div>
 		</div><!-- .entry-content -->
-		<section id="work-area" data-current-id="<?php the_ID(); ?>" data-taxonomy-award="<?php project_get_item_classes('awards', $results = 1) ?>" data-taxonomy-type="<?php project_get_item_classes('brand-types', $results = 1) ?>">
+		<section id="work-area" data-current-id="<?php the_ID(); ?>" data-taxonomy-award="<?php project_get_item_classes('awards', $results = 1) ?>" data-taxonomy-type="<?php project_get_item_classes('brand-types', $results = 1) ?>" data-taxonomy-sectors="<?php project_get_item_classes('sectors', $results = 1) ?>">
 		<noscript>
 		<?php while ( have_posts() ) : the_post(); ?>
 

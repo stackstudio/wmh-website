@@ -15,6 +15,7 @@
 	var _permId = $('#work-area').data('current-id');
 	var _brandTypes = $('#work-area').data('taxonomy-type');
 	var _awardsPart = $('#work-area').data('taxonomy-award');
+	var _sectorsPart = $('#work-area').data('taxonomy-sectors');
 	// all Javascript code goes here
 	var newWidth = $(window).width();
 	var newHeight = $(window).height();
@@ -215,7 +216,7 @@
 	var getRelatedPosts = function() {
 
 		$.ajax({
-	      url: '/wp-json/posts?type=case-studies&filter[taxonomy]=awards&filter[term]='+_awardsPart+'',
+	      url: '/wp-json/posts?type=case-studies&filter[taxonomy]=brand-types&filter[term]='+_brandTypes+'&filter[taxonomy]=sectors&filter[term]='+_sectorsPart+'',
 	      success: function ( query ) {
 
 	      	//List some global variables here to fetch post data
