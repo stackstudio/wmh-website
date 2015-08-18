@@ -41,18 +41,13 @@
 
 
 #menu-button{
-	width: 145px;
-	@include opacity(0);
-	visibility: hidden;
-	@include mobile-device {
-		padding: 5px;
-		@include opacity(1);
-		float: right;
-		width: 45px;
-		visibility: visible;
-		@include animate(1s, 0.3s);
-		height: 45px;
-	}
+	padding: 5px;
+	@include opacity(1);
+	float: right;
+	width: 45px;
+	visibility: visible;
+	@include animate(1s, 0.3s);
+	height: 45px;
 	&.open{
 		@include animate(1s, 0.3s);
 		position:relative;

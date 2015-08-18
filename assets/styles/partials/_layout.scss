@@ -59,12 +59,12 @@ body.post-type-archive-case-studies .site{
 	padding: 20px 20px 15px 20px;
 	overflow: hidden;
 	background: black;
+	z-index: 999999;
 	& > .site-branding{
 		color: inherit;
 		float: left;
-		width: 110px;
+		width: 255px;
 		padding-right: 20px;
-
 	}
 	@include mobile-device {
 		margin-left: 0px;
@@ -243,7 +243,10 @@ body.post-type-archive-case-studies .site{
 }
 
 .site-main {
-	margin: 83px 25% 0 0;
+	margin: 0 0 0 0;
+	@include mobile-device{
+		margin: 83px 25% 0 0;
+	}
 	width: 100%;
 	overflow: hidden;
 }
