@@ -25,6 +25,10 @@
 	margin: 1.5em 0 0;
 }
 
+.page .entry-content h1{
+	font-family: georgia-italic;
+} 
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -87,5 +91,5 @@
 embed,
 iframe,
 object {
-	max-width: 100%;
+	width: 100%;
 }

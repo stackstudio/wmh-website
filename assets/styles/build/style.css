@@ -2662,7 +2662,6 @@ body.post-type-archive-case-studies .site {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  padding-top: 32px;
 }
 .secondary-nav > ul > li {
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
@@ -2983,6 +2982,10 @@ nav.mobile > div ul li a {
   margin: 1.5em 0 0;
 }
 
+.page .entry-content h1 {
+  font-family: georgia-italic;
+}
+
 .page-links {
   clear: both;
   margin: 0 0 1.5em;
@@ -3036,7 +3039,7 @@ nav.mobile > div ul li a {
 embed,
 iframe,
 object {
-  max-width: 100%;
+  width: 100%;
 }
 
 /* ==========================================================================

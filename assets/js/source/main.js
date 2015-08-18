@@ -550,8 +550,16 @@
 		  var ArticleP = $('#our-work'),
 		  ArticleC = ArticleP.children();
 		  parentL.addClass('active').siblings(parentL.parent()).removeClass('active');
-		  $('#our-work').isotope({ filter: filterValue });
-		  //$('#our-work').hideReveal({ filter: filterValue });
+		  $('body').css('overflow','inherit');
+	        window.setTimeout(function(){
+	        	$('body').addClass('filter-closed');
+	        	$('#work-filter').removeClass('active');
+		        $('.hidden-filter').transition({
+		          'left': '-50%'
+		        });
+	        },1100);
+	        $('#work-filter').find('img').addClass('spin').fadeOut(500);
+	        $('#our-work').isotope({ filter: filterValue });
 		});
 
 	};
@@ -620,11 +628,14 @@
 	};
 	var showReel = function() {
 
-		var options = {  videoId: 'eTOsAJyF1jk', 
+		var options = {  videoId: 'ACDu1BuCCrI', 
 			start: 0, 
 			repeat: true,
 			playButtonClass: 'wmh-play',
-			pauseButtonClass: 'wmh-pause'
+			pauseButtonClass: 'wmh-pause',
+			mute: false,
+			width: $(window).width(),
+			ratio: 16/9
         };  
   
 		$('#showreel').tubular(options); 
