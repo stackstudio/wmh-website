@@ -5974,32 +5974,43 @@ object {
     margin-left: 3%;
   }
 }
+@media only screen and (min-width: 1024px) {
+  #team-roles > article:first-child {
+    margin-left: 6%;
+  }
+}
 #team-roles > article {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
-#team-roles > article > h4, #team-roles > article p {
+#team-roles > article > a {
+  text-decoration: none;
+}
+#team-roles > article > a > h4, #team-roles > article > a p {
+  text-decoration: none;
+}
+#team-roles > article > a h4, #team-roles > article p {
   color: white;
   margin: 5px 0;
   text-transform: uppercase;
 }
-#team-roles > article > p {
+#team-roles > article > a p {
   font-family: futura-bt-book;
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
-@media only screen and (min-width: 668px) {
-  #team-roles > article > p {
-    font-size: 0.6em;
-  }
-}
-#team-roles > article > h4 {
+#team-roles > article > a h4 {
   font-family: futura-bt-medium;
   font-size: 0.7em;
 }
 @media only screen and (min-width: 668px) {
-  #team-roles > article > h4 {
+  #team-roles > article > a h4 {
     font-size: 0.7em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #team-roles > article > a h4 {
+    font-size: 0.9em;
   }
 }
 

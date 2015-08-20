@@ -70,32 +70,39 @@
     }
     bottom: 11%;
 	& > article:first-child{
-	margin-left: 7%;
-	@include mobile-device{
-		margin-left: 3%;
-	} 
+		margin-left: 7%;
+		@include mobile-device{
+			margin-left: 3%;
+		} 
+		@include dtop{
+			margin-left: 6%;
+		}
 	}
 	& > article{
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
-		& > h4,p{
+		& > a{
+			text-decoration: none;
+			& > h4,p{ text-decoration: none; }
+		}
+		& > a h4,p{
 			color: white;
 			margin: 5px 0;
 			text-transform: uppercase;
 		}
-		& > p{
+		& > a p{
 			font-family: futura-bt-book;
-			font-size: 0.6em;
-			@include mobile-device{
-				font-size: 0.6em;
-			}
+			font-size: 0.7em;
 		}
-		& > h4{
+		& > a h4{
 			font-family: futura-bt-medium;
     		font-size: 0.7em;
     		@include mobile-device{
 				font-size: 0.7em;
+			}
+			@include dtop{
+				font-size: 0.9em;
 			}
 		}
 	}

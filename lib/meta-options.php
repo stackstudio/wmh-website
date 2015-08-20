@@ -58,6 +58,47 @@
         flush_rewrite_rules(true);
     }
 
+
+
+    add_action('init', 'create_post_types_team');
+
+    function create_post_types_team() {
+
+        $labels = array(
+            'name' => __('Team members'),
+            'singular_name' => __('Team Member'),
+            'add_new' => __('Add New Team Member'),
+            'add_new_item' => __('Add New Team Member'),
+            'edit' => __('Edit'),
+            'edit_item' => __('Edit Team Member'),
+            'new_item' => __('New Team Member'),
+            'view' => __('View Team Member'),
+            'view_item' => __('View Team Member'),
+            'search_items' => __('Search Team Members'),
+            'not_found' => __('No Team Members found'),
+            'not_found_in_trash' => __('No Team Members found in Trash'),
+            'parent' => __('Parent Team Member'),
+        );
+
+        $args = array(
+            'labels' => $labels,
+            'public' => true,
+            'has_archive' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'the-team' ),
+            'capability_type' => 'post',
+            'hierarchical' => true,
+            'menu_position' => 8,
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments', 'revisions')
+        );
+
+        register_post_type('team-members', $args);
+        flush_rewrite_rules(true);
+    }
+
+
     add_action('init', 'create_awards_taxonomies');
 
     function create_awards_taxonomies() {

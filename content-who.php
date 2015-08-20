@@ -12,9 +12,9 @@
 $team = get_field('team_members');
 		if( $team ):
 			foreach( $team as $member ):
-				echo '<article class="col-1-8 teams">';
+				echo '<article class="col-1-8 teams"><a href="'.$member['link'].'">';
 					echo '<h4>'.$member['name'].'</h4><p>'.$member['title'].'</p>';
-				echo '</article>';
+				echo '</a></article>';
 			endforeach;
 		endif;
 	}
