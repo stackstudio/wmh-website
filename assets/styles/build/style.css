@@ -6350,7 +6350,7 @@ article.case-studies {
   .similar-project > a {
     overflow: hidden;
     height: auto;
-    min-height: 130px;
+    height: 245px;
     display: block;
   }
   .similar-project:last-child {
