@@ -26,8 +26,12 @@
 }
 
 .page .entry-content h1{
-	font-family: georgia-italic;
+	font-family: futura-bold;
 } 
+
+.page .entry-content p strong{
+	text-transform:uppercase;
+}
 
 .page .entry-content h2{
 	font-family: georgia-italic;
@@ -41,6 +45,18 @@
 		@include animate(0.5s, 0.1s);
 	}
 } 
+
+#post-list{
+	& > .paging-navigation{
+		display: none;
+	}
+}
+.news-post{
+	height: 200px;
+	@include mobile-device{
+		height: 420px;
+	}
+}
 
 .page-links {
 	clear: both;

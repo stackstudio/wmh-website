@@ -44,7 +44,11 @@
 }
 #team{
 	background: #000;
-	position: relative;
+	background-size: contain;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	width: 100%;
 	& > h1{
 		padding: 60px 20px 20px 20px;
 		margin: 0;
@@ -57,14 +61,23 @@
 }
 #team-roles{
 	padding: 0 20px;
-	position: absolute;
-	bottom: 65px;
-	overflow: hidden;
-	width: 100%;
+    position: absolute;
+    width: 100%;
+    display: table;
+    overflow: hidden;
+    @include mobile-device{
+    	bottom: 20%;
+    }
+    bottom: 11%;
 	& > article:first-child{
-		margin-left: 109px; 
+	margin-left: 7%;
+	@include mobile-device{
+		margin-left: 3%;
+	} 
 	}
 	& > article{
+		display: table-cell;
+		vertical-align: middle;
 		text-align: center;
 		& > h4,p{
 			color: white;
@@ -73,11 +86,17 @@
 		}
 		& > p{
 			font-family: futura-bt-book;
-			font-size: 0.8em;
+			font-size: 0.6em;
+			@include mobile-device{
+				font-size: 0.6em;
+			}
 		}
 		& > h4{
 			font-family: futura-bt-medium;
-    		font-size: .9em;
+    		font-size: 0.7em;
+    		@include mobile-device{
+				font-size: 0.7em;
+			}
 		}
 	}
 }

@@ -308,14 +308,16 @@ body.post-type-archive-case-studies .site{
 	  text-align: center;
 		& > li {
 			@include animate(0.5s, 0s);
-			  display: block;
-  			  position: relative;
+			display: block;
+			position: relative;
 			margin: 20px 10px;
 			display: block;
 			text-decoration: none;
 			color: #fff;
 			line-height: 1em;
-			font-size: 1.4em;
+			font-size: 1.1em;
+			cursor: pointer;
+			text-transform: uppercase;
 			&:hover{
 				color: $nav;
 				@include animate(0.5s, 0s);
@@ -326,4 +328,17 @@ body.post-type-archive-case-studies .site{
 
 #map-over{
   overflow: hidden;
+}
+
+#infscr-loading{
+	position: fixed;
+	bottom: 0px;
+	height: 60px;
+	background: #333;
+	width: 100%;
+	left: 0px;
+	    text-align: center;
+	& > img{
+		display: none;
+	}
 }

@@ -6,6 +6,7 @@
 	var newwidth = $(window).width();
 	var newheight = $(window).height();
 	var caseStudy = $('.case-study');
+	var loader = $('.post-loader');
 	var header = $('header').outerHeight();
 	var headerH = $('header').outerHeight()/4;
 	var projectContainer = $('article.case-studies #work-area');
@@ -20,7 +21,8 @@
 	// all Javascript code goes here
 	var newWidth = $(window).width();
 	var newHeight = $(window).height();
-	$(".generic-bg, #team, .full-screen-quote, .quote-image, .fact-image, .quote-fact").css({"height": newHeight, "width": newWidth });
+	$(".generic-bg, .full-screen-quote, .quote-image, .fact-image, .quote-fact").css({"height": newHeight, "width": newWidth });
+	$("#team").css({"height": newHeight});
 	// =============================================================== //
 					/// start main functions here ///
 	// =============================================================== //
@@ -724,26 +726,31 @@
 
 	};
 	var lazyLoad = function() {
-		$('#post-list').infinitescroll({					
-			debug: true,
-			loading: {
-		        finished: undefined,
-		        finishedMsg: "<em>Items loaded</em>",
-		        img: "",
-		        msg: null,
-		        msgText: "<em>Loading the next set of posts...</em>",
-		        speed: 'slow',
-		    },
-		    pixelsFromNavToBottom: 230,
-		    animate: 'true',
-            navSelector:'nav.paging-navigation .nav-links',
-            nextSelector:'.nav-previous a',
-            itemSelector:'.post'
-	    });
+		if( $('#post-list').length ){
+			// $('.post-loader').remove();
+			// if( $('.load-post').length ){
+			// 	$('.load-post').append(loader);
+			// }
+			$('#post-list').infinitescroll({					
+				debug: true,
+				loading: {
+			        finished: undefined,
+			        finishedMsg: "<em>Items loaded</em>",
+			        img: null,
+			        msg: null,
+			        msgText: "<div class='load-post'><p>Loading the next set of posts</p></div>",
+			        speed: 'slow'
+			    },
+			    pixelsFromNavToBottom: 230,
+			    animate: 'true',
+	            navSelector:'nav.paging-navigation .nav-links',
+	            nextSelector:'.nav-previous a',
+	            itemSelector:'.post'
+		    });
+		}
 	};
 	// Some more dependent js goes here :)
 	scroller();
-	lazyLoad();
 	widthCheck();
 	scrollerHeader();
 	onCase();
@@ -760,6 +767,7 @@
 	openFilter();
 	showReel();
 	similarScoller();
+	lazyLoad();
 
 
 })(jQuery);
