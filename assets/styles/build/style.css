@@ -5784,6 +5784,18 @@ nav.mobile > div ul li a {
   font-family: futura-bold;
 }
 
+.page .entry-content h3 {
+  font-family: georgia-italic;
+  margin: 10px 0;
+}
+
+.page .entry-content p a {
+  color: black;
+  text-decoration: none;
+  padding: 0px 0;
+  display: block;
+}
+
 .page .entry-content p strong {
   text-transform: uppercase;
 }
@@ -6339,7 +6351,9 @@ article.case-studies {
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   color: black;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: futura-bt-book;
 }
 .project > a:hover {
   opacity: 1;
@@ -6427,6 +6441,13 @@ article.case-studies {
   height: 245px;
   display: block;
 }
+.similar-project > h3 a {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: futura-bt-light;
+  text-decoration: none;
+}
 @media only screen and (min-width: 668px) {
   .similar-project {
     width: 25%;
@@ -6442,6 +6463,9 @@ article.case-studies {
   .similar-project:last-child {
     padding-right: 0px;
   }
+}
+.similar-project:hover > h3 a {
+  color: red;
 }
 
 /*

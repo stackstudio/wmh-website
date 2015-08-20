@@ -282,7 +282,9 @@ article.case-studies{
 			padding-top: 70px;
 			@include animate(0.5s, 0s);
 			color: black;
-			text-transform: capitalize;
+			    text-transform: uppercase;
+    font-weight: 400;
+    font-family: futura-bt-book;
 		}
 		&:hover{
 			@include opacity(1);
@@ -366,6 +368,13 @@ article.case-studies{
 		height: 245px;
 		display: block;
 	}
+	& > h3 a{
+		color: white;
+		text-transform: uppercase;
+		font-weight: 400;
+		font-family: futura-bt-light;
+		text-decoration: none;
+	}
 	@include mobile-device {
 		& > a{
 			overflow: hidden;
@@ -378,6 +387,11 @@ article.case-studies{
 		padding-right: 20px;
 		&:last-child {
 			padding-right: 0px;
+		}
+	}
+	&:hover{
+		& > h3 a{
+			color: $red;
 		}
 	}
 }
