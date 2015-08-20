@@ -44,7 +44,7 @@
 
 	&.is--menu-active{
     // Loop through each menu item 
-    	@for $i from 1 through 5 {
+    	@for $i from 1 through 6 {
 	      // Apply animation using :nth-child pseudoclass
 	      &:nth-child(#{$i}) {
 	        // Include the animation mixin, together with 
