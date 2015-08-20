@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "WMH HQ London",
+        description: 'The london office',
+         'marker-size': 'large',
+         'marker-color': '#ff0000',
+         'marker-symbol': 'commercial'
+      },
+      "geometry": {
+        type: 'Point',
+         coordinates: [
+           -0.10686993598937988, 51.52418674357502
+         ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "WMH HQ Chicago",
+        description: 'The Chicago office',
+         'marker-size': 'large',
+         'marker-color': '#ff0000',
+         'marker-symbol': 'commercial'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.632385253906,
+          39.302424560415
+        ]
+      }
+    }
+  ]
+}

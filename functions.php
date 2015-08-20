@@ -292,3 +292,11 @@ function remove_hentry( $classes ) {
 	return $classes;
 }
 add_filter('post_class','remove_hentry');
+
+
+// function tweakjp_custom_is_support() {
+//     $supported = current_theme_supports( 'infinite-scroll' ) && ( is_page('news') || is_home() || is_archive() || is_search() );
+
+//     return $supported;
+// }
+// add_filter( 'infinite_scroll_archive_supported', 'tweakjp_custom_is_support' );

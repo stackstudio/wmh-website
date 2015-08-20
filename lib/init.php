@@ -98,6 +98,11 @@ function _mbbasetheme_setup() {
 		'aside', 'image', 'video', 'quote', 'link',
 	) );
 
+	// add_theme_support( 'infinite-scroll', array(
+ //    	'container' => 'main',
+ //    	'footer' => 'post-list',
+	// ));
+
 	// Enqueue scripts
 	// Function location: /lib/theme-functions.php
 	add_action( 'wp_enqueue_scripts', 'mb_scripts' );

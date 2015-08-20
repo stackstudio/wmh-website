@@ -3,7 +3,7 @@
    ========================================================================== */
 
 #socials{
-	width: 145px;
+	width: 200px;
 	@include opacity(0);
 	visibility: hidden;
 	@include mobile-device {
@@ -39,7 +39,7 @@
 	
 }
 
-
+/*
 #menu-button{
 	padding: 5px;
 	@include opacity(1);
@@ -59,14 +59,120 @@
 		@include opacity(1);
 	}
 	
+}*/
+
+
+
+// Animated one here
+
+#menu-button {
+	&:hover{
+		color: #f00;
+	}
+	cursor: pointer;
+	display: block;
+	width: 50px;
+	height: 40px;
+	padding: 10px;
+	float: right;
+	color: #333;
+	text-align: center;
+	font-size: 14px;
+	line-height: 100px;
+	@include transition(all 0.3s);
+	margin-right: 5px;
+	position: relative;
+
+  span {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    margin: -10px 0 0 -15px;  
+    width: 30px;
+    height: 3px;
+    background: #f00;
+    transition-delay: 1s;
+    @include transition(transform 0.3s);
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    &:before {
+      box-shadow: red 0 -9px,red 0 9px;
+      transition-delay: 2s;
+      @include transition(box-shadow 0.2s);
+    }
+
+    &:after {
+      background: inherit;
+      transform-origin: center center;
+      transition-delay: 1s;
+      -webkit-transition-delay: 1s;
+      @include transition(transform 0.3s);  
+    }
+  }
+
+  &:hover {
+
+    span {
+      transform: rotate(45deg);
+      transition-delay: 0.3s;
+      margin-top: -15px;
+
+      &:before {
+        box-shadow: 0 0 0 0 red;
+        transition-delay: 0s;
+      }
+
+      &:after {
+        transform: rotate(-90deg);
+        transition-delay: 0.3s;
+      }
+    }
+  }
+
+  &.selected {
+
+    span {
+      transform: rotate(45deg);
+      transition-delay: 0.3s;
+      margin-top: -15px;
+      background: #f00;
+
+      &:before {
+        box-shadow: 0 0 0 0 black;
+        transition-delay: 0s;
+      }
+
+      &:after {
+        transform: rotate(-90deg);
+        transition-delay: 0.3s;
+      }
+    }
+  }
 }
 
 
 .hidden-menu{
   position: fixed;
-  right: -50%;
+  right: -100%;
   top: 0px;
   width: 50%;
+  @include animate(1.5s, 0.3s);
+  &.minus{
+  	@include animate(1.5s, 0.3s);
+  	right: -100%;
+  	@include mobile-device {
+  		@include animate(1.5s, 0.3s);
+  		right: 0%;
+  	}
+  }
   height: 100%;
   background-color: rgba(0,0,0,0.6);
   z-index: 999998;

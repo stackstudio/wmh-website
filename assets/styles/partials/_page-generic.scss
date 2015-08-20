@@ -42,3 +42,55 @@
 	width: 100%;
 	height: 100%;
 }
+#team{
+	background: #000;
+	position: relative;
+	& > h1{
+		padding: 60px 20px 20px 20px;
+		margin: 0;
+		font-family: georgia-italic;
+		color: $nav;
+		&:before{
+			content: "~\00a0";
+		}
+	}
+}
+#team-roles{
+	padding: 0 20px;
+	position: absolute;
+	bottom: 65px;
+	overflow: hidden;
+	width: 100%;
+	& > article:first-child{
+		margin-left: 109px; 
+	}
+	& > article{
+		text-align: center;
+		& > h4,p{
+			color: white;
+			margin: 5px 0;
+			text-transform: uppercase;
+		}
+		& > p{
+			font-family: futura-bt-book;
+			font-size: 0.8em;
+		}
+		& > h4{
+			font-family: futura-bt-medium;
+    		font-size: .9em;
+		}
+	}
+}
+.teams{
+	@include transition(opacity 0.6s);
+	@include opacity(0);
+
+	@for $i from 1 through 7 {
+	  &:nth-child(#{$i}) { 
+	   @include transition-delay(0.5s * $i); 
+	  }
+	}
+}
+.drop-in {
+	@include opacity(1);
+}

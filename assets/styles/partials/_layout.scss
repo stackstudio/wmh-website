@@ -63,7 +63,7 @@ body.post-type-archive-case-studies .site{
 	& > .site-branding{
 		color: inherit;
 		float: left;
-		width: 255px;
+		width: 210px;
 		padding-right: 20px;
 	}
 	@include mobile-device {
@@ -322,4 +322,8 @@ body.post-type-archive-case-studies .site{
 			}
 		}
 	}
+}
+
+#map-over{
+  overflow: hidden;
 }

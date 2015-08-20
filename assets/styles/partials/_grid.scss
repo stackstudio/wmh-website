@@ -39,6 +39,9 @@ $two: 10%;
 	@include mobile-device {
 		width: 25%;
 	}
+	@include lg-dtop{
+		width: 25%;
+	}
 }
 .col-3-4 {
 	width: 75%;

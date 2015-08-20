@@ -29,6 +29,19 @@
 	font-family: georgia-italic;
 } 
 
+.page .entry-content h2{
+	font-family: georgia-italic;
+	color: black;
+	text-decoration: none;
+	@include animate(0.5s, 0.1s);
+	padding: 10px 0;
+	cursor: pointer;
+	&:hover{
+		@include transform(translateY(10px));
+		@include animate(0.5s, 0.1s);
+	}
+} 
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;

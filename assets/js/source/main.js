@@ -6,6 +6,7 @@
 	var newwidth = $(window).width();
 	var newheight = $(window).height();
 	var caseStudy = $('.case-study');
+	var header = $('header').outerHeight();
 	var headerH = $('header').outerHeight()/4;
 	var projectContainer = $('article.case-studies #work-area');
 	var similarPostsSection = $('#related-work .inner-wrap');
@@ -19,9 +20,7 @@
 	// all Javascript code goes here
 	var newWidth = $(window).width();
 	var newHeight = $(window).height();
-	$(".generic-bg, .full-screen-quote, .quote-image, .fact-image, .quote-fact").css({"height": newHeight, "width": newWidth }); 
-
-
+	$(".generic-bg, #team, .full-screen-quote, .quote-image, .fact-image, .quote-fact").css({"height": newHeight, "width": newWidth });
 	// =============================================================== //
 					/// start main functions here ///
 	// =============================================================== //
@@ -182,9 +181,13 @@
 
 			      if(cOst > 500 && cOst > ost) {
 			      	$('.case-studies .entry-content').removeClass('down').addClass('up');
+			      	$('.work-block .entry-content').removeClass('down').addClass('up');
+			      	$('.teams').addClass('drop-in');
 			      }
 			      else if(cOst < 500 && cOst < ost) {
 			        $('.case-studies .entry-content').removeClass('up').addClass('down');
+			        $('.work-block .entry-content').removeClass('up').addClass('down');
+			        $('.teams').removeClass('drop-in');
 			      } 
 
 			    //   if($(window).scrollTop() + $(window).height() == $(document).height()) {
@@ -443,32 +446,50 @@
 
 		if(_last === 'us'){
 			L.mapbox.accessToken = 'pk.eyJ1IjoibWR1bmJhdmFuIiwiYSI6ImJkODFlZDZjMzU5N2Y0OTI5ZjcyYWMzMTdiNjY0NzhjIn0.2KGkXkLyyxtuxqj4hh_N1Q';
-			var map = L.mapbox.map('map', 'mapbox.streets', { zoomControl: false })
-			    .setView([51.52418674357502,-0.10686993598937988], 16);
+			var southWest = L.latLng(-70.0593239,-120.7748328),
+		    northEast = L.latLng(79.9863403,120.0493859),
+		    bounds = L.latLngBounds(southWest, northEast);
+			var geojson = [
+				  {
+				      "type": "Feature",
+				      "properties": {
+				        "title": "WMH HQ London",
+				        description: 'The london office',
+				         'marker-size': 'large',
+				         'marker-color': '#ff0000',
+				         'marker-symbol': 'commercial'
+				      },
+				      "geometry": {
+				        type: 'Point',
+				         coordinates: [
+				           -0.10686993598937988, 51.52418674357502
+				         ]
+				      }
+				    },
+				    {
+				      "type": "Feature",
+				      "properties": {
+				        "title": "WMH HQ Chicago",
+				        description: 'The Chicago office',
+				         'marker-size': 'large',
+				         'marker-color': '#ff0000',
+				         'marker-symbol': 'commercial'
+				      },
+				      "geometry": {
+				        "type": "Point",
+				        "coordinates": [
+				         -87.6324463, 41.8777415
+				        ]
+				      }
+				    }
+				];
+			var map = L.mapbox.map('map', 'mapbox.streets', { zoomControl: true, maxBounds: bounds, maxZoom: 19, minZoom: 4 })
+			    .setView([46.7972158,-47.1266867], 4)
+			    .featureLayer.setGeoJSON(geojson);
 			    //new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
-				L.mapbox.featureLayer({
-				    // this feature is in the GeoJSON format: see geojson.org
-				    // for the full specification
-				    type: 'Feature',
-				    geometry: {
-				        type: 'Point',
-				        // coordinates here are in longitude, latitude order because
-				        // x, y is the standard for GeoJSON and many formats
-				        coordinates: [
-				          -0.10686993598937988, 51.52418674357502
-				        ]
-				    },
-				    properties: {
-				        title: 'WMH HQ',
-				        description: 'The place where dreams come true!!',
-				        // one can customize markers by adding simplestyle properties
-				        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-				        'marker-size': 'large',
-				        'marker-color': '#ff0000',
-				        'marker-symbol': 'commercial'
-				    }
-				}).addTo(map);
+			    map.fitBounds(featureLayer.getBounds());
+
 			}
 
 
@@ -476,7 +497,7 @@
 	var mobileMenuTouch = function() {
 
 		var flag = false;
-	  $('#menu-button img').on('click', function(e){
+	  $('#menu-button').on('click', function(e){
 
 	    $('body').css('overflow','hidden');
 
@@ -494,10 +515,8 @@
 	        $('#site-navigation').addClass('mobile');
 	        $('body').removeClass('menu-closed');
 	        $('body').addClass('menu-open');
-	        $(this).find('img').attr('src',mobileMenuActive);
-	        $('.hidden-menu').transition({
-	          'right': '0px'
-	        });
+	        $(this).addClass('selected');
+	        $('.hidden-menu').addClass('minus');
 
 	        window.setTimeout(function(){
 	  			$('#socials').addClass('open');
@@ -506,12 +525,10 @@
 
 	      } else {
 	      	$('body').css('overflow','inherit');
-	        $(this).find('img').attr('src',mobileMenu);
+	        $(this).removeClass('selected');
 	        $('body').addClass('menu-closed');
 	        $('body').removeClass('menu-open');
-	        $('.hidden-menu').transition({
-	          'right': '-50%'
-	        });
+	        $('.hidden-menu').removeClass('minus');
 	  		
 	  		$('#socials').removeClass('open');
 	  		$('.menu-the-menu-container ul li').removeClass('is--menu-active');
@@ -690,7 +707,43 @@
 			  ]
 		});
 	};
+	var scroller = function() {
+
+		$('#scroll-down').bind('click',function(){
+	        var anchor = $(this).data('scroll');
+
+	        // $('html, body').stop().animate({
+	        //     scrollTop: $(anchor).offset().top - headerH
+	        // }, {duration: "slow"});
+
+	        $(anchor)
+			  .velocity('stop')
+			  .velocity('scroll', { duration: 1000, offset: -headerH }, "easeOutBounce");
+			$('.teams').addClass('drop-in');
+	    });
+
+	};
+	var lazyLoad = function() {
+		$('#post-list').infinitescroll({					
+			debug: true,
+			loading: {
+		        finished: undefined,
+		        finishedMsg: "<em>Items loaded</em>",
+		        img: "",
+		        msg: null,
+		        msgText: "<em>Loading the next set of posts...</em>",
+		        speed: 'slow',
+		    },
+		    pixelsFromNavToBottom: 230,
+		    animate: 'true',
+            navSelector:'nav.paging-navigation .nav-links',
+            nextSelector:'.nav-previous a',
+            itemSelector:'.post'
+	    });
+	};
 	// Some more dependent js goes here :)
+	scroller();
+	lazyLoad();
 	widthCheck();
 	scrollerHeader();
 	onCase();

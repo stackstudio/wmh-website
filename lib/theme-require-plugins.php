@@ -49,6 +49,15 @@ function mb_register_required_plugins() {
 			'required' => true,
 			'force_activation' => true
 		),
+
+		array(
+			'name' 				=> 'Jetpack',
+			'slug' 				=> 'jetpack',
+			'source'=> get_template_directory_uri() . '/lib/plugins/jetpack.3.6.1.zip',
+			'required' 			=> true,
+			'force_activation'	=> true
+		),
+
 		array(
 			'name' => 'Prepare JSON',
 			'slug' => 'prepare-json',

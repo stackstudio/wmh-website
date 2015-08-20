@@ -21,6 +21,7 @@
 	var mobileMenuActive = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon-open.svg';
 	var play = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wmh-play.svg';
 	var pause = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wmh-stop.svg';
+	var base = '<?php echo get_stylesheet_directory_uri(); ?>';
 	</script>
 </head>
 <?php if( is_front_page() ){ ?>
@@ -48,9 +49,10 @@
 		</div>
 <!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-button.svg" alt="mobile nav button" id="mobile-menu-button"> -->
 		<!-- img tag for mobile button -->
-		<div id="menu-button">
-			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon.svg" alt="<?php bloginfo( 'name' ); ?> menu icon">
-		</div>
+		<a id="menu-button">
+			<span></span>
+			<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu-icon.svg" alt="<?php bloginfo( 'name' ); ?> menu icon"> -->
+		</a>
 	</header><!-- #masthead -->
 	<div class="hidden-menu">
 			<nav id="site-navigation" class="main-navigation" role="navigation">
