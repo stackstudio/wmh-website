@@ -29,7 +29,7 @@ $team = get_field('team_members');
 	</article>
 
 </article><!-- #post-## -->
-<section id="team" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/the-team.jpg);">
+<section id="team" style="">
 	<h1>Key People</h1>
 	<!-- <article id="generic-bg" class="generic-bg work-block"> -->
 		<div id="team-roles" class="row">

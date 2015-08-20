@@ -22,7 +22,6 @@
 	var newWidth = $(window).width();
 	var newHeight = $(window).height();
 	$(".generic-bg, .full-screen-quote, .quote-image, .fact-image, .quote-fact").css({"height": newHeight, "width": newWidth });
-	$("#team").css({"height": newHeight});
 	// =============================================================== //
 					/// start main functions here ///
 	// =============================================================== //
@@ -43,6 +42,7 @@
 
 		  } else {
 		  	$('body').addClass('menu-closed');
+		  	$("#team").css({"height": newHeight});
 
 		  	// $('.secondary-nav').addClass('non-mobile');
 	        var windowsize = $window.height();

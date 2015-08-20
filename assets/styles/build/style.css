@@ -5940,7 +5940,9 @@ object {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
+  position: relative;
+  background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
+  height: 3100px;
   width: 100%;
 }
 #team > h1 {
@@ -5952,6 +5954,23 @@ object {
 #team > h1:before {
   content: "~\00a0";
 }
+@media only screen and (min-width: 668px) {
+  #team {
+    background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
+  }
+}
+@media only screen and (min-width: 768px) {
+  #team {
+    background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
+    background-size: cover;
+    height: 9000px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #team {
+    background-image: url(/wp-content/themes/wmh-theme/assets/images/the-team.jpg);
+  }
+}
 
 #team-roles {
   padding: 0 20px;
@@ -5959,15 +5978,15 @@ object {
   width: 100%;
   display: table;
   overflow: hidden;
-  bottom: 11%;
+  bottom: none;
+  top: 0;
 }
 @media only screen and (min-width: 668px) {
   #team-roles {
-    bottom: 20%;
+    bottom: 11%;
+    position: absolute;
+    top: 85%;
   }
-}
-#team-roles > article:first-child {
-  margin-left: 7%;
 }
 @media only screen and (min-width: 668px) {
   #team-roles > article:first-child {
@@ -5980,9 +5999,23 @@ object {
   }
 }
 #team-roles > article {
-  display: table-cell;
-  vertical-align: middle;
+  display: table;
   text-align: center;
+  height: 445px;
+}
+#team-roles > article > a {
+  display: table-cell;
+  vertical-align: bottom;
+  text-align: left;
+  text-decoration: none;
+  padding-bottom: 20px;
+}
+@media only screen and (min-width: 668px) {
+  #team-roles > article {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
 }
 #team-roles > article > a {
   text-decoration: none;

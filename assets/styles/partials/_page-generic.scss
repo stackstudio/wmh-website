@@ -47,7 +47,9 @@
 	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center;
-	position: absolute;
+	position: relative;
+	background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
+	height: 3100px;
 	width: 100%;
 	& > h1{
 		padding: 60px 20px 20px 20px;
@@ -58,6 +60,18 @@
 			content: "~\00a0";
 		}
 	}
+	@include mobile-device{
+		background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
+	}
+	@include tb-p{
+		background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
+		background-size: cover;
+    height: 9000px;
+	}
+	@include dtop{
+		background-image: url(/wp-content/themes/wmh-theme/assets/images/the-team.jpg);
+
+	}
 }
 #team-roles{
 	padding: 0 20px;
@@ -65,12 +79,14 @@
     width: 100%;
     display: table;
     overflow: hidden;
+    bottom: none;
+    top: 0;
     @include mobile-device{
-    	bottom: 20%;
+		bottom: 11%;
+		position: absolute;
+		top: 85%;
     }
-    bottom: 11%;
 	& > article:first-child{
-		margin-left: 7%;
 		@include mobile-device{
 			margin-left: 3%;
 		} 
@@ -79,9 +95,22 @@
 		}
 	}
 	& > article{
-		display: table-cell;
-		vertical-align: middle;
-		text-align: center;
+			display: table;
+			text-align: center;
+			height: 445px;
+			& > a{
+					display: table-cell;
+					vertical-align: bottom;
+					text-align: left;
+					text-decoration: none;
+					padding-bottom: 20px;
+				}
+			@include mobile-device{
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+
 		& > a{
 			text-decoration: none;
 			& > h4,p{ text-decoration: none; }
