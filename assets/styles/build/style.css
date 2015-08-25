@@ -5881,12 +5881,6 @@ nav.mobile > div ul li a {
 }
 
 /* Make sure embeds and iframes fit their containers */
-embed,
-iframe,
-object {
-  width: 100%;
-}
-
 /* ==========================================================================
    Generic and static pages
    ========================================================================== */
@@ -6423,13 +6417,6 @@ article.case-studies {
   filter: alpha(opacity=50);
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
-}
-
-/* Make sure embeds and iframes fit their containers */
-.case-studies embed,
-.case-studies iframe,
-.case-studies object {
-  max-width: 100%;
 }
 
 .col-video {

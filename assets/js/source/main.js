@@ -323,9 +323,7 @@
 						} else if(layout[key] === 'full_screen_video') {
 
 							var videoEmbed = layout.video_url;
-							layoutHTML += "<section class='col-video'>";
 						    	layoutHTML += "<iframe type='text/html' src='" + videoEmbed + "' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
-							layoutHTML += "</section>";
 
 						} else if(layout[key] === '2_column_images') {
 
@@ -378,7 +376,7 @@
 
 		    var galleries = $('.gallery');
 
-		    $(".col-video").fitVids();
+		    $(".case-studies").fitVids();
 		    $.each(galleries, function(index) {
 			    $(this).slick({
 				  dots: false,
