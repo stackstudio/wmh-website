@@ -33,7 +33,7 @@
 	  var w = $window.width();
 	  var h = $window.height();
 
-		  if (w <= 580) {
+		  if (w <= 667) {
 
 		  	$('body').addClass('menu-closed');
 		  	$('#site-navigation').addClass('mobile');
@@ -323,7 +323,7 @@
 						} else if(layout[key] === 'full_screen_video') {
 
 							var videoEmbed = layout.video_url;
-							layoutHTML += "<section id='full-screen' class='col col-video work-block'>";
+							layoutHTML += "<section class='col-video'>";
 						    	layoutHTML += "<iframe type='text/html' src='" + videoEmbed + "' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
 							layoutHTML += "</section>";
 
@@ -490,7 +490,21 @@
 			    .featureLayer.setGeoJSON(geojson);
 			    //new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
-			    map.fitBounds(featureLayer.getBounds());
+			    //map.fitBounds(featureLayer.getBounds());
+
+			    window.addEventListener('resize', function(event){
+				    // get the width of the screen after the resize event
+				    var width = document.documentElement.clientWidth;
+				    // tablets are between 768 and 922 pixels wide
+				    // phones are less than 768 pixels wide
+				    if (width <= 768) {
+				        // set the zoom level to 10
+				        map.setZoom(19);
+				    }  else {
+				        // set the zoom level to 8
+				        map.setZoom(8);
+				    }
+				});
 
 			}
 
@@ -499,7 +513,7 @@
 	var mobileMenuTouch = function() {
 
 		var flag = false;
-	  $('#menu-button').on('click', function(e){
+	  $('#menu-button').on('touchstart click', function(e){
 
 	    $('body').css('overflow','hidden');
 
@@ -531,6 +545,7 @@
 	        $('body').addClass('menu-closed');
 	        $('body').removeClass('menu-open');
 	        $('.hidden-menu').removeClass('minus');
+	        $('body').trigger( "click touchstart" );
 	  		
 	  		$('#socials').removeClass('open');
 	  		$('.menu-the-menu-container ul li').removeClass('is--menu-active');

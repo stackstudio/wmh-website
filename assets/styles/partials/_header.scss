@@ -167,7 +167,8 @@
   @include animate(1.5s, 0.3s);
   &.minus{
   	@include animate(1.5s, 0.3s);
-  	right: -100%;
+  	right: 0;
+    width: 100%;
   	@include mobile-device {
   		@include animate(1.5s, 0.3s);
   		right: 0%;

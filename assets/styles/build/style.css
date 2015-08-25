@@ -5547,7 +5547,8 @@ body.post-type-archive-case-studies .site {
 .hidden-menu.minus {
   -webkit-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
   transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
-  right: -100%;
+  right: 0;
+  width: 100%;
 }
 @media only screen and (min-width: 668px) {
   .hidden-menu.minus {
@@ -5969,6 +5970,7 @@ object {
 @media only screen and (min-width: 1024px) {
   #team {
     background-image: url(/wp-content/themes/wmh-theme/assets/images/the-team.jpg);
+    background-size: contain;
   }
 }
 
