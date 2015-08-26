@@ -5555,6 +5555,7 @@ body.post-type-archive-case-studies .site {
     -webkit-transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     transition: all 1.5s cubic-bezier(0, 0, 0.2, 1) 0.3s;
     right: 0%;
+    width: 50%;
   }
 }
 
@@ -5991,7 +5992,7 @@ nav.mobile > div ul li a {
 }
 @media only screen and (min-width: 1024px) {
   #team-roles > article:first-child {
-    margin-left: 6%;
+    margin-left: 8%;
   }
 }
 #team-roles > article {

@@ -544,6 +544,7 @@
 	        $('body').removeClass('menu-open');
 	        $('.hidden-menu').removeClass('minus');
 	        $('body').trigger( "click touchstart" );
+	        $(this).removeClass('selected');
 	  		
 	  		$('#socials').removeClass('open');
 	  		$('.menu-the-menu-container ul li').removeClass('is--menu-active');
