@@ -752,7 +752,7 @@
 			        finishedMsg: "<em>Items loaded</em>",
 			        img: null,
 			        msg: null,
-			        msgText: "<div class='load-post'><p>Loading the next set of posts</p></div>",
+			        msgText: "<div class='load-post'><p>Loading more news for you...</p></div>",
 			        speed: 'slow'
 			    },
 			    pixelsFromNavToBottom: 230,

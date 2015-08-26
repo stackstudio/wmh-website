@@ -5358,14 +5358,46 @@ body.post-type-archive-case-studies .site {
 #infscr-loading {
   position: fixed;
   bottom: 0px;
-  height: 60px;
+  height: 90px;
   background: #333;
   width: 100%;
   left: 0px;
   text-align: center;
+  color: white;
 }
-#infscr-loading > img {
-  display: none;
+
+.news-post {
+  position: relative;
+}
+
+.news-post .trans-bg {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 5000;
+}
+
+.news-post .block {
+  z-index: 6000;
+  position: absolute;
+}
+
+.news-post h1 {
+  font-family: georgia-italic;
+  color: white;
+  margin-top: 10px;
+}
+
+.news-post .posted-on {
+  font-family: futura-bt-medium;
+}
+.news-post .posted-on > time {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 /* ==========================================================================

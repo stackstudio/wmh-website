@@ -22,6 +22,7 @@
 	var play = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wmh-play.svg';
 	var pause = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wmh-stop.svg';
 	var base = '<?php echo get_stylesheet_directory_uri(); ?>';
+	loader = '<?php echo get_stylesheet_directory_uri(); ?>/assets/images/360.gif';
 	</script>
 </head>
 <?php if( is_front_page() ){ ?>
