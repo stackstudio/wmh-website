@@ -5142,6 +5142,10 @@ body.post-type-archive-case-studies .site {
   background-color: #FF0000;
 }
 
+.fluid-width-video-wrapper {
+  clear: both;
+}
+
 .block {
   display: table;
   width: 100%;
@@ -5812,6 +5816,7 @@ nav.mobile > div ul li a {
 .entry-content,
 .entry-summary {
   margin: 0 0 0;
+  z-index: 6000;
 }
 
 .page .entry-content h1 {
@@ -6184,6 +6189,7 @@ article.case-studies {
   width: 100%;
   padding: 20px;
   overflow: hidden;
+  z-index: 6000;
 }
 .case-studies .entry-content .entry-header h1 {
   padding: 0;
@@ -6513,6 +6519,7 @@ article.case-studies {
   font-weight: 400;
   font-family: futura-bt-light;
   text-decoration: none;
+  font-size: 0.8em;
 }
 @media only screen and (min-width: 668px) {
   .similar-project {
@@ -6532,6 +6539,10 @@ article.case-studies {
 }
 .similar-project:hover > h3 a {
   color: red;
+}
+
+.similar-project img {
+  height: 100%;
 }
 
 /*
