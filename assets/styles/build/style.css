@@ -6490,15 +6490,6 @@ article.case-studies {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-@media only screen and (min-width: 668px) {
-  .project > a {
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-  .project > a > .block .wrap h1 {
-    padding-top: 0px;
-  }
-}
 .project > a > .block .wrap h1 {
   padding-top: 70px;
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
@@ -6507,6 +6498,15 @@ article.case-studies {
   text-transform: uppercase;
   font-weight: 400;
   font-family: futura-bt-book;
+}
+@media only screen and (min-width: 668px) {
+  .project > a {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  .project > a > .block .wrap h1 {
+    padding-top: 0px;
+  }
 }
 .project > a:hover {
   opacity: 1;

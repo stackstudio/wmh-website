@@ -279,12 +279,6 @@ article.case-studies{
 		width: 100%;
 		height: 100%;
 		@include opacity(1);
-		@include mobile-device{
-			@include opacity(0);
-			& > .block .wrap h1{
-				padding-top: 0px;
-			}
-		}
 		& > .block .wrap h1{
 			padding-top: 70px;
 			@include animate(0.5s, 0s);
@@ -292,6 +286,12 @@ article.case-studies{
 			text-transform: uppercase;
 		    font-weight: 400;
 		    font-family: futura-bt-book;
+		}
+		@include mobile-device{
+			@include opacity(0);
+			& > .block .wrap h1{
+				padding-top: 0px;
+			}
 		}
 		&:hover{
 			@include opacity(1);
