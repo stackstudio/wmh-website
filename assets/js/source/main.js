@@ -420,7 +420,7 @@
 				  			siteMain.append(content).isotope('insert', content);
 				  			//content.hide();
 				  			//content.fadeIn();
-				  		}, 500*(i+1));
+				  		}, 100*(i+1));
 					});
 		      },
 		      cache: false
@@ -585,9 +585,7 @@
 	        window.setTimeout(function(){
 	        	$('body').addClass('filter-closed');
 	        	$('#work-filter').removeClass('active');
-		        $('.hidden-filter').transition({
-		          'left': '-50%'
-		        });
+		        $('.hidden-filter').removeClass('minus');
 	        },1100);
 	        $('#work-filter').find('img').addClass('spin').fadeOut(500);
 	        $('#our-work').isotope({ filter: filterValue });
@@ -645,9 +643,7 @@
 		        window.setTimeout(function(){
 		        	$('body').addClass('filter-closed');
 		        	t.removeClass('active');
-			        $('.hidden-filter').transition({
-			          'left': '-50%'
-			        });
+			        $('.hidden-filter').removeClass('minus');
 		        },1100);
 		        $(this).find('img').addClass('spin').fadeOut(500);
 
