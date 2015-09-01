@@ -5302,6 +5302,12 @@ body.post-type-archive-case-studies .site {
   left: 0px;
   z-index: 9999;
   background: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+@media only screen and (min-width: 668px) {
+  .controls {
+    display: block;
+  }
 }
 .controls > ul {
   list-style: none;
@@ -5409,6 +5415,37 @@ body.post-type-archive-case-studies .site {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+#who-we-are {
+  display: none;
+}
+@media only screen and (min-width: 668px) {
+  #who-we-are {
+    display: block;
+  }
+}
+
+.page .entry-content #scroll-down {
+  display: none;
+}
+@media only screen and (min-width: 668px) {
+  .page .entry-content #scroll-down {
+    display: block;
+  }
+}
+
+#showreel {
+  display: none;
+}
+@media only screen and (min-width: 668px) {
+  #showreel {
+    display: block;
+  }
+}
+
+#showreel-mobile {
+  background: #000;
 }
 
 /* ==========================================================================
@@ -6031,10 +6068,15 @@ nav.mobile > div ul li a {
   width: 100%;
 }
 #team > h1 {
-  padding: 60px 20px 20px 20px;
+  padding: 10px 20px;
   margin: 0;
   font-family: georgia-italic;
   color: #919191;
+}
+@media only screen and (min-width: 668px) {
+  #team > h1 {
+    padding: 60px 20px 20px 20px;
+  }
 }
 #team > h1:before {
   content: "~\00a0";
@@ -6131,46 +6173,6 @@ nav.mobile > div ul li a {
   #team-roles > article > a h4 {
     font-size: 0.9em;
   }
-}
-
-.teams {
-  -webkit-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-.teams:nth-child(1) {
-  -webkit-transition-delay: 0.5s;
-  transition-delay: 0.5s;
-}
-.teams:nth-child(2) {
-  -webkit-transition-delay: 1s;
-  transition-delay: 1s;
-}
-.teams:nth-child(3) {
-  -webkit-transition-delay: 1.5s;
-  transition-delay: 1.5s;
-}
-.teams:nth-child(4) {
-  -webkit-transition-delay: 2s;
-  transition-delay: 2s;
-}
-.teams:nth-child(5) {
-  -webkit-transition-delay: 2.5s;
-  transition-delay: 2.5s;
-}
-.teams:nth-child(6) {
-  -webkit-transition-delay: 3s;
-  transition-delay: 3s;
-}
-.teams:nth-child(7) {
-  -webkit-transition-delay: 3.5s;
-  transition-delay: 3.5s;
-}
-
-.drop-in {
-  opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 /* ==========================================================================
@@ -6520,8 +6522,13 @@ article.case-studies {
 #related-work {
   clear: both;
   overflow: hidden;
-  padding: 20px;
+  padding: 20px 20px 60px 20px;
   background: black;
+}
+@media only screen and (min-width: 668px) {
+  #related-work {
+    padding: 20px;
+  }
 }
 #related-work h1 {
   padding: 0;
@@ -6562,8 +6569,13 @@ article.case-studies {
 }
 .similar-project > a {
   overflow: hidden;
-  height: 245px;
+  height: 155px;
   display: block;
+}
+@media only screen and (min-width: 668px) {
+  .similar-project > a {
+    height: 245px;
+  }
 }
 .similar-project > h3 a {
   color: white;
@@ -6685,14 +6697,20 @@ article.case-studies {
   vertical-align: middle;
   text-align: center;
   padding: 0 20px;
-  opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 1;
+  filter: alpha(opacity=100);
   -webkit-transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
   transition: all 0.5s cubic-bezier(0, 0, 0.2, 1) 0s;
 }
 @media only screen and (min-width: 668px) {
   .case-study > .module {
     padding: 0 60px;
+  }
+}
+@media only screen and (min-width: 668px) {
+  .case-study > .module {
+    opacity: 0;
+    filter: alpha(opacity=0);
   }
 }
 .case-study > .module > a {

@@ -319,7 +319,10 @@ article.case-studies{
 
 	clear: both;
 	overflow: hidden;
-	padding: 20px;
+	padding: 20px 20px 60px 20px;
+	@include mobile-device{
+		padding: 20px;
+	}
 	background: black;
 
 	& h1{
@@ -359,7 +362,10 @@ article.case-studies{
 	width: 100%;
 	& > a{
 		overflow: hidden;
-		height: 245px;
+		height: 155px;
+		@include mobile-device{
+			height: 245px;
+		}
 		display: block;
 	}
 	& > h3 a{

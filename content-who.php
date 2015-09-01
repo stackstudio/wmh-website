@@ -25,7 +25,7 @@ $team = get_field('team_members');
 		<?php the_content(); ?>
 		<h2 id="scroll-down" data-scroll="#team">See the team <span class="fa fa-angle-down"></span></h2>
 	</div><!-- .entry-content -->
-	<article id="generic-bg" class="generic-bg work-block" style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
+	<article id="who-we-are" class="generic-bg work-block" style="background-image: url(<?php _basetheme_post_thumbnail_helper(); ?>);">
 	</article>
 
 </article><!-- #post-## -->

@@ -21,7 +21,7 @@
 	// all Javascript code goes here
 	var newWidth = $(window).width();
 	var newHeight = $(window).height();
-	$(".generic-bg, .full-screen-quote, .quote-image, .fact-image, .quote-fact").css({"height": newHeight, "width": newWidth });
+	$(".generic-bg, .full-screen-quote, .quote-image, .fact-image, #showreel-mobile, .quote-fact").css({"height": newHeight, "width": newWidth });
 	// =============================================================== //
 					/// start main functions here ///
 	// =============================================================== //
@@ -134,9 +134,7 @@
 		        $(this).find('img').attr('src',mobileMenu);
 		        $('body').addClass('menu-closed');
 		        $('body').removeClass('menu-open');
-		        $('.hidden-menu').transition({
-		          'right': '-50%'
-		        });
+		        $('.hidden-menu').removeClass('minus');
 		  		
 		  		$('#socials').removeClass('open');
 		  		$('.menu-the-menu-container ul li').removeClass('is--menu-active');
@@ -661,7 +659,10 @@
 	};
 	var showReel = function() {
 
-		var options = {  videoId: 'ACDu1BuCCrI', 
+		if (newWidth <= 667) {
+			$('#showreel-mobile').fitVids();
+		} else {
+			var options = {  videoId: 'ACDu1BuCCrI', 
 			start: 0, 
 			repeat: true,
 			playButtonClass: 'wmh-play',
@@ -671,7 +672,9 @@
 			ratio: 16/9
         };  
   
-		$('#showreel').tubular(options); 
+		$('#showreel').tubular(options);
+			
+		} 
 
 		var buttonVidP = $('.controls ul li.wmh-play');
 		var buttonVidS = $('.controls ul li.wmh-pause');
@@ -735,7 +738,6 @@
 	        $(anchor)
 			  .velocity('stop')
 			  .velocity('scroll', { duration: 1000, offset: -headerH }, "easeOutBounce");
-			$('.teams').addClass('drop-in');
 	    });
 
 	};

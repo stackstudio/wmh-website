@@ -22,7 +22,10 @@ body.home {}
 		@include mobile-device {
 			padding: 0 60px;
 		}
-		@include opacity(0);
+		@include opacity(1);
+		@include mobile-device {
+			@include opacity(0);
+		}
 		@include animate(0.5s, 0s);
 		& > a{
 			text-decoration: none;
