@@ -12,7 +12,7 @@ body.post-type-archive-case-studies .site{
 }
 .container{
 	max-width: 1480px;
-	padding: 10%;
+	padding: 2% 10%;
 }
 .null {
   visibility: hidden;
@@ -372,6 +372,10 @@ body.post-type-archive-case-studies .site{
 	font-family: georgia-italic;
 	color: white;
 	margin-top: 10px;
+	font-size: 1.2em;
+	@include mobile-device{
+		font-size: inherit;
+	}
 }
 .news-post .posted-on{
 	font-family: futura-bt-medium;

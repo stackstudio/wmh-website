@@ -4985,7 +4985,7 @@ body.post-type-archive-case-studies .site {
 
 .container {
   max-width: 1480px;
-  padding: 10%;
+  padding: 2% 10%;
 }
 
 .null {
@@ -5406,6 +5406,12 @@ body.post-type-archive-case-studies .site {
   font-family: georgia-italic;
   color: white;
   margin-top: 10px;
+  font-size: 1.2em;
+}
+@media only screen and (min-width: 668px) {
+  .news-post h1 {
+    font-size: inherit;
+  }
 }
 
 .news-post .posted-on {
@@ -6481,8 +6487,17 @@ article.case-studies {
   display: block;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+@media only screen and (min-width: 668px) {
+  .project > a {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  .project > a > .block .wrap h1 {
+    padding-top: 0px;
+  }
 }
 .project > a > .block .wrap h1 {
   padding-top: 70px;
