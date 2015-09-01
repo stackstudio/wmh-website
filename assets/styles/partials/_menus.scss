@@ -155,6 +155,16 @@ nav.mobile{
 .post-navigation .nav-previous {
 	float: left;
 	width: 50%;
+	& > a{
+		padding-left: 40px;
+		background: url(/wp-content/themes/wmh-theme/assets/images/left-arrow-red.png) no-repeat left center;
+		background-size: contain;
+		text-decoration: none;
+		&:hover{
+	    	background: url(/wp-content/themes/wmh-theme/assets/images/left-arrow-red.png) no-repeat 8% center;
+	    	background-size: contain;
+	    }
+	}
 }
 
 .comment-navigation .nav-next,
@@ -163,4 +173,14 @@ nav.mobile{
 	float: right;
 	text-align: right;
 	width: 50%;
+	& > a{
+		padding-right: 40px;
+		background: url(/wp-content/themes/wmh-theme/assets/images/right-arrow-red.png) no-repeat right center;
+	    background-size: contain;
+	    text-decoration: none;
+	    &:hover{
+	    	background: url(/wp-content/themes/wmh-theme/assets/images/right-arrow-red.png) no-repeat 92% center;
+	    	background-size: contain;
+	    }
+	}
 }

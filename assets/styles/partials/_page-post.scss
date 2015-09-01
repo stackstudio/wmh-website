@@ -9,6 +9,21 @@
 	margin: 0 0 1.5em;
 }
 
+.single-post{
+	background: #000;
+}
+.single-post .post-navigation{
+	background: white;
+	padding: 40px;
+	margin:0;
+}
+.type-post h1,
+.type-post p,
+.type-post time,
+.type-post .entry-footer{
+	color: white;
+}
+
 .byline,
 .updated {
 	display: none;

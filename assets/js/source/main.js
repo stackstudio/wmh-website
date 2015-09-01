@@ -689,7 +689,7 @@
 		$('#related-work #main-work').slick({
 			infinite: true,
 			slidesToShow: 4,
-			slidesToScroll: 2,
+			slidesToScroll: 1,
 			dots: false,
 			responsive: [
 			    {

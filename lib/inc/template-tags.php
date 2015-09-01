@@ -52,8 +52,8 @@ function _mbbasetheme_post_nav() {
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', '_mbbasetheme' ); ?></h1>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', '_mbbasetheme' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     '_mbbasetheme' ) );
+				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav"></span>&nbsp;%title', 'Previous post link', '_mbbasetheme' ) );
+				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav"></span>', 'Next post link',     '_mbbasetheme' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->

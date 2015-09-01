@@ -3645,6 +3645,8 @@ address {
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
+  left: 0px;
+  top: 0px;
 }
 
 .screen-reader-text:hover,
@@ -4981,6 +4983,11 @@ body.post-type-archive-case-studies .site {
   background: black;
 }
 
+.container {
+  max-width: 1480px;
+  padding: 10%;
+}
+
 .null {
   visibility: hidden;
 }
@@ -5786,6 +5793,20 @@ nav.mobile > div ul li a {
   float: left;
   width: 50%;
 }
+.comment-navigation .nav-previous > a,
+.paging-navigation .nav-previous > a,
+.post-navigation .nav-previous > a {
+  padding-left: 40px;
+  background: url(/wp-content/themes/wmh-theme/assets/images/left-arrow-red.png) no-repeat left center;
+  background-size: contain;
+  text-decoration: none;
+}
+.comment-navigation .nav-previous > a:hover,
+.paging-navigation .nav-previous > a:hover,
+.post-navigation .nav-previous > a:hover {
+  background: url(/wp-content/themes/wmh-theme/assets/images/left-arrow-red.png) no-repeat 8% center;
+  background-size: contain;
+}
 
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
@@ -5794,12 +5815,43 @@ nav.mobile > div ul li a {
   text-align: right;
   width: 50%;
 }
+.comment-navigation .nav-next > a,
+.paging-navigation .nav-next > a,
+.post-navigation .nav-next > a {
+  padding-right: 40px;
+  background: url(/wp-content/themes/wmh-theme/assets/images/right-arrow-red.png) no-repeat right center;
+  background-size: contain;
+  text-decoration: none;
+}
+.comment-navigation .nav-next > a:hover,
+.paging-navigation .nav-next > a:hover,
+.post-navigation .nav-next > a:hover {
+  background: url(/wp-content/themes/wmh-theme/assets/images/right-arrow-red.png) no-repeat 92% center;
+  background-size: contain;
+}
 
 /* ==========================================================================
    Posts and pages
    ========================================================================== */
 .hentry {
   margin: 0 0 1.5em;
+}
+
+.single-post {
+  background: #000;
+}
+
+.single-post .post-navigation {
+  background: white;
+  padding: 40px;
+  margin: 0;
+}
+
+.type-post h1,
+.type-post p,
+.type-post time,
+.type-post .entry-footer {
+  color: white;
 }
 
 .byline,

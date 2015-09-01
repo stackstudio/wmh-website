@@ -143,6 +143,8 @@ address {
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
+	left: 0px;
+	top:0px;
 }
 
 .screen-reader-text:hover,
