@@ -40,7 +40,10 @@
 
 #map{
 	width: 100%;
-	height: 100%;
+	height: 600px;
+	@include mobile-device{
+		height: 100%;
+	}
 }
 #team{
 	background: #000;

@@ -51,7 +51,7 @@
 	        var remainHeight = parseInt('22');
 	        $('#full-screen-video').css('width',$window.width() + 60);
 	        $('#full-screen-video').css('height',h);
-	        $(".generic-bg").css({"height": $window.height(), "width": $window.width() });
+	        $(".generic-bg, #map").css({"height": $window.height(), "width": $window.width() });
 
 	        $('#socials').appendTo('.menu-the-menu-container');
 	        $('#site-navigation').removeClass('mobile');
@@ -420,7 +420,7 @@
 				  			siteMain.append(content).isotope('insert', content);
 				  			//content.hide();
 				  			//content.fadeIn();
-				  		}, 100*(i+1));
+				  		}, 250*(i+1));
 					});
 		      },
 		      cache: false
@@ -484,6 +484,8 @@
 			var map = L.mapbox.map('map', 'mapbox.streets', { zoomControl: true, maxBounds: bounds, maxZoom: 19, minZoom: 4 })
 			    .setView([46.7972158,-47.1266867], 4)
 			    .featureLayer.setGeoJSON(geojson);
+			    map.touchZoom.disable();
+			    map.dragging.disable();
 			    //new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
 			    //map.fitBounds(featureLayer.getBounds());
