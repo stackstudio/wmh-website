@@ -3436,12 +3436,12 @@ html {
  * Customize the background color to match your design.
  */
 ::-moz-selection {
-  background: orange;
+  background: #4a4a4a;
   text-shadow: none;
 }
 
 ::selection {
-  background: orange;
+  background: #4a4a4a;
   text-shadow: none;
 }
 
@@ -5584,26 +5584,6 @@ body.post-type-archive-case-studies .site {
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
 }
-#menu-button:hover span {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-  margin-top: -15px;
-}
-#menu-button:hover span:before {
-  box-shadow: 0 0 0 0 red;
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-}
-#menu-button:hover span:after {
-  -webkit-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-}
 #menu-button.selected span {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
@@ -5888,11 +5868,11 @@ nav.mobile > div ul li a {
 }
 
 .single-post {
-  background: #000;
+  background: #fff;
 }
 
 .single-post .post-navigation {
-  background: white;
+  background: #000;
   padding: 40px;
   margin: 0;
 }
@@ -5901,7 +5881,7 @@ nav.mobile > div ul li a {
 .type-post p,
 .type-post time,
 .type-post .entry-footer {
-  color: white;
+  color: #000;
 }
 
 .byline,
@@ -6101,11 +6081,13 @@ nav.mobile > div ul li a {
 }
 @media only screen and (min-width: 668px) {
   #team {
+    background-color: #000;
     background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
   }
 }
 @media only screen and (min-width: 768px) {
   #team {
+    background-color: #000;
     background-image: url(/wp-content/themes/wmh-theme/assets/images/responsive-team.jpg);
     background-size: cover;
     height: 9000px;
@@ -6113,6 +6095,7 @@ nav.mobile > div ul li a {
 }
 @media only screen and (min-width: 1024px) {
   #team {
+    background-color: #000;
     background-image: url(/wp-content/themes/wmh-theme/assets/images/the-team.jpg);
     background-size: contain;
   }
@@ -6141,7 +6124,7 @@ nav.mobile > div ul li a {
 }
 @media only screen and (min-width: 1024px) {
   #team-roles > article:first-child {
-    margin-left: 8%;
+    margin-left: 9%;
   }
 }
 #team-roles > article {
@@ -6154,13 +6137,16 @@ nav.mobile > div ul li a {
   vertical-align: bottom;
   text-align: left;
   text-decoration: none;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  text-decoration: none;
+  padding-left: 20px;
 }
 @media only screen and (min-width: 668px) {
   #team-roles > article {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    margin-left: 0.4%;
   }
 }
 #team-roles > article > a {
@@ -6191,6 +6177,20 @@ nav.mobile > div ul li a {
   #team-roles > article > a h4 {
     font-size: 0.9em;
   }
+}
+
+.team-members {
+  overflow: hidden;
+}
+
+#team-nav {
+  background: #000;
+  padding: 40px;
+  margin: 0;
+}
+
+#team-nav .post-navigation {
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -6426,7 +6426,7 @@ article.case-studies {
   line-height: 0;
   outline: 0;
   position: absolute;
-  top: 50;
+  top: 50%;
   display: block;
   width: 49px;
   height: 49px;

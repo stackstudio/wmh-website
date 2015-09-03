@@ -125,25 +125,6 @@
     }
   }
 
-  &:hover {
-
-    span {
-      transform: rotate(45deg);
-      transition-delay: 0.3s;
-      margin-top: -15px;
-
-      &:before {
-        box-shadow: 0 0 0 0 red;
-        transition-delay: 0s;
-      }
-
-      &:after {
-        transform: rotate(-90deg);
-        transition-delay: 0.3s;
-      }
-    }
-  }
-
   &.selected {
 
     span {

@@ -10,7 +10,7 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-		<?php while ( have_posts() ) : the_post(); ?>	
+		<?php while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<div class="col-1-2">
 						<img src="<?php echo _basetheme_post_thumbnail_helper(); ?>" alt="<?php echo $pt; ?>-post image">
@@ -22,6 +22,9 @@ get_header();
 						<?php the_content(); ?>
 					</div><!-- .entry-content -->
 				</article>
+				<div id="team-nav">
+					<?php _mbbasetheme_post_nav(); ?>
+				</div>
 			<?php
 			endwhile;
 			?>

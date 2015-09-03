@@ -595,7 +595,9 @@
 	        window.setTimeout(function(){
 	        	$('body').addClass('filter-closed');
 	        	$('#work-filter').removeClass('active');
-		        $('.hidden-filter').removeClass('minus');
+		        $('.hidden-filter').transition({
+		        	left: '-50%'
+		        });
 	        },1100);
 	        $('#work-filter').find('img').addClass('spin').fadeOut(500);
 	        $('#our-work').isotope({ filter: filterValue });

@@ -224,7 +224,7 @@ article.case-studies{
 	line-height: 0;
 	outline: 0;
 	position: absolute;
-	top: 50;
+	top: 50%;
 	@include mobile-device{
 		top: 20%;
 	}
