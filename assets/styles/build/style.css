@@ -5497,7 +5497,14 @@ body.post-type-archive-case-studies .site {
 #socials > ul > li {
   display: inline-block;
   vertical-align: top;
-  width: 25px;
+  width: 27px;
+  color: red;
+  font-size: 1.8em;
+  line-height: 1.3em;
+}
+#socials > ul > li > a {
+  color: red;
+  font-size: 1.3em;
 }
 
 /*

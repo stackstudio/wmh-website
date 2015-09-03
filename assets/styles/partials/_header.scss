@@ -27,13 +27,20 @@
 	& > ul{
 		padding: 0px;
 		& > li.vimeo{
-			    width: 45px;
-    margin: 20px 1px;
+			width: 45px;
+      margin: 20px 1px;
 		}
 		& > li{
 			display: inline-block;
 			vertical-align: top;
-			width: 25px;
+      width: 27px;
+      color: red;
+      font-size: 1.8em;
+      line-height: 1.3em;
+      & > a{
+        color: red;
+        font-size: 1.3em;
+      }
 		}
 	}
 	

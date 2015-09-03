@@ -65,18 +65,22 @@
 			<div id="socials">
 				<ul>
 					<li class="vimeo">
-						<a href="https://www.youtube.com/channel/UCzlJ9BA1dJ8tf-IziSv8SSw">
+						<a target="_blank" href="https://www.youtube.com/channel/UCzlJ9BA1dJ8tf-IziSv8SSw">
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/youtube-icon.svg" alt="<?php bloginfo( 'name' ); ?> logo">
 						</a>
 					</li>
 					<li class="twitter">
-						<a href="https://twitter.com/WMHagency">
+						<a target="_blank" href="https://twitter.com/WMHagency">
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter.svg" alt="<?php bloginfo( 'name' ); ?> logo">
 						</a>
 					</li>
 					<li class="facebook">
-						<a href="https://www.facebook.com/pages/Williams-Murray-Hamm/167268886660310">
+						<a target="_blank" href="https://www.facebook.com/pages/Williams-Murray-Hamm/167268886660310">
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.svg" alt="<?php bloginfo( 'name' ); ?> logo">
+						</a>
+					</li>
+					<li class="instagram fa fa-instagram">
+						<a target="_blank" href="https://instagram.com/wmhagency/">
 						</a>
 					</li>
 				</ul>
